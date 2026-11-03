@@ -1,0 +1,63 @@
+{
+  "title": "University Point Management System (UPMS)",
+  "subtitle": "Use Case Diagram  |  SRS v1.0  |  University of Sindh, Jamshoro",
+  "system": "UPMS",
+  "theme": "light",
+  "actors": [
+    { "id": "passenger", "name": "Passenger", "side": "left" },
+    { "id": "staff", "name": "Driver / Boarding Staff", "side": "left" },
+    { "id": "vendor", "name": "Vendor", "side": "right" },
+    { "id": "admin", "name": "Administrator", "side": "right" }
+  ],
+  "use_cases": [
+    { "id": "register", "name": "Register / Log In" },
+    { "id": "browse", "name": "Browse Routes & Trips" },
+    { "id": "book", "name": "Book Ticket" },
+    { "id": "pay_online", "name": "Pay Online" },
+    { "id": "cancel", "name": "Cancel Booking" },
+    { "id": "ticket", "name": "View Ticket & History" },
+    { "id": "board", "name": "Validate Ticket & Mark Boarding" },
+    { "id": "collect_cash", "name": "Collect Cash Payment" },
+    { "id": "check_capacity", "name": "Check Trip Capacity" },
+    { "id": "offline", "name": "Issue Offline Ticket" },
+    { "id": "report_delay", "name": "Report Delay" },
+    { "id": "report_breakdown", "name": "Report Breakdown" },
+    { "id": "manage_vendor_buses", "name": "Manage Vendor Buses" },
+    { "id": "manage_routes", "name": "Manage Routes & Stops" },
+    { "id": "manage_buses", "name": "Manage Buses & Vendors" },
+    { "id": "schedule", "name": "Schedule Trips & Fares" },
+    { "id": "replace_bus", "name": "Assign Replacement Bus" },
+    { "id": "reports", "name": "View Operational Reports" }
+  ],
+  "associations": [
+    ["passenger", "register"],
+    ["passenger", "browse"],
+    ["passenger", "book"],
+    ["passenger", "pay_online"],
+    ["passenger", "cancel"],
+    ["passenger", "ticket"],
+    ["staff", "board"],
+    ["staff", "collect_cash"],
+    ["staff", "offline"],
+    ["staff", "report_delay"],
+    ["staff", "report_breakdown"],
+    ["vendor", "manage_vendor_buses"],
+    ["vendor", "report_delay"],
+    ["vendor", "report_breakdown"],
+    ["admin", "manage_routes"],
+    ["admin", "manage_buses"],
+    ["admin", "schedule"],
+    ["admin", "replace_bus"],
+    ["admin", "reports"]
+  ],
+  "includes": [
+    ["book", "check_capacity"],
+    ["offline", "check_capacity"]
+  ],
+  "extends": [
+    ["pay_online", "book"],
+    ["collect_cash", "board"]
+  ],
+  "generalizations": [],
+  "footnote": "Capacity is checked atomically for online and offline sales; a ticket can be boarded only once."
+}

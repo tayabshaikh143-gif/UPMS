@@ -1,0 +1,78 @@
+# UPMS — University Point Management System
+
+A web-based university transport platform for route/trip management, advance ticket
+booking, online payment, cash-at-boarding, capacity control, offline ticket
+issuance, and operational incident handling.
+
+Initial target deployment: **University of Sindh, Jamshoro** (single-university MVP).
+
+## Project status
+
+| Step | Deliverable | Status |
+|---|---|---|
+| 1 | Project proposal | drafted (not in this repo yet) |
+| 2 | Software Requirements Specification (SRS v1.0) | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
+| 3 | Use case diagram + use case descriptions | diagram done, descriptions pending |
+| 4 | ERD and relational database design | pending |
+| 5 | Activity and sequence diagrams | pending |
+| 6 | Architecture and UI/UX wireframes | pending |
+| 7 | Technology stack confirmation | proposed only |
+| 8 | Implementation and testing | pending |
+
+## Repository layout
+
+```
+docs/                       SRS document
+  UPMS_Step_2_SRS_v1.0.docx
+UPMS_Chat_Context_Export.docx   planning/continuity brief (move into docs/ once closed in Word)
+diagrams/                   rendered project diagrams
+  UPMS_UseCase_Diagram.png  (preview)
+  UPMS_UseCase_Diagram.svg
+  UPMS_UseCase_Diagram.json (editable spec)
+Initial_daigrams/           early Mermaid workflow sketches
+skills/use-case-diagram/    reusable opencode skill that builds use case diagrams
+  SKILL.md
+  scripts/usecase_diagram.py
+  references/
+  examples/
+```
+
+## Key rules fixed in the SRS
+
+- No student-ID/card verification; any person may book subject to capacity.
+- Payment: online, or cash collected at boarding and recorded by staff.
+- Passenger cancellation allowed up to 20 minutes before departure; capacity is
+  released immediately.
+- Cash booking not boarded by 5 minutes before departure expires automatically.
+- No waiting list — released capacity is sold to passengers physically present.
+- Offline tickets must be recorded in the same central system.
+- Routes are administered by the university; vendors operate only on approved routes.
+- Delay/breakdown reporting with replacement bus assignment on the same trip record.
+- Capacity checks are atomic; a ticket cannot be boarded twice.
+
+## Regenerating the use case diagram
+
+The diagram is generated from a JSON spec by the bundled skill renderer
+(Python 3.9+, stdlib only; PNG export uses headless Chrome or Edge).
+
+```bash
+python skills/use-case-diagram/scripts/usecase_diagram.py \
+  diagrams/UPMS_UseCase_Diagram.json \
+  --out diagrams/UPMS_UseCase_Diagram.svg \
+  --png diagrams/UPMS_UseCase_Diagram.png
+```
+
+To use the skill in opencode, copy `skills/use-case-diagram` into your global
+skills directory (`~/.config/opencode/skill/`). See `SKILL.md` for the modelling
+workflow, relationship rules, and quality checklist.
+
+## Proposed technology stack (not yet approved)
+
+React frontend, ASP.NET Core Web API backend, SQL Server database, Entity
+Framework Core. This is a proposal only.
+
+## Notes
+
+- The SRS is a draft for an academic MVP and should be validated with the
+  supervisor and university transport administration before implementation.
+- No secrets or credentials belong in this repository.

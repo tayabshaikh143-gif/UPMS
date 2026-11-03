@@ -1,0 +1,36 @@
+{
+  "title": "Campus Library — Use Case Diagram",
+  "subtitle": "Small example: include, extend and actor generalization",
+  "system": "Campus Library",
+  "theme": "light",
+  "actors": [
+    { "id": "member", "name": "Member", "side": "left" },
+    { "id": "student", "name": "Student Member", "side": "left" },
+    { "id": "librarian", "name": "Librarian", "side": "right" }
+  ],
+  "use_cases": [
+    { "id": "search", "name": "Search Catalogue" },
+    { "id": "borrow", "name": "Borrow Book" },
+    { "id": "check_limits", "name": "Check Borrowing Limits" },
+    { "id": "return", "name": "Return Book" },
+    { "id": "reserve", "name": "Reserve Book" },
+    { "id": "manage", "name": "Manage Catalogue" }
+  ],
+  "associations": [
+    ["member", "search"],
+    ["member", "borrow"],
+    ["member", "return"],
+    ["member", "reserve"],
+    ["librarian", "return"],
+    ["librarian", "manage"]
+  ],
+  "includes": [
+    ["borrow", "check_limits"]
+  ],
+  "extends": [
+    ["reserve", "borrow"]
+  ],
+  "generalizations": [
+    ["student", "member"]
+  ]
+}
