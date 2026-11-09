@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 980 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-people-title upms-people-desc" id="UPMS_Class_Diagram_People-root">
+        <title id="upms-people-title">UPMS people and access class diagram</title>
+        <desc id="upms-people-desc">Class diagram of the authentication identity, optional passenger profile, staff identity and the audit log that records sensitive actions.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #UPMS_Class_Diagram_People-root { --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-soft:    #5a6580;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace; }
+      #UPMS_Class_Diagram_People-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #UPMS_Class_Diagram_People-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#UPMS_Class_Diagram_People-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="UPMS_Class_Diagram_People-uml-triangle" markerWidth="16" markerHeight="12" refX="15" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 0, 16 6, 0 12" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_People-uml-diamond-filled" markerWidth="18" markerHeight="10" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 5, 9 0, 18 5, 9 10" fill="#2d3142"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_People-uml-diamond-hollow" markerWidth="18" markerHeight="10" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 5, 9 0, 18 5, 9 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_People-uml-open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M0,0 L9,4 L0,8" fill="none" stroke="#4f5d75" stroke-width="1"/>
+          </marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- Relationships -->
+        <path d="M 440 220 V 250 Q 440 258 432 258 H 168 Q 160 258 160 266 V 278" fill="none" stroke="#4f5d75" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_People-uml-diamond-filled)"/>
+        <path d="M 580 140 H 792 Q 800 140 800 148 V 278" fill="none" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_People-uml-open)"/>
+        <line x1="520" y1="220" x2="520" y2="318" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_People-uml-open)"/>
+
+        <!-- Multiplicities -->
+        <rect x="448" y="224" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="454" y="233" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="168" y="262" width="24" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="180" y="271" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="584" y="122" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="590" y="131" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="808" y="250" width="24" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="820" y="259" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="528" y="224" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="534" y="233" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="528" y="292" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="542" y="301" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+
+        <!-- Class: User (focal) -->
+        <rect x="380" y="60" width="200" height="160" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.04"/>
+        <rect x="380" y="60" width="200" height="40" rx="6" fill="#bf4520" fill-opacity="0.10"/>
+        <rect x="380" y="92" width="200" height="8" fill="#bf4520" fill-opacity="0.10"/>
+        <line x1="380" y1="100" x2="580" y2="100" stroke="#bf4520" stroke-width="1" stroke-opacity="0.40"/>
+        <text x="480" y="84" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">User</text>
+        <text x="396" y="120" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ id: UUID</text>
+        <text x="396" y="140" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ email: String</text>
+        <text x="396" y="160" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ passwordHash: String</text>
+        <text x="396" y="180" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ role: Role</text>
+        <text x="396" y="200" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ status: UserStatus</text>
+
+        <!-- Class: PassengerProfile -->
+        <rect x="60" y="280" width="200" height="100" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="60" y1="320" x2="260" y2="320" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="160" y="304" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">PassengerProfile</text>
+        <text x="76" y="340" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ fullName: String</text>
+        <text x="76" y="360" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ phone: String</text>
+
+        <!-- Class: Staff -->
+        <rect x="700" y="280" width="200" height="120" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="700" y1="320" x2="900" y2="320" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="800" y="304" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Staff</text>
+        <text x="716" y="340" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ employeeNo: String</text>
+        <text x="716" y="360" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ position: String</text>
+        <text x="716" y="380" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ active: Boolean</text>
+
+        <!-- Class: AuditLog -->
+        <rect x="380" y="320" width="200" height="140" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="380" y1="360" x2="580" y2="360" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="480" y="344" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">AuditLog</text>
+        <text x="396" y="380" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ action: String</text>
+        <text x="396" y="400" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ entity: String</text>
+        <text x="396" y="420" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ actorId: UUID</text>
+        <text x="396" y="440" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ at: DateTime</text>
+
+        <!-- Legend -->
+        <line x1="40" y1="500" x2="940" y2="500" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="40" y="516" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND · RELATIONSHIPS</text>
+
+        <line x1="40" y1="536" x2="68" y2="536" stroke="#2d3142" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_People-uml-triangle)"/>
+        <text x="76" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Inheritance</text>
+
+        <line x1="188" y1="536" x2="216" y2="536" stroke="#2d3142" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#UPMS_Class_Diagram_People-uml-triangle)"/>
+        <text x="224" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Realization</text>
+
+        <line x1="336" y1="536" x2="364" y2="536" stroke="#2d3142" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_People-uml-diamond-filled)"/>
+        <text x="372" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Composition · owns</text>
+
+        <line x1="484" y1="536" x2="512" y2="536" stroke="#2d3142" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_People-uml-diamond-hollow)"/>
+        <text x="520" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Aggregation · has</text>
+
+        <line x1="632" y1="536" x2="660" y2="536" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_People-uml-open)"/>
+        <text x="668" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Association</text>
+
+        <line x1="780" y1="536" x2="808" y2="536" stroke="#4f5d75" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#UPMS_Class_Diagram_People-uml-open)"/>
+        <text x="816" y="540" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Dependency · uses</text>
+      </svg>

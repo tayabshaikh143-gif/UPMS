@@ -28,7 +28,8 @@ UPMS_Chat_Context_Export.docx   planning/continuity brief (move into docs/ once 
 diagrams/                   rendered project diagrams
   activity/                 six activity diagrams (Booking, Cancellation, Boarding,
                             NoShow, Delay, Breakdown) as .html / .png / .svg
-  class/                    booking-domain UML class diagram (.html / .png / .svg)
+  class/                    four UML class diagrams (.html / .png / .svg):
+                            Booking, Network, People, Operations
   UPMS_UseCase_Diagram_Simple.png / .svg / .json   clean 2-column view (recommended)
   UPMS_UseCase_Diagram.png / .svg / .json          detailed view with «include»/«extend»
 Initial_daigrams/           early Mermaid workflow sketches
