@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-cancel-title upms-cancel-desc" id="UPMS_Activity_Diagram_Cancellation-root">
+        <title id="upms-cancel-title">UPMS cancellation activity</title>
+        <desc id="upms-cancel-desc">Activity diagram of cancelling a UPMS booking: checking the 20-minute cutoff, releasing capacity, and recording a refund when the ticket was paid online.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #UPMS_Activity_Diagram_Cancellation-root { --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-soft:    #5a6580;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace; }
+      #UPMS_Activity_Diagram_Cancellation-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #UPMS_Activity_Diagram_Cancellation-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#UPMS_Activity_Diagram_Cancellation-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="UPMS_Activity_Diagram_Cancellation-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="UPMS_Activity_Diagram_Cancellation-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <line x1="400" y1="74" x2="400" y2="92" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="400" y1="152" x2="400" y2="172" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="510" y1="226" x2="566" y2="226" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="400" y1="276" x2="400" y2="296" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="400" y1="356" x2="400" y2="376" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="400" y1="436" x2="400" y2="456" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="510" y1="510" x2="596" y2="510" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <line x1="400" y1="560" x2="400" y2="637" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+        <path d="M 710 538 V 650 H 413" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow)"/>
+
+        <circle cx="400" cy="64" r="10" fill="#2d3142"/>
+
+        <rect x="280" y="96" width="240" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="400" y="120" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Passenger requests cancellation</text>
+        <text x="400" y="136" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">self-service · before departure</text>
+
+        <polygon points="400,176 510,226 400,276 290,226" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="400" y="222" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">More than</text>
+        <text x="400" y="238" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">20 min left?</text>
+
+        <rect x="570" y="198" width="220" height="56" rx="6" fill="#2d3142" stroke="#2d3142" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.30"/>
+        <text x="680" y="222" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Self-service closed</text>
+        <text x="680" y="238" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">contact administrator</text>
+
+        <rect x="280" y="300" width="240" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="400" y="324" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Cancel booking</text>
+        <text x="400" y="340" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">booking record updated</text>
+
+        <rect x="280" y="380" width="240" height="56" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
+        <text x="400" y="404" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Release capacity</text>
+        <text x="400" y="420" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">seat available immediately</text>
+
+        <polygon points="400,460 510,510 400,560 290,510" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="400" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Paid</text>
+        <text x="400" y="522" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">online?</text>
+
+        <rect x="600" y="482" width="220" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="710" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Record refund</text>
+        <text x="710" y="522" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">amount per policy</text>
+
+        <circle cx="400" cy="650" r="11" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+        <circle cx="400" cy="650" r="5" fill="#2d3142"/>
+
+        <rect x="519" y="206" width="30" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="534" y="215" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">NO</text>
+
+        <rect x="408" y="287" width="34" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="425" y="296" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">YES</text>
+
+        <rect x="519" y="490" width="34" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="536" y="499" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">YES</text>
+
+        <rect x="408" y="586" width="30" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="423" y="595" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">NO</text>
+
+        <line x1="40" y1="700" x2="960" y2="700" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="40" y="716" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND · SHAPE CARRIES TYPE</text>
+
+        <circle cx="46" cy="736" r="5" fill="#2d3142"/>
+        <text x="62" y="739" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Start</text>
+
+        <rect x="140" y="728" width="28" height="16" rx="3" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="178" y="739" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Action</text>
+
+        <polygon points="300,736 312,728 324,736 312,744" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="334" y="739" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Decision</text>
+
+        <circle cx="440" cy="736" r="7" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+        <circle cx="440" cy="736" r="3" fill="#2d3142"/>
+        <text x="456" y="739" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Final</text>
+
+        <line x1="560" y1="736" x2="596" y2="736" stroke="#bf4520" stroke-width="1.4" marker-end="url(#UPMS_Activity_Diagram_Cancellation-arrow-accent)"/>
+        <text x="606" y="739" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Focal rule</text>
+      </svg>
