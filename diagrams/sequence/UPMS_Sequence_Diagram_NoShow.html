@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPMS — No-show sequence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-soft:    #5a6580;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .frame { max-width: 1000px; width: 100%; min-width: 0; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+    svg { width: 100%; min-width: 1000px; display: block; }
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Sequence · UPMS no-show</p>
+    <h1>Cash no-show and offline sale</h1>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-seq-noshow-title upms-seq-noshow-desc">
+        <title id="upms-seq-noshow-title">UPMS no-show and offline sale sequence</title>
+        <desc id="upms-seq-noshow-desc">Sequence diagram of the five-minute cash no-show check: unboarded bookings expire and release capacity, then staff can issue an offline ticket for cash.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <line x1="110" y1="128" x2="110" y2="600" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="380" y1="128" x2="380" y2="600" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="680" y1="128" x2="680" y2="600" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="900" y1="128" x2="900" y2="600" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <rect x="376" y="168" width="8" height="424" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+        <rect x="676" y="212" width="8" height="60" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+        <rect x="676" y="332" width="8" height="60" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+        <rect x="676" y="512" width="8" height="24" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+        <rect x="896" y="432" width="8" height="24" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+
+        <!-- Loop fragment -->
+        <rect x="368" y="300" width="324" height="110" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+        <rect x="368" y="300" width="44" height="16" rx="2" fill="#f5f5f5" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+        <text x="390" y="312" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">LOOP</text>
+        <text x="392" y="322" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.04em">[for each unboarded booking]</text>
+
+        <!-- Messages -->
+        <line x1="110" y1="176" x2="376" y2="176" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="380" y1="220" x2="676" y2="220" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="680" y1="264" x2="388" y2="264" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+        <line x1="380" y1="352" x2="676" y2="352" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="680" y1="384" x2="388" y2="384" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+        <line x1="380" y1="440" x2="896" y2="440" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
+        <line x1="900" y1="480" x2="388" y2="480" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+        <line x1="380" y1="520" x2="676" y2="520" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+        <line x1="380" y1="560" x2="896" y2="560" stroke="#bf4520" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+
+        <!-- Labels -->
+        <rect x="190" y="160" width="100" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="240" y="170" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">T-5 MIN CHECK</text>
+
+        <rect x="455" y="204" width="150" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="530" y="214" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">LIST CASH BOOKINGS</text>
+
+        <rect x="455" y="248" width="140" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="525" y="258" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">BOOKINGS RETURNED</text>
+
+        <rect x="440" y="330" width="150" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="515" y="340" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXPIRE + RELEASE SEAT</text>
+
+        <rect x="455" y="368" width="120" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="515" y="378" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SEAT RELEASED</text>
+
+        <rect x="455" y="424" width="130" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="520" y="434" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CAPACITY RELEASED</text>
+
+        <rect x="455" y="464" width="150" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="530" y="474" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ISSUE OFFLINE TICKET</text>
+
+        <rect x="455" y="504" width="150" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="530" y="514" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SAVE TICKET + PAYMENT</text>
+
+        <rect x="455" y="544" width="100" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="505" y="554" fill="#bf4520" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">TICKET ISSUED</text>
+
+        <!-- Actors -->
+        <rect x="30" y="72" width="160" height="56" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+        <rect x="38" y="80" width="44" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+        <text x="60" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">TIMER</text>
+        <text x="110" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Scheduler</text>
+        <text x="110" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">T-5 min job</text>
+
+        <rect x="300" y="72" width="160" height="56" rx="6" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/>
+        <rect x="308" y="80" width="32" height="12" rx="2" fill="transparent" stroke="rgba(191,69,32,0.50)" stroke-width="0.8"/>
+        <text x="324" y="89" fill="#bf4520" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CORE</text>
+        <text x="380" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Booking Service</text>
+        <text x="380" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">UPMS API</text>
+
+        <rect x="600" y="72" width="160" height="56" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+        <rect x="608" y="80" width="32" height="12" rx="2" fill="transparent" stroke="rgba(45,49,66,0.22)" stroke-width="0.8"/>
+        <text x="624" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DATA</text>
+        <text x="680" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Database</text>
+        <text x="680" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">bookings · capacity</text>
+
+        <rect x="820" y="72" width="160" height="56" rx="6" fill="rgba(79,93,117,0.10)" stroke="#5a6580" stroke-width="1"/>
+        <rect x="828" y="80" width="40" height="12" rx="2" fill="transparent" stroke="rgba(90,101,128,0.40)" stroke-width="0.8"/>
+        <text x="848" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STAFF</text>
+        <text x="900" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Staff App</text>
+        <text x="900" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">boarding point</text>
+
+        <!-- Legend -->
+        <line x1="40" y1="640" x2="960" y2="640" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+        <text x="40" y="656" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+
+        <rect x="40" y="672" width="14" height="10" rx="2" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/>
+        <text x="62" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Focal actor</text>
+
+        <rect x="168" y="668" width="4" height="18" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+        <text x="180" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Activation</text>
+
+        <line x1="288" y1="678" x2="316" y2="678" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+        <text x="324" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Request</text>
+
+        <line x1="420" y1="678" x2="448" y2="678" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+        <text x="456" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Return / async</text>
+
+        <line x1="580" y1="678" x2="608" y2="678" stroke="#bf4520" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+        <text x="616" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Primary response</text>
+
+        <rect x="752" y="670" width="22" height="14" rx="3" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+        <text x="782" y="681" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Combined fragment</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+

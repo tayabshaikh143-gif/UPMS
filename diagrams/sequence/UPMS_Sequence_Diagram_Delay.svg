@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-seq-delay-title upms-seq-delay-desc" id="UPMS_Sequence_Diagram_Delay-root">
+        <title id="upms-seq-delay-title">UPMS delay sequence</title>
+        <desc id="upms-seq-delay-desc">Sequence diagram of a delayed trip: staff report the reason and revised ETA, the administrator approves it, the trip is updated and passengers are notified in the app.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #UPMS_Sequence_Diagram_Delay-root { --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-soft:    #5a6580;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace; }
+      #UPMS_Sequence_Diagram_Delay-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #UPMS_Sequence_Diagram_Delay-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#UPMS_Sequence_Diagram_Delay-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="UPMS_Sequence_Diagram_Delay-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="UPMS_Sequence_Diagram_Delay-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+          <marker id="UPMS_Sequence_Diagram_Delay-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+          <marker id="UPMS_Sequence_Diagram_Delay-arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <line x1="100" y1="128" x2="100" y2="520" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.22"/>
+        <line x1="300" y1="128" x2="300" y2="520" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.22"/>
+        <line x1="500" y1="128" x2="500" y2="520" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.22"/>
+        <line x1="700" y1="128" x2="700" y2="520" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.22"/>
+        <line x1="890" y1="128" x2="890" y2="520" stroke="#2d3142" stroke-width="1" stroke-dasharray="3,3" stroke-opacity="0.22"/>
+
+        <rect x="296" y="168" width="8" height="324" fill="#2d3142" stroke="#4f5d75" stroke-width="0.8" fill-opacity="0.06"/>
+        <rect x="696" y="212" width="8" height="60" fill="#2d3142" stroke="#4f5d75" stroke-width="0.8" fill-opacity="0.06"/>
+        <rect x="696" y="474" width="8" height="24" fill="#2d3142" stroke="#4f5d75" stroke-width="0.8" fill-opacity="0.06"/>
+        <rect x="496" y="256" width="8" height="60" fill="#2d3142" stroke="#4f5d75" stroke-width="0.8" fill-opacity="0.06"/>
+
+        <line x1="100" y1="176" x2="296" y2="176" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow-link)"/>
+        <line x1="300" y1="220" x2="696" y2="220" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <line x1="300" y1="264" x2="496" y2="264" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <line x1="500" y1="308" x2="304" y2="308" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <line x1="300" y1="352" x2="696" y2="352" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <line x1="300" y1="396" x2="886" y2="396" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow-open)"/>
+        <line x1="300" y1="440" x2="104" y2="440" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <line x1="700" y1="484" x2="304" y2="484" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+
+        <rect x="135" y="160" width="130" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="200" y="170" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">REPORT DELAY + ETA</text>
+
+        <rect x="345" y="204" width="110" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="400" y="214" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SAVE INCIDENT</text>
+
+        <rect x="340" y="248" width="120" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="400" y="258" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ALERT ADMIN</text>
+
+        <rect x="340" y="292" width="120" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="400" y="302" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">APPROVE NEW ETA</text>
+
+        <rect x="340" y="336" width="120" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="400" y="346" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UPDATE TRIP ETA</text>
+
+        <rect x="340" y="380" width="110" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="395" y="390" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">IN-APP UPDATE</text>
+
+        <rect x="135" y="424" width="100" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="185" y="434" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ACKNOWLEDGED</text>
+
+        <rect x="345" y="468" width="100" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="395" y="478" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ETA SAVED</text>
+
+        <!-- Actors -->
+        <rect x="20" y="72" width="160" height="56" rx="6" fill="#4f5d75" stroke="#5a6580" stroke-width="1" fill-opacity="0.10"/>
+        <rect x="28" y="80" width="40" height="12" rx="2" fill="none" stroke="#5a6580" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="48" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">STAFF</text>
+        <text x="100" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Driver / Staff</text>
+        <text x="100" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">on the bus</text>
+
+        <rect x="220" y="72" width="160" height="56" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
+        <rect x="228" y="80" width="32" height="12" rx="2" fill="none" stroke="#bf4520" stroke-width="0.8" stroke-opacity="0.50"/>
+        <text x="244" y="89" fill="#bf4520" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CORE</text>
+        <text x="300" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Booking Service</text>
+        <text x="300" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">UPMS API</text>
+
+        <rect x="420" y="72" width="160" height="56" rx="6" fill="#4f5d75" stroke="#5a6580" stroke-width="1" fill-opacity="0.10"/>
+        <rect x="428" y="80" width="40" height="12" rx="2" fill="none" stroke="#5a6580" stroke-width="0.8" stroke-opacity="0.40"/>
+        <text x="448" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ADMIN</text>
+        <text x="500" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Administrator</text>
+        <text x="500" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">operations</text>
+
+        <rect x="620" y="72" width="160" height="56" rx="6" fill="#2d3142" stroke="#2d3142" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.30"/>
+        <rect x="628" y="80" width="32" height="12" rx="2" fill="none" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.22"/>
+        <text x="644" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DATA</text>
+        <text x="700" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Database</text>
+        <text x="700" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">trips · incidents</text>
+
+        <rect x="810" y="72" width="160" height="56" rx="6" fill="#2d3142" stroke="#2d3142" stroke-width="1" fill-opacity="0.03" stroke-opacity="0.30"/>
+        <rect x="818" y="80" width="44" height="12" rx="2" fill="none" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.22"/>
+        <text x="840" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">NOTIFY</text>
+        <text x="890" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Passenger</text>
+        <text x="890" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">in-app inbox</text>
+
+        <!-- Legend -->
+        <line x1="40" y1="560" x2="960" y2="560" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="40" y="576" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+
+        <rect x="40" y="592" width="14" height="10" rx="2" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
+        <text x="62" y="601" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Focal actor</text>
+
+        <rect x="168" y="588" width="4" height="18" fill="#2d3142" stroke="#4f5d75" stroke-width="0.8" fill-opacity="0.06"/>
+        <text x="180" y="601" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Activation</text>
+
+        <line x1="288" y1="598" x2="316" y2="598" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow-link)"/>
+        <text x="324" y="601" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Request</text>
+
+        <line x1="420" y1="598" x2="448" y2="598" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#UPMS_Sequence_Diagram_Delay-arrow)"/>
+        <text x="456" y="601" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Return / async</text>
+      </svg>

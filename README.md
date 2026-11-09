@@ -14,7 +14,7 @@ Initial target deployment: **University of Sindh, Jamshoro** (single-university 
 | 2 | Software Requirements Specification (SRS v1.0) | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
 | 3 | Use case diagram + use case descriptions | diagram done, descriptions pending |
 | 4 | ERD and relational database design | pending |
-| 5 | Activity and sequence diagrams | in progress — 6 activity diagrams done, sequence pending |
+| 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | proposed only |
 | 8 | Implementation and testing | pending |
@@ -28,6 +28,7 @@ UPMS_Chat_Context_Export.docx   planning/continuity brief (move into docs/ once 
 diagrams/                   rendered project diagrams
   activity/                 six activity diagrams (Booking, Cancellation, Boarding,
                             NoShow, Delay, Breakdown) as .html / .png / .svg
+  sequence/                 six sequence diagrams (same scenarios) as .html / .png / .svg
   class/                    four UML class diagrams (.html / .png / .svg):
                             Booking, Network, People, Operations
   UPMS_UseCase_Diagram_Simple.png / .svg / .json   clean 2-column view (recommended)
