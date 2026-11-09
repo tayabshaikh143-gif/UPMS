@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 980 780" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-class-title upms-class-desc" id="UPMS_Class_Diagram_Booking-root">
+        <title id="upms-class-title">UPMS booking domain class diagram</title>
+        <desc id="upms-class-desc">Class diagram of the UPMS booking domain: Passenger books a Trip on a Route operated by a Bus owned by a Vendor, with a Payment attached to each Booking.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #UPMS_Class_Diagram_Booking-root { --color-paper:   #f5f5f5;
+      --color-ink:     #2d3142;
+      --color-muted:   #4f5d75;
+      --color-soft:    #5a6580;
+      --color-accent:  #bf4520;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', 'Noto Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace; }
+      #UPMS_Class_Diagram_Booking-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #UPMS_Class_Diagram_Booking-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#UPMS_Class_Diagram_Booking-root .diagram-container { overflow-x: visible; }
+}</style>
+          <marker id="UPMS_Class_Diagram_Booking-uml-triangle" markerWidth="16" markerHeight="12" refX="15" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 0, 16 6, 0 12" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_Booking-uml-diamond-filled" markerWidth="18" markerHeight="10" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 5, 9 0, 18 5, 9 10" fill="#2d3142"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_Booking-uml-diamond-hollow" markerWidth="18" markerHeight="10" refX="0" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+            <polygon points="0 5, 9 0, 18 5, 9 10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/>
+          </marker>
+          <marker id="UPMS_Class_Diagram_Booking-uml-open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M0,0 L9,4 L0,8" fill="none" stroke="#4f5d75" stroke-width="1"/>
+          </marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- Relationships (drawn before boxes) -->
+        <!-- Booking -> Passenger -->
+        <line x1="360" y1="120" x2="242" y2="120" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <!-- Payment -> Booking -->
+        <line x1="680" y1="140" x2="562" y2="140" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <!-- Booking -> Trip -->
+        <line x1="460" y1="240" x2="460" y2="298" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <!-- Trip -> Route -->
+        <line x1="560" y1="356" x2="678" y2="356" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <!-- Trip -> Bus -->
+        <line x1="460" y1="480" x2="460" y2="538" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <!-- Vendor owns Bus (aggregation, diamond at Vendor) -->
+        <line x1="240" y1="600" x2="360" y2="600" stroke="#4f5d75" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_Booking-uml-diamond-hollow)"/>
+
+        <!-- Multiplicities -->
+        <rect x="326" y="102" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="340" y="111" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+        <rect x="244" y="102" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="250" y="111" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="648" y="122" width="24" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="660" y="131" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+        <rect x="564" y="122" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="570" y="131" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="468" y="246" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="482" y="255" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+        <rect x="468" y="278" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="474" y="287" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="564" y="338" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="578" y="347" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+        <rect x="652" y="338" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="658" y="347" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="468" y="486" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="482" y="495" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+        <rect x="468" y="514" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="474" y="523" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="244" y="582" width="12" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="250" y="591" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="324" y="582" width="28" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="338" y="591" fill="#2d3142" font-size="8" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..*</text>
+
+        <!-- Class: Passenger -->
+        <rect x="40" y="60" width="200" height="180" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="40" y1="100" x2="240" y2="100" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="140" y="84" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Passenger</text>
+        <text x="56" y="120" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ id: UUID</text>
+        <text x="56" y="140" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ name: String</text>
+        <text x="56" y="160" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ phone: String</text>
+        <text x="56" y="180" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ email: String</text>
+        <line x1="40" y1="190" x2="240" y2="190" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="56" y="210" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ book(trip: Trip): Booking</text>
+        <text x="56" y="230" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ cancel(b: Booking): void</text>
+
+        <!-- Class: Booking (focal) -->
+        <rect x="360" y="60" width="200" height="180" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.04"/>
+        <rect x="360" y="60" width="200" height="40" rx="6" fill="#bf4520" fill-opacity="0.10"/>
+        <rect x="360" y="92" width="200" height="8" fill="#bf4520" fill-opacity="0.10"/>
+        <line x1="360" y1="100" x2="560" y2="100" stroke="#bf4520" stroke-width="1" stroke-opacity="0.40"/>
+        <text x="460" y="84" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Booking</text>
+        <text x="376" y="120" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ reference: String</text>
+        <text x="376" y="140" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ status: BookingStatus</text>
+        <text x="376" y="160" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ method: PaymentMethod</text>
+        <text x="376" y="180" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ bookedAt: DateTime</text>
+        <line x1="360" y1="190" x2="560" y2="190" stroke="#bf4520" stroke-width="1" stroke-opacity="0.40"/>
+        <text x="376" y="210" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ cancel(): void</text>
+        <text x="376" y="230" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ expire(): void</text>
+
+        <!-- Class: Payment -->
+        <rect x="680" y="60" width="200" height="140" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="680" y1="100" x2="880" y2="100" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="780" y="84" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Payment</text>
+        <text x="696" y="120" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ amount: Money</text>
+        <text x="696" y="140" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ method: PaymentMethod</text>
+        <text x="696" y="160" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ status: PaymentStatus</text>
+        <text x="696" y="180" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ paidAt: DateTime</text>
+
+        <!-- Class: Trip -->
+        <rect x="360" y="300" width="200" height="180" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="360" y1="340" x2="560" y2="340" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="460" y="324" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Trip</text>
+        <text x="376" y="360" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ departureAt: DateTime</text>
+        <text x="376" y="380" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ fare: Money</text>
+        <text x="376" y="400" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ capacity: Int</text>
+        <text x="376" y="420" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ status: TripStatus</text>
+        <line x1="360" y1="430" x2="560" y2="430" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="376" y="450" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ remainingSeats(): Int</text>
+        <text x="376" y="470" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ delay(minutes: Int): void</text>
+
+        <!-- Class: Route -->
+        <rect x="680" y="300" width="200" height="120" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="680" y1="340" x2="880" y2="340" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="780" y="324" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Route</text>
+        <text x="696" y="360" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ code: String</text>
+        <text x="696" y="380" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ active: Boolean</text>
+        <line x1="680" y1="390" x2="880" y2="390" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="696" y="410" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ deactivate(): void</text>
+
+        <!-- Class: Vendor -->
+        <rect x="40" y="540" width="200" height="120" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="40" y1="580" x2="240" y2="580" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="140" y="564" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Vendor</text>
+        <text x="56" y="600" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ name: String</text>
+        <text x="56" y="620" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ status: ApprovalStatus</text>
+        <line x1="40" y1="630" x2="240" y2="630" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="56" y="650" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ buses(): List&lt;Bus&gt;</text>
+
+        <!-- Class: Bus -->
+        <rect x="360" y="540" width="200" height="120" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <line x1="360" y1="580" x2="560" y2="580" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="460" y="564" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Bus</text>
+        <text x="376" y="600" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ registration: String</text>
+        <text x="376" y="620" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ capacity: Int</text>
+        <text x="376" y="640" fill="#2d3142" font-size="9" font-family="'Geist Mono', monospace">+ ownership: Ownership</text>
+
+        <!-- Legend: relationship vocabulary -->
+        <line x1="40" y1="700" x2="940" y2="700" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="40" y="716" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND · RELATIONSHIPS</text>
+
+        <line x1="40" y1="736" x2="68" y2="736" stroke="#2d3142" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-triangle)"/>
+        <text x="76" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Inheritance</text>
+
+        <line x1="188" y1="736" x2="216" y2="736" stroke="#2d3142" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#UPMS_Class_Diagram_Booking-uml-triangle)"/>
+        <text x="224" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Realization</text>
+
+        <line x1="336" y1="736" x2="364" y2="736" stroke="#2d3142" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_Booking-uml-diamond-filled)"/>
+        <text x="372" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Composition · owns</text>
+
+        <line x1="484" y1="736" x2="512" y2="736" stroke="#2d3142" stroke-width="1" marker-start="url(#UPMS_Class_Diagram_Booking-uml-diamond-hollow)"/>
+        <text x="520" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Aggregation · has</text>
+
+        <line x1="632" y1="736" x2="660" y2="736" stroke="#4f5d75" stroke-width="1" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <text x="668" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Association</text>
+
+        <line x1="780" y1="736" x2="808" y2="736" stroke="#4f5d75" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#UPMS_Class_Diagram_Booking-uml-open)"/>
+        <text x="816" y="740" fill="#4f5d75" font-size="8.5" font-family="'Geist', sans-serif">Dependency · uses</text>
+      </svg>
