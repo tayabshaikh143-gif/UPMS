@@ -30,11 +30,17 @@ diagrams/                   rendered project diagrams
   UPMS_UseCase_Diagram.svg
   UPMS_UseCase_Diagram.json (editable spec)
 Initial_daigrams/           early Mermaid workflow sketches
-skills/use-case-diagram/    reusable opencode skill that builds use case diagrams
-  SKILL.md
-  scripts/usecase_diagram.py
-  references/
-  examples/
+skills/
+  use-case-diagram/         opencode skill: UML use case modelling + SVG/PNG renderer
+    SKILL.md
+    scripts/usecase_diagram.py
+    references/
+    examples/
+  diagram-design/           third-party opencode skill: 45 diagram types, HTML + SVG
+    SKILL.md                (MIT, see LICENSE and ATTRIBUTION.md)
+    references/
+    assets/
+    scripts/
 ```
 
 ## Key rules fixed in the SRS
@@ -65,6 +71,19 @@ python skills/use-case-diagram/scripts/usecase_diagram.py \
 To use the skill in opencode, copy `skills/use-case-diagram` into your global
 skills directory (`~/.config/opencode/skill/`). See `SKILL.md` for the modelling
 workflow, relationship rules, and quality checklist.
+
+## Skills in this repo
+
+Two opencode skills are bundled so the diagram workflow is reproducible:
+
+| Skill | Use it for |
+|---|---|
+| `skills/use-case-diagram` | UML use case diagrams (actors, goals, «include»/«extend»/generalization) with a deterministic local renderer |
+| `skills/diagram-design` | Architecture, flowcharts, sequence, ER, deployment, timeline and 40+ other visual types as self-contained HTML + SVG |
+
+Install either one by copying its folder into `~/.config/opencode/skill/`.
+`diagram-design` is third-party software by Cathryn Lavery, used under the MIT
+license; see its `ATTRIBUTION.md`.
 
 ## Proposed technology stack (not yet approved)
 
