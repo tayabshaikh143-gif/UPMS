@@ -46,7 +46,25 @@ Owner: Tayab Shaikh (`tayabshaikh143-gif` on GitHub).
   instead of guessing.
 - Do not argue with a correction; clarify only if the requirement is ambiguous.
 
-## 4. Scope and delivery
+## 4. Session memory — always write it down
+
+- **Every working session must leave a written record in `AI_docs/`.** If the
+  chat session ends, these files are the only memory of what was done.
+- At the **start** of a session, read `AI_docs/project-status.md` and the newest
+  file in `AI_docs/` before doing any work.
+- At the **end** of each module or step, update:
+  - `AI_docs/project-status.md` — status, new commits, open decisions, follow-ups;
+  - `AI_docs/diagram-inventory.md` — if diagrams were added or changed;
+  - `AI_docs/skills-and-tooling.md` — if a tool or skill was installed or changed.
+- Create one `AI_docs/YYYY-MM-DD-session-log.md` per session. Append a new file
+  per day; do not rewrite or delete older logs.
+- Record what was asked, what was produced (exact paths), decisions taken,
+  mistakes and corrections, and what is still pending.
+- Keep entries factual and short; paths, commit hashes, and file names matter
+  more than prose.
+- Never delete or overwrite `AI_docs/` content without permission.
+
+## 5. Scope and delivery
 
 - Do only what was asked. Do not add unrequested features, files, or
   restructuring.
