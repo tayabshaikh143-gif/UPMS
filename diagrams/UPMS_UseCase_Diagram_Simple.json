@@ -1,0 +1,50 @@
+{
+  "title": "University Point Management System (UPMS)",
+  "subtitle": "Use Case Diagram — simplified view  |  SRS v1.0",
+  "system": "UPMS",
+  "theme": "light",
+  "legend": false,
+  "footnote": "High-level goals only. Bus capacity, payment checks and replacement-bus details are expanded in the detailed use case model.",
+  "actors": [
+    { "id": "passenger", "name": "Passenger", "side": "left" },
+    { "id": "staff", "name": "Driver / Boarding Staff", "side": "right" },
+    { "id": "vendor", "name": "Vendor", "side": "right" },
+    { "id": "admin", "name": "Administrator", "side": "right" }
+  ],
+  "columns": [
+    ["login", "browse", "book", "cancel", "ticket"],
+    ["board", "offline", "incident", "vendor_buses", "routes", "assign", "reports"]
+  ],
+  "use_cases": [
+    { "id": "login", "name": "Register / Log In" },
+    { "id": "browse", "name": "Browse Routes & Trips" },
+    { "id": "book", "name": "Book Ticket" },
+    { "id": "cancel", "name": "Cancel Booking" },
+    { "id": "ticket", "name": "View Ticket & History" },
+    { "id": "board", "name": "Validate Ticket & Mark Boarding" },
+    { "id": "offline", "name": "Issue Offline Ticket" },
+    { "id": "incident", "name": "Report Delay / Breakdown" },
+    { "id": "routes", "name": "Manage Routes & Trips" },
+    { "id": "assign", "name": "Assign Replacement Bus" },
+    { "id": "reports", "name": "View Operational Reports" },
+    { "id": "vendor_buses", "name": "Manage Vendor Buses" }
+  ],
+  "associations": [
+    ["passenger", "login"],
+    ["passenger", "browse"],
+    ["passenger", "book"],
+    ["passenger", "cancel"],
+    ["passenger", "ticket"],
+    ["staff", "board"],
+    ["staff", "offline"],
+    ["staff", "incident"],
+    ["vendor", "incident"],
+    ["vendor", "vendor_buses"],
+    ["admin", "routes"],
+    ["admin", "assign"],
+    ["admin", "reports"]
+  ],
+  "includes": [],
+  "extends": [],
+  "generalizations": []
+}

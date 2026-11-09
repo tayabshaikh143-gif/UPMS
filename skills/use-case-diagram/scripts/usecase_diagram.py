@@ -186,6 +186,21 @@ def validate(spec):
 
     for w in warnings:
         sys.stderr.write("WARN: " + w + "\n")
+
+    columns = spec.get("columns")
+    if columns:
+        if not isinstance(columns, list) or not all(isinstance(c, list) for c in columns):
+            die("'columns' must be a list of lists of use case ids")
+        seen = [uid for c in columns for uid in c]
+        unknown = [uid for uid in seen if uid not in uc_ids]
+        if unknown:
+            die("'columns' references unknown use case id(s): " + ", ".join(sorted(set(unknown))))
+        if len(seen) != len(set(seen)):
+            die("'columns' lists a use case more than once")
+        missing = [uid for uid in uc_ids if uid not in seen]
+        if missing:
+            die("'columns' is missing use case id(s): " + ", ".join(missing))
+
     return warnings
 
 
@@ -307,15 +322,29 @@ class Diagram:
             title_h += 26
 
         n = len(self.ucs)
-        self.rows, self.cols = choose_grid(n)
+        columns = s.get("columns")
+        if columns:
+            self.rows = max(len(c) for c in columns)
+            self.cols = len(columns)
+            positions = {}
+            for ci, ids in enumerate(columns):
+                offset = (self.rows - len(ids)) / 2.0
+                for ri, uid in enumerate(ids):
+                    positions[uid] = (ci, offset + ri)
+            order = [(uid, positions[uid][0], positions[uid][1]) for uid in positions]
+        else:
+            self.rows, self.cols = choose_grid(n)
+            order = [
+                (u["id"], i // self.rows, i % self.rows) for i, u in enumerate(self.ucs)
+            ]
+
         self.bx = self.margin + (self.actor_zone if self.left_actors else 0)
         self.by = self.margin + title_h + 8
         self.bw = self.cols * self.cell_w + 2 * self.pad_x
         self.bh = self.rows * self.cell_h + 2 * self.pad_y + self.header_h
 
-        for i, u in enumerate(self.ucs):
-            col = i // self.rows
-            row = i % self.rows
+        for uid, col, row in order:
+            u = self.uc_by_id[uid]
             cx = self.bx + self.pad_x + col * self.cell_w + self.cell_w / 2
             cy = self.by + self.header_h + self.pad_y + row * self.cell_h + self.cell_h / 2
             name = u.get("name", u["id"])
@@ -336,7 +365,8 @@ class Diagram:
         self._align_actor_generalizations()
         self._spread_anchors()
 
-        max_y = self.by + self.bh + 48
+        legend_space = 48 if s.get("legend", True) else 18
+        max_y = self.by + self.bh + legend_space
         for g in self.actor_geom.values():
             max_y = max(max_y, g["y"] + 78)
         if s.get("footnote"):
@@ -679,7 +709,8 @@ class Diagram:
         for src, dst in self.extends:
             out.append(self.edge_label_svg(src, dst, "extend", "\u00abextend\u00bb"))
 
-        out.append(self.legend_svg())
+        if s.get("legend", True):
+            out.append(self.legend_svg())
 
         if s.get("footnote"):
             out.append(

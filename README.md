@@ -26,9 +26,8 @@ docs/                       SRS document
   UPMS_Step_2_SRS_v1.0.docx
 UPMS_Chat_Context_Export.docx   planning/continuity brief (move into docs/ once closed in Word)
 diagrams/                   rendered project diagrams
-  UPMS_UseCase_Diagram.png  (preview)
-  UPMS_UseCase_Diagram.svg
-  UPMS_UseCase_Diagram.json (editable spec)
+  UPMS_UseCase_Diagram_Simple.png / .svg / .json   clean 2-column view (recommended)
+  UPMS_UseCase_Diagram.png / .svg / .json          detailed view with «include»/«extend»
 Initial_daigrams/           early Mermaid workflow sketches
 skills/
   use-case-diagram/         opencode skill: UML use case modelling + SVG/PNG renderer

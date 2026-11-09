@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1124" viewBox="0 0 1000 1124" font-family="'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif" role="img">
+<title>University Point Management System (UPMS)</title>
+<defs>
+<linearGradient id="ucGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EDF4FF"/><stop offset="100%" stop-color="#F9FCFF"/></linearGradient>
+<marker id="openArrow-include" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#7C3AED" stroke-width="1.6" stroke-linecap="round"/></marker>
+<marker id="openArrow-extend" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#D97706" stroke-width="1.6" stroke-linecap="round"/></marker>
+<marker id="hollowTriangle" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M 1 1 L 13 7 L 1 13 Z" fill="#F5F7FB" stroke="#0F766E" stroke-width="1.3"/></marker>
+<filter id="softShadow" x="-25%%" y="-25%%" width="150%%" height="160%%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#10203A" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="100%" height="100%" fill="#F5F7FB"/>
+<text x="58" y="44" font-size="23" font-weight="700" fill="#0F2547" letter-spacing="0.2">University Point Management System (UPMS)</text>
+<text x="58" y="70" font-size="13" fill="#64748B">Use Case Diagram — simplified view  |  SRS v1.0</text>
+<rect x="226.0" y="126.0" width="548.0" height="916.0" rx="14" fill="#FFFFFF" stroke="#C3CEE4" stroke-width="1.5" filter="url(#softShadow)"/>
+<path d="M 226.0 126.0 h 534.0 a 14 14 0 0 1 14 14 v 18.0 h -548.0 z" fill="#EDF2FB"/>
+<text x="248.0" y="150.0" font-size="14" font-weight="700" fill="#243B63">UPMS</text>
+<path d="M 130.0 587.0 C 176.0 587.0, 299.2 410.4, 339.2 410.4" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 130.0 595.5 C 176.0 595.5, 273.7 519.5, 313.7 519.5" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 130.0 604.0 C 176.0 604.0, 244.1 606.5, 284.1 606.5" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 130.0 612.5 C 176.0 612.5, 276.3 695.6, 316.3 695.6" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 130.0 621.0 C 176.0 621.0, 300.5 805.4, 340.5 805.4" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 355.0 C 798.0 355.0, 725.5 287.8, 685.5 287.8" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 372.0 C 798.0 372.0, 755.9 374.3, 715.9 374.3" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 389.0 C 798.0 389.0, 722.6 463.2, 682.6 463.2" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 529.0 C 798.0 529.0, 748.6 506.6, 708.6 506.6" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 563.0 C 798.0 563.0, 745.6 590.8, 705.6 590.8" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 819.0 C 798.0 819.0, 725.5 751.8, 685.5 751.8" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 836.0 C 798.0 836.0, 755.9 838.3, 715.9 838.3" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<path d="M 844.0 853.0 C 798.0 853.0, 722.6 927.2, 682.6 927.2" fill="none" stroke="#65758B" stroke-width="1.4" opacity="0.9"/>
+<g class="usecase">
+<ellipse cx="380.0" cy="376.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="380.0" y="380.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Register / Log In</text>
+</g>
+<g class="usecase">
+<ellipse cx="380.0" cy="492.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="380.0" y="487.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Browse Routes &amp;</text>
+<text x="380.0" y="505.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Trips</text>
+</g>
+<g class="usecase">
+<ellipse cx="380.0" cy="608.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="380.0" y="612.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Book Ticket</text>
+</g>
+<g class="usecase">
+<ellipse cx="380.0" cy="724.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="380.0" y="728.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Cancel Booking</text>
+</g>
+<g class="usecase">
+<ellipse cx="380.0" cy="840.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="380.0" y="835.6" text-anchor="middle" font-size="14.5" fill="#182C4A">View Ticket &amp;</text>
+<text x="380.0" y="853.6" text-anchor="middle" font-size="14.5" fill="#182C4A">History</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="260.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="255.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Validate Ticket &amp;</text>
+<text x="620.0" y="273.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Mark Boarding</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="376.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="371.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Issue Offline</text>
+<text x="620.0" y="389.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Ticket</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="492.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="487.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Report Delay /</text>
+<text x="620.0" y="505.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Breakdown</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="724.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="719.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Manage Routes &amp;</text>
+<text x="620.0" y="737.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Trips</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="840.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="835.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Assign</text>
+<text x="620.0" y="853.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Replacement Bus</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="956.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="951.6" text-anchor="middle" font-size="14.5" fill="#182C4A">View Operational</text>
+<text x="620.0" y="969.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Reports</text>
+</g>
+<g class="usecase">
+<ellipse cx="620.0" cy="608.0" rx="96.0" ry="38.0" fill="url(#ucGrad)" stroke="#7E96C9" stroke-width="1.6" filter="url(#softShadow)"/>
+<text x="620.0" y="603.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Manage Vendor</text>
+<text x="620.0" y="621.6" text-anchor="middle" font-size="14.5" fill="#182C4A">Buses</text>
+</g>
+<g class="actor">
+<circle cx="124.0" cy="575.0" r="10" fill="none" stroke="#33415C" stroke-width="2"/>
+<line x1="124.0" y1="585.0" x2="124.0" y2="612.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="107.0" y1="595.0" x2="141.0" y2="595.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="124.0" y1="612.0" x2="111.0" y2="632.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="124.0" y1="612.0" x2="137.0" y2="632.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<text x="124.0" y="650.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">Passenger</text>
+</g>
+<g class="actor">
+<circle cx="850.0" cy="343.0" r="10" fill="none" stroke="#33415C" stroke-width="2"/>
+<line x1="850.0" y1="353.0" x2="850.0" y2="380.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="833.0" y1="363.0" x2="867.0" y2="363.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="380.0" x2="837.0" y2="400.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="380.0" x2="863.0" y2="400.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<text x="850.0" y="418.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">Driver / Boarding</text>
+<text x="850.0" y="434.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">Staff</text>
+</g>
+<g class="actor">
+<circle cx="850.0" cy="517.0" r="10" fill="none" stroke="#33415C" stroke-width="2"/>
+<line x1="850.0" y1="527.0" x2="850.0" y2="554.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="833.0" y1="537.0" x2="867.0" y2="537.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="554.0" x2="837.0" y2="574.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="554.0" x2="863.0" y2="574.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<text x="850.0" y="592.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">Vendor</text>
+</g>
+<g class="actor">
+<circle cx="850.0" cy="807.0" r="10" fill="none" stroke="#33415C" stroke-width="2"/>
+<line x1="850.0" y1="817.0" x2="850.0" y2="844.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="833.0" y1="827.0" x2="867.0" y2="827.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="844.0" x2="837.0" y2="864.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<line x1="850.0" y1="844.0" x2="863.0" y2="864.0" stroke="#33415C" stroke-width="2" stroke-linecap="round"/>
+<text x="850.0" y="882.0" text-anchor="middle" font-size="13" font-weight="600" fill="#111827">Administrator</text>
+</g>
+<text x="58" y="1102" font-size="11.5" fill="#64748B">High-level goals only. Bus capacity, payment checks and replacement-bus details are expanded in the detailed use case model.</text>
+</svg>
