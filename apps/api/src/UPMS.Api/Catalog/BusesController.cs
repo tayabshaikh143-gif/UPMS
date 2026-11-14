@@ -34,9 +34,15 @@ public class BusesController : ControllerBase
         if (request.Ownership == Ownership.Vendor && request.VendorId is null)
             return BadRequest(new { message = "Vendor-owned buses need a vendorId." });
 
+        var registration = request.Registration.Trim();
+        if (await _db.Buses.AnyAsync(b => b.Registration == registration))
+            return Conflict(new { message = $"Bus {registration} is already registered." });
+        if (request.VendorId is not null && !await _db.Vendors.AnyAsync(v => v.Id == request.VendorId.Value))
+            return BadRequest(new { message = "Vendor not found." });
+
         var bus = new Bus
         {
-            Registration = request.Registration.Trim(),
+            Registration = registration,
             Capacity = request.Capacity,
             Ownership = request.Ownership,
             VendorId = request.VendorId
@@ -54,7 +60,16 @@ public class BusesController : ControllerBase
         if (bus is null)
             return NotFound();
 
-        bus.Registration = request.Registration.Trim();
+        if (request.Ownership == Ownership.Vendor && request.VendorId is null)
+            return BadRequest(new { message = "Vendor-owned buses need a vendorId." });
+
+        var registration = request.Registration.Trim();
+        if (await _db.Buses.AnyAsync(b => b.Id != id && b.Registration == registration))
+            return Conflict(new { message = $"Bus {registration} is already registered." });
+        if (request.VendorId is not null && !await _db.Vendors.AnyAsync(v => v.Id == request.VendorId.Value))
+            return BadRequest(new { message = "Vendor not found." });
+
+        bus.Registration = registration;
         bus.Capacity = request.Capacity;
         bus.Ownership = request.Ownership;
         bus.VendorId = request.VendorId;

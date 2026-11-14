@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UPMS.Api.Data;
+using Route = UPMS.Api.Data.Route;
 
 namespace UPMS.Api.Catalog;
 
@@ -20,22 +21,25 @@ public class TripsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<TripDto>>> List([FromQuery] Guid? routeId)
     {
-        var query = _db.Trips.AsNoTracking().Include(t => t.Route).AsQueryable();
+        var query = _db.Trips.AsNoTracking()
+            .Include(t => t.Route!).ThenInclude(r => r.Stops).ThenInclude(rs => rs.Stop)
+            .AsQueryable();
         if (routeId is not null)
             query = query.Where(t => t.RouteId == routeId);
 
         var trips = await query
             .OrderBy(t => t.DepartureAt)
-            .Select(t => new TripDto(t.Id, t.RouteId, t.Route!.Code, t.DepartureAt, t.Fare, t.Status))
             .ToListAsync();
-        return Ok(trips);
+        return Ok(trips.Select(t => ToDto(t, t.Route!)).ToList());
     }
 
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<TripDto>> Create(TripRequest request)
     {
-        var route = await _db.Routes.FindAsync(request.RouteId);
+        var route = await _db.Routes
+            .Include(r => r.Stops).ThenInclude(rs => rs.Stop)
+            .FirstOrDefaultAsync(r => r.Id == request.RouteId);
         if (route is null)
             return BadRequest(new { message = "Route not found." });
 
@@ -48,7 +52,7 @@ public class TripsController : ControllerBase
         };
         _db.Trips.Add(trip);
         await _db.SaveChangesAsync();
-        return Created($"/api/trips/{trip.Id}", new TripDto(trip.Id, trip.RouteId, route.Code, trip.DepartureAt, trip.Fare, trip.Status));
+        return Created($"/api/trips/{trip.Id}", ToDto(trip, route));
     }
 
     [HttpPut("{id:guid}")]
@@ -80,5 +84,22 @@ public class TripsController : ControllerBase
         _db.Trips.Remove(trip);
         await _db.SaveChangesAsync();
         return NoContent();
+    }
+
+    private static TripDto ToDto(Trip trip, Route route)
+    {
+        var stops = route.Stops.OrderBy(rs => rs.Sequence).ToList();
+        var origin = stops.FirstOrDefault()?.Stop?.Name;
+        var destination = stops.LastOrDefault()?.Stop?.Name;
+        return new TripDto(
+            trip.Id,
+            route.Id,
+            route.Code,
+            route.Name,
+            origin ?? string.Empty,
+            destination ?? string.Empty,
+            trip.DepartureAt,
+            trip.Fare,
+            trip.Status);
     }
 }

@@ -13,11 +13,11 @@ Initial target deployment: **University of Sindh, Jamshoro** (single-university 
 | 1 | Project proposal | drafted (not in this repo yet) |
 | 2 | Software Requirements Specification (SRS v1.0) | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
 | 3 | Use case diagram + use case descriptions | diagram done, descriptions pending |
-| 4 | ERD and relational database design | pending |
+| 4 | ERD and relational database design | diagrams done, schema document pending |
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
-| 7 | Technology stack confirmation | proposed only |
-| 8 | Implementation and testing | pending |
+| 7 | Technology stack confirmation | confirmed — React + ASP.NET Core + EF Core + SQL Server |
+| 8 | Implementation and testing | in progress — Slice 1 (foundation, auth, catalog) API + web |
 
 ## Repository layout
 
@@ -41,6 +41,8 @@ apps/                       implemented software
   api/                      ASP.NET Core 8 + EF Core + LocalDB (Slice 1)
     UPMS.sln
     src/UPMS.Api/
+  web/                      React 19 + Vite + TypeScript + Tailwind v4 (Slice 1)
+    src/
 AI_docs/                    session memory: status, logs, inventory, tooling
 skills/
   use-case-diagram/         opencode skill: UML use case modelling + SVG/PNG renderer
@@ -93,21 +95,27 @@ workflow, relationship rules, and quality checklist.
 
 ## Skills in this repo
 
-Two opencode skills are bundled so the diagram workflow is reproducible:
+Every skill adopted for this project is vendored under `skills/`, with
+`ATTRIBUTION.md` and the upstream license where one exists. The two diagram
+skills keep the documentation workflow reproducible:
 
 | Skill | Use it for |
 |---|---|
 | `skills/use-case-diagram` | UML use case diagrams (actors, goals, «include»/«extend»/generalization) with a deterministic local renderer |
 | `skills/diagram-design` | Architecture, flowcharts, sequence, ER, deployment, timeline and 40+ other visual types as self-contained HTML + SVG |
 
-Install either one by copying its folder into `~/.config/opencode/skill/`.
+Install any skill by copying its folder into `~/.config/opencode/skill/`.
 `diagram-design` is third-party software by Cathryn Lavery, used under the MIT
 license; see its `ATTRIBUTION.md`.
 
-## Proposed technology stack (not yet approved)
+## Technology stack
 
-React frontend, ASP.NET Core Web API backend, SQL Server database, Entity
-Framework Core. This is a proposal only.
+Confirmed: React 19 + TypeScript + Vite + Tailwind CSS v4 frontend, ASP.NET
+Core 8 Web API, Entity Framework Core 8, SQL Server LocalDB for local
+development, JWT authentication.
+
+Run the API on `http://localhost:5080` and the web app on
+`http://127.0.0.1:5173`. See `apps/api/README.md` and `apps/web/README.md`.
 
 ## Notes
 

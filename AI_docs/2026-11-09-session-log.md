@@ -207,4 +207,83 @@ JWT, routes/trips seeded, passenger registration works, anonymous POST -> 401,
 passenger POST -> 403, admin POST -> 201. Graphify graph refreshed:
 2441 nodes / 6023 edges / 93 communities.
 
+## 19. Slice 1 - React web app (2026-11-14)
+
+Built `apps/web` (React 19 + Vite + TypeScript + Tailwind v4) on top of the
+Slice 1 API:
+
+- Dependencies: `react-router-dom`, `@tanstack/react-query`, `lucide-react`,
+  `tailwindcss` + `@tailwindcss/vite`.
+- Navy/teal design tokens in `src/index.css`; shared UI primitives in
+  `src/components/ui.tsx`; `AuthContext` with JWT persistence and session
+  restore; dev proxy `/api` -> `http://localhost:5080`.
+- Pages: login, dashboard, routes, stops, vendors, buses, trips. Create/delete
+  actions are role-gated to Admin in the UI; the API still enforces roles.
+- `npm run build` passes. Playwright verified login -> dashboard, routes list,
+  stop create (`Sehwan Adda`), vendor create (`Mehran Coach Service`), bus create
+  (`SND-4411`, vendor-linked), and trip create/delete. Screenshots:
+  `upms-login.png`, `upms-dashboard.png`, `upms-routes.png` (repo root, not
+  committed).
+- Fixed a time drift found during testing: `datetime-local` values were
+  converted to UTC before saving, then displayed as local time, shifting the
+  schedule by the PKT offset. The picker value is now sent unchanged as a
+  wall-clock time, and dates display with `dateStyle: medium` /
+  `timeStyle: short`.
+- Improved API error messages (ProblemDetails `title`/`detail`/field errors) and
+  added confirmation prompts before route/trip deletion.
+- Duplicate route codes and bus registrations now return `409 Conflict` with a
+  readable message instead of a database `500`; bus create/update also checks
+  that a selected vendor exists and that vendor-owned buses have a vendor.
+- Docs updated: root `README.md`, `apps/web/README.md`, `project-status.md`.
+- Graphify master graph refreshed after the web app: 2608 nodes / 6453 edges /
+  97 communities.
+
+Pending: owner approval to commit the web app; decide whether to remove the
+test rows (`TEST-01`, `Mehran Coach Service`, `SND-4411`, `Sehwan Adda`, extra
+trip) from the LocalDB demo data.
+
+## 20. UI feedback - brand size and journey details (2026-11-14)
+
+Owner asked to make the UPMS brand larger and show where each upcoming trip
+travels from and to.
+
+- Sidebar brand enlarged from small uppercase text to a 24px `UPMS` wordmark
+  with a navy graduation-cap tile; mobile header and login wordmark also
+  enlarged.
+- `TripDto` now carries `routeName`, `origin` and `destination`. The API derives
+  origin/destination from the first and last ordered stops on the route, so
+  routes without stops fall back to the route name.
+- Dashboard upcoming trips and the Trips page now show a `Journey` column
+  (`origin → destination`) plus the route name under the code.
+- Verified live against LocalDB; `npm run build` and `dotnet build` both pass.
+- Graphify refreshed: 2608 nodes / 6453 edges / 97 communities.
+- Screenshots refreshed in `docs/screenshots/`.
+- Test/demo routes currently in LocalDB: `JS-01`, `JS-02`, `TEST-01`.
+
+## 21. Route-based stops and edit actions (2026-11-14)
+
+Owner feedback: the flat stops table with coordinates was wrong. Stops should
+appear under the trip route, between origin and destination, and every catalog
+section needs an edit action.
+
+- Stops page rebuilt as route cards. Each card shows the route's ordered stops
+  as an origin-to-destination timeline with `Origin` / `Destination` badges and
+  cumulative minutes. Latitude/longitude inputs and columns are gone.
+- New API endpoints: `POST /api/routes/{id}/stops/by-name` creates/reuses a stop
+  and appends it with the next sequence and +15 minute offset; `DELETE
+  /api/routes/{id}/stops/{routeStopId}` removes a stop from a route.
+- Admins can add a stop by name and remove a stop from a route, with
+  confirmation. Changes invalidate the route list, route-stops board and trips.
+- Edit actions added to Routes, Vendors, Buses and Trips. Each row has a pencil
+  button that opens the shared form prefilled and submits `PUT`; create still
+  uses `POST`.
+- Trip journey falls back to `Stops not set` when a route has no ordered stops,
+  instead of repeating the route name.
+- Verified: add/remove route stops on JS-02, edit round-trips for a route,
+  vendor, bus and trip; web and API builds pass.
+- Graphify refreshed: 2629 nodes / 6486 edges / 101 communities.
+- Screenshots refreshed in `docs/screenshots/`; they are gitignored and stay
+  local. The owner wants the GitHub repo free of verification images.
+
+
 

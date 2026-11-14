@@ -31,6 +31,8 @@ Change the seed values in `appsettings.json` before any real deployment.
 | GET | `/api/routes`, `/api/routes/{id}` | authenticated |
 | POST/PUT/DELETE | `/api/routes` | Admin |
 | POST | `/api/routes/{id}/stops` | Admin |
+| POST | `/api/routes/{id}/stops/by-name` | Admin — creates/reuses a stop and appends it |
+| DELETE | `/api/routes/{id}/stops/{routeStopId}` | Admin |
 | GET | `/api/stops` | authenticated |
 | POST/PUT/DELETE | `/api/stops` | Admin |
 | GET | `/api/vendors` | authenticated |
@@ -39,6 +41,14 @@ Change the seed values in `appsettings.json` before any real deployment.
 | POST/PUT/DELETE | `/api/buses` | Admin |
 | GET | `/api/trips?routeId=` | authenticated |
 | POST/PUT/DELETE | `/api/trips` | Admin |
+
+Catalog writes validate references and uniqueness: duplicate route codes or bus
+registrations return `409 Conflict` with a readable `message`, missing routes or
+vendors return `400 Bad Request`, and admin-only endpoints return `403` for
+other roles.
+
+Trip responses include the route name and the journey endpoints (`origin` and
+`destination`), derived from the route's first and last ordered stops.
 
 ## Database
 

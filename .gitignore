@@ -20,6 +20,11 @@ dist/
 .env
 .env.local
 
+# Browser test artifacts
+.playwright-mcp/
+/upms-*.png
+/docs/screenshots/
+
 # OS / editor
 Thumbs.db
 Desktop.ini

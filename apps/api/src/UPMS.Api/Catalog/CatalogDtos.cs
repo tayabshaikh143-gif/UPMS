@@ -16,7 +16,17 @@ public record VendorRequest(string Name, VendorStatus Status);
 public record BusDto(Guid Id, string Registration, int Capacity, Ownership Ownership, Guid? VendorId, string? VendorName);
 public record BusRequest(string Registration, int Capacity, Ownership Ownership, Guid? VendorId);
 
-public record TripDto(Guid Id, Guid RouteId, string RouteCode, DateTime DepartureAt, decimal Fare, TripStatus Status);
+public record TripDto(
+    Guid Id,
+    Guid RouteId,
+    string RouteCode,
+    string RouteName,
+    string Origin,
+    string Destination,
+    DateTime DepartureAt,
+    decimal Fare,
+    TripStatus Status);
 public record TripRequest(Guid RouteId, DateTime DepartureAt, decimal Fare, TripStatus Status = TripStatus.Scheduled);
 
 public record RouteStopRequest(Guid StopId, int Sequence, int OffsetMinutes);
+public record RouteStopNameRequest(string Name);

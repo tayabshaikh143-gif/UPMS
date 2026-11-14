@@ -48,7 +48,11 @@ public class RoutesController : ControllerBase
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<RouteDto>> Create(RouteRequest request)
     {
-        var route = new Route { Code = request.Code.Trim(), Name = request.Name.Trim(), Active = request.Active };
+        var code = request.Code.Trim();
+        if (await _db.Routes.AnyAsync(r => r.Code == code))
+            return Conflict(new { message = $"Route code {code} already exists." });
+
+        var route = new Route { Code = code, Name = request.Name.Trim(), Active = request.Active };
         _db.Routes.Add(route);
         await _db.SaveChangesAsync();
         return CreatedAtAction(nameof(Get), new { id = route.Id }, new RouteDto(route.Id, route.Code, route.Name, route.Active, 0));
@@ -62,7 +66,11 @@ public class RoutesController : ControllerBase
         if (route is null)
             return NotFound();
 
-        route.Code = request.Code.Trim();
+        var code = request.Code.Trim();
+        if (await _db.Routes.AnyAsync(r => r.Id != id && r.Code == code))
+            return Conflict(new { message = $"Route code {code} already exists." });
+
+        route.Code = code;
         route.Name = request.Name.Trim();
         route.Active = request.Active;
         await _db.SaveChangesAsync();
@@ -83,6 +91,53 @@ public class RoutesController : ControllerBase
             Sequence = request.Sequence,
             OffsetMinutes = request.OffsetMinutes
         });
+        await _db.SaveChangesAsync();
+        return NoContent();
+    }
+
+    [HttpPost("{id:guid}/stops/by-name")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> AppendStop(Guid id, RouteStopNameRequest request)
+    {
+        var route = await _db.Routes.Include(r => r.Stops).FirstOrDefaultAsync(r => r.Id == id);
+        if (route is null)
+            return NotFound();
+
+        var name = request.Name.Trim();
+        if (name.Length == 0)
+            return BadRequest(new { message = "Stop name is required." });
+
+        var stop = await _db.Stops.FirstOrDefaultAsync(s => s.Name == name);
+        if (stop is null)
+        {
+            stop = new Stop { Name = name };
+            _db.Stops.Add(stop);
+        }
+
+        if (route.Stops.Any(rs => rs.StopId == stop.Id))
+            return Conflict(new { message = $"{name} is already on this route." });
+
+        var last = route.Stops.OrderBy(rs => rs.Sequence).LastOrDefault();
+        _db.RouteStops.Add(new RouteStop
+        {
+            RouteId = id,
+            StopId = stop.Id,
+            Sequence = (last?.Sequence ?? 0) + 1,
+            OffsetMinutes = last is null ? 0 : last.OffsetMinutes + 15
+        });
+        await _db.SaveChangesAsync();
+        return NoContent();
+    }
+
+    [HttpDelete("{id:guid}/stops/{routeStopId:guid}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> RemoveStop(Guid id, Guid routeStopId)
+    {
+        var routeStop = await _db.RouteStops.FirstOrDefaultAsync(rs => rs.Id == routeStopId && rs.RouteId == id);
+        if (routeStop is null)
+            return NotFound();
+
+        _db.RouteStops.Remove(routeStop);
         await _db.SaveChangesAsync();
         return NoContent();
     }

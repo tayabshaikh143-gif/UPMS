@@ -1,7 +1,5 @@
 {
-  "0": "mermaid_extract.py",
   "2": "self_check.py",
-  "3": "excalidraw_extract.py",
   "4": "usecase_diagram.py",
   "6": "decode_xml_references",
   "7": "UPMS_UseCase_Diagram_Simple.json",
