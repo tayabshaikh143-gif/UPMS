@@ -31,6 +31,9 @@ diagrams/                   rendered project diagrams
   sequence/                 six sequence diagrams (same scenarios) as .html / .png / .svg
   class/                    four UML class diagrams (.html / .png / .svg):
                             Booking, Network, People, Operations
+  erd/                      eight ER diagrams (.html / .png / .svg):
+                            Complete (table style), Complete_Chen (Chen notation),
+                            Booking, Network, Stops, People, Operations, Incidents
   UPMS_UseCase_Diagram_Simple.png / .svg / .json   clean 2-column view (recommended)
   UPMS_UseCase_Diagram.png / .svg / .json          detailed view with «include»/«extend»
 Initial_daigrams/           early Mermaid workflow sketches
@@ -100,3 +103,4 @@ Framework Core. This is a proposal only.
 - The SRS is a draft for an academic MVP and should be validated with the
   supervisor and university transport administration before implementation.
 - No secrets or credentials belong in this repository.
+

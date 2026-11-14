@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1840 1240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-er-all-title upms-er-all-desc" id="UPMS_ERD_Complete-root">
+        <title id="upms-er-all-title">UPMS complete entity-relationship model</title>
+        <desc id="upms-er-all-desc">Combined entity-relationship model of the whole UPMS: identity and access, booking and payment, network and fleet, boarding and refunds, and incidents with notifications.</desc>
+  <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #UPMS_ERD_Complete-root { --color-paper: #f5f5f5; --color-ink: #2d3142; --color-muted: #4f5d75;
+      --color-accent: #bf4520; --font-sans: 'Geist', system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace; }
+      #UPMS_ERD_Complete-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #UPMS_ERD_Complete-root .diagram-container { width: 100%; overflow-x: auto; }
+      @media print {
+#UPMS_ERD_Complete-root .diagram-container { overflow-x: visible; }
+}</style>
+  </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- ============ Relationship lines ============ -->
+        <!-- User → Staff -->
+        <line x1="340" y1="140" x2="420" y2="140" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- User → PassengerProfile -->
+        <line x1="200" y1="280" x2="200" y2="388" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- User → AuditLog -->
+        <path d="M 280 280 V 330 H 560 V 388" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Passenger → Booking -->
+        <line x1="1060" y1="140" x2="1140" y2="140" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Booking → Payment -->
+        <line x1="1420" y1="140" x2="1500" y2="140" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Booking → CheckIn -->
+        <line x1="1200" y1="332" x2="1200" y2="388" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Booking → Trip -->
+        <path d="M 1180 332 V 370 H 920 V 388" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Booking → Refund -->
+        <path d="M 1420 240 H 1470 V 490 H 1498" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- CheckIn → Staff -->
+        <path d="M 1280 390 V 350 H 640 V 282" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Trip → Route -->
+        <path d="M 780 500 H 740 V 740 H 702" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Trip → Incident -->
+        <line x1="920" y1="590" x2="920" y2="668" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Trip → TVA -->
+        <path d="M 1060 500 H 1090 V 740 H 1138" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Route → RouteStop -->
+        <line x1="560" y1="844" x2="560" y2="908" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- RouteStop → Stop -->
+        <line x1="700" y1="1000" x2="778" y2="1000" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Incident → Notification -->
+        <path d="M 1060 700 H 1110 V 650 H 1600 V 668" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- TVA → Bus -->
+        <line x1="1280" y1="870" x2="1280" y2="908" stroke="#4f5d75" stroke-width="1.2"/>
+        <!-- Bus → Vendor -->
+        <line x1="1420" y1="1000" x2="1498" y2="1000" stroke="#4f5d75" stroke-width="1.2"/>
+
+        <!-- ============ Cardinalities ============ -->
+        <rect x="346" y="126" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="353" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="386" y="126" width="30" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="401" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="208" y="296" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="215" y="307" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="208" y="344" width="30" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="223" y="355" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="288" y="290" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="295" y="301" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="568" y="336" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="577" y="347" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+
+        <rect x="1068" y="126" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1075" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="1108" y="126" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1117" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+
+        <rect x="1428" y="126" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1435" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="1466" y="126" width="30" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1481" y="137" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="1208" y="340" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1215" y="351" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="1208" y="366" width="30" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1223" y="377" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="1188" y="352" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1197" y="363" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="928" y="376" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="935" y="387" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="1428" y="220" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1435" y="231" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="1436" y="470" width="30" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1451" y="481" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">0..1</text>
+
+        <rect x="1288" y="376" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1297" y="387" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="648" y="288" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="655" y="299" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="748" y="508" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="757" y="519" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="710" y="726" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="717" y="737" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="928" y="600" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="935" y="611" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="928" y="640" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="937" y="651" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+
+        <rect x="1068" y="508" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1077" y="519" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="1098" y="726" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1105" y="737" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="568" y="852" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="575" y="863" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="568" y="884" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="577" y="895" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+
+        <rect x="708" y="986" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="717" y="997" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="756" y="986" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="763" y="997" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="1068" y="686" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1075" y="697" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+        <rect x="1608" y="636" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1617" y="647" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+
+        <rect x="1288" y="876" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1297" y="887" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="1288" y="894" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1295" y="905" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <rect x="1428" y="986" width="18" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1437" y="997" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">N</text>
+        <rect x="1478" y="986" width="14" height="14" rx="2" fill="#f5f5f5"/>
+        <text x="1485" y="997" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">1</text>
+
+        <!-- ============ Entities ============ -->
+
+        <!-- User (focal) -->
+        <rect x="60" y="80" width="280" height="200" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1.2" fill-opacity="0.04"/>
+        <rect x="60" y="80" width="280" height="48" rx="6" fill="#bf4520" fill-opacity="0.10"/>
+        <rect x="60" y="120" width="280" height="8" fill="#bf4520" fill-opacity="0.10"/>
+        <line x1="60" y1="128" x2="340" y2="128" stroke="#bf4520" stroke-width="1" stroke-opacity="0.40"/>
+        <text x="80" y="98" fill="#bf4520" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY · AGGREGATE ROOT</text>
+        <text x="80" y="120" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">User</text>
+        <text x="80" y="150" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="320" y="150" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="80" y="176" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">email</text>
+        <text x="320" y="176" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text · unique</text>
+        <text x="80" y="202" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">password_hash</text>
+        <text x="320" y="202" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="80" y="228" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">role</text>
+        <text x="320" y="228" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="80" y="254" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="320" y="254" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+
+        <!-- Staff -->
+        <rect x="420" y="80" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="420" y="80" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="420" y="120" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="420" y1="128" x2="700" y2="128" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="440" y="98" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="440" y="120" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Staff</text>
+        <text x="440" y="150" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="680" y="150" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="176" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ user_id</text>
+        <text x="680" y="176" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="202" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">employee_no</text>
+        <text x="680" y="202" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text · unique</text>
+        <text x="440" y="228" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">position</text>
+        <text x="680" y="228" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="440" y="254" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">active</text>
+        <text x="680" y="254" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">bool</text>
+
+        <!-- Passenger -->
+        <rect x="780" y="80" width="280" height="174" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="780" y="80" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="780" y="120" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="780" y1="128" x2="1060" y2="128" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="800" y="98" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="800" y="120" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Passenger</text>
+        <text x="800" y="150" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1040" y="150" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="176" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">name</text>
+        <text x="1040" y="176" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="800" y="202" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">phone</text>
+        <text x="1040" y="202" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="800" y="228" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">email</text>
+        <text x="1040" y="228" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+
+        <!-- Booking -->
+        <rect x="1140" y="80" width="280" height="252" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1140" y="80" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1140" y="120" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1140" y1="128" x2="1420" y2="128" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1160" y="98" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1160" y="120" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Booking</text>
+        <text x="1160" y="150" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1400" y="150" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="176" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ passenger_id</text>
+        <text x="1400" y="176" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="202" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ trip_id</text>
+        <text x="1400" y="202" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="228" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">reference</text>
+        <text x="1400" y="228" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text · unique</text>
+        <text x="1160" y="254" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1400" y="254" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1160" y="280" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">method</text>
+        <text x="1400" y="280" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1160" y="306" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">booked_at</text>
+        <text x="1400" y="306" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- Payment -->
+        <rect x="1500" y="80" width="280" height="226" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1500" y="80" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1500" y="120" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1500" y1="128" x2="1780" y2="128" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1520" y="98" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1520" y="120" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Payment</text>
+        <text x="1520" y="150" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1760" y="150" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="176" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ booking_id</text>
+        <text x="1760" y="176" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="202" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">amount</text>
+        <text x="1760" y="202" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">money</text>
+        <text x="1520" y="228" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">method</text>
+        <text x="1760" y="228" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1520" y="254" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1760" y="254" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1520" y="280" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">paid_at</text>
+        <text x="1760" y="280" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- PassengerProfile -->
+        <rect x="60" y="390" width="280" height="174" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="60" y="390" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="60" y="430" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="60" y1="438" x2="340" y2="438" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="80" y="408" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="80" y="430" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">PassengerProfile</text>
+        <text x="80" y="460" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="320" y="460" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="80" y="486" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ user_id</text>
+        <text x="320" y="486" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="80" y="512" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">full_name</text>
+        <text x="320" y="512" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="80" y="538" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">phone</text>
+        <text x="320" y="538" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+
+        <!-- AuditLog -->
+        <rect x="420" y="390" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="420" y="390" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="420" y="430" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="420" y1="438" x2="700" y2="438" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="440" y="408" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="440" y="430" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">AuditLog</text>
+        <text x="440" y="460" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="680" y="460" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="486" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ actor_id</text>
+        <text x="680" y="486" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="512" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">action</text>
+        <text x="680" y="512" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="440" y="538" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">entity</text>
+        <text x="680" y="538" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="440" y="564" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">at</text>
+        <text x="680" y="564" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- Trip -->
+        <rect x="780" y="390" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="780" y="390" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="780" y="430" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="780" y1="438" x2="1060" y2="438" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="800" y="408" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="800" y="430" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Trip</text>
+        <text x="800" y="460" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1040" y="460" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="486" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ route_id</text>
+        <text x="1040" y="486" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="512" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">departure_at</text>
+        <text x="1040" y="512" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+        <text x="800" y="538" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">fare</text>
+        <text x="1040" y="538" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">money</text>
+        <text x="800" y="564" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1040" y="564" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+
+        <!-- CheckIn -->
+        <rect x="1140" y="390" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1140" y="390" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1140" y="430" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1140" y1="438" x2="1420" y2="438" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1160" y="408" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1160" y="430" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">CheckIn</text>
+        <text x="1160" y="460" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1400" y="460" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="486" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ booking_id</text>
+        <text x="1400" y="486" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="512" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">boarded_at</text>
+        <text x="1400" y="512" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+        <text x="1160" y="538" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">method</text>
+        <text x="1400" y="538" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1160" y="564" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ staff_id</text>
+        <text x="1400" y="564" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+
+        <!-- Refund -->
+        <rect x="1500" y="390" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1500" y="390" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1500" y="430" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1500" y1="438" x2="1780" y2="438" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1520" y="408" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1520" y="430" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Refund</text>
+        <text x="1520" y="460" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1760" y="460" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="486" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ booking_id</text>
+        <text x="1760" y="486" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="512" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">amount</text>
+        <text x="1760" y="512" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">money</text>
+        <text x="1520" y="538" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1760" y="538" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1520" y="564" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">processed_at</text>
+        <text x="1760" y="564" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- Route -->
+        <rect x="420" y="670" width="280" height="174" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="420" y="670" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="420" y="710" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="420" y1="718" x2="700" y2="718" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="440" y="688" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="440" y="710" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Route</text>
+        <text x="440" y="740" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="680" y="740" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="766" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">code</text>
+        <text x="680" y="766" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text · unique</text>
+        <text x="440" y="792" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">name</text>
+        <text x="680" y="792" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="440" y="818" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">active</text>
+        <text x="680" y="818" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">bool</text>
+
+        <!-- Incident -->
+        <rect x="780" y="670" width="280" height="226" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="780" y="670" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="780" y="710" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="780" y1="718" x2="1060" y2="718" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="800" y="688" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="800" y="710" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Incident</text>
+        <text x="800" y="740" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1040" y="740" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="766" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ trip_id</text>
+        <text x="1040" y="766" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="792" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">type</text>
+        <text x="1040" y="792" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="800" y="818" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">reported_at</text>
+        <text x="1040" y="818" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+        <text x="800" y="844" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1040" y="844" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="800" y="870" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">resolved_at</text>
+        <text x="1040" y="870" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- TVA -->
+        <rect x="1140" y="670" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1140" y="670" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1140" y="710" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1140" y1="718" x2="1420" y2="718" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1160" y="688" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1160" y="710" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist', sans-serif">TripVehicleAssignment</text>
+        <text x="1160" y="740" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1400" y="740" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="766" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ trip_id</text>
+        <text x="1400" y="766" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="792" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ bus_id</text>
+        <text x="1400" y="792" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="818" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">assigned_at</text>
+        <text x="1400" y="818" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+        <text x="1160" y="844" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">replaced_at</text>
+        <text x="1400" y="844" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- Notification -->
+        <rect x="1500" y="670" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1500" y="670" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1500" y="710" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1500" y1="718" x2="1780" y2="718" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1520" y="688" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1520" y="710" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Notification</text>
+        <text x="1520" y="740" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1760" y="740" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="766" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ incident_id</text>
+        <text x="1760" y="766" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="792" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">message</text>
+        <text x="1760" y="792" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="1520" y="818" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">channel</text>
+        <text x="1760" y="818" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+        <text x="1520" y="844" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">sent_at</text>
+        <text x="1760" y="844" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">timestamp</text>
+
+        <!-- RouteStop (join) -->
+        <rect x="420" y="910" width="280" height="200" rx="6" fill="#2d3142" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" fill-opacity="0.03"/>
+        <rect x="420" y="910" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.06"/>
+        <rect x="420" y="950" width="280" height="8" fill="#2d3142" fill-opacity="0.06"/>
+        <line x1="420" y1="958" x2="700" y2="958" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="440" y="928" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">JOIN</text>
+        <text x="440" y="950" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">RouteStop</text>
+        <text x="440" y="980" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="680" y="980" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="1006" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ route_id</text>
+        <text x="680" y="1006" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="1032" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ stop_id</text>
+        <text x="680" y="1032" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="440" y="1058" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">sequence</text>
+        <text x="680" y="1058" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">int</text>
+        <text x="440" y="1084" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">offset_minutes</text>
+        <text x="680" y="1084" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">int</text>
+
+        <!-- Stop -->
+        <rect x="780" y="910" width="280" height="174" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="780" y="910" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="780" y="950" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="780" y1="958" x2="1060" y2="958" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="800" y="928" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="800" y="950" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Stop</text>
+        <text x="800" y="980" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1040" y="980" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="800" y="1006" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">name</text>
+        <text x="1040" y="1006" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="800" y="1032" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">latitude</text>
+        <text x="1040" y="1032" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">decimal</text>
+        <text x="800" y="1058" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">longitude</text>
+        <text x="1040" y="1058" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">decimal</text>
+
+        <!-- Bus -->
+        <rect x="1140" y="910" width="280" height="200" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1140" y="910" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1140" y="950" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1140" y1="958" x2="1420" y2="958" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1160" y="928" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1160" y="950" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Bus</text>
+        <text x="1160" y="980" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1400" y="980" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="1006" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">→ vendor_id</text>
+        <text x="1400" y="1006" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1160" y="1032" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">registration</text>
+        <text x="1400" y="1032" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text · unique</text>
+        <text x="1160" y="1058" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">capacity</text>
+        <text x="1400" y="1058" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">int</text>
+        <text x="1160" y="1084" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">ownership</text>
+        <text x="1400" y="1084" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+
+        <!-- Vendor -->
+        <rect x="1500" y="910" width="280" height="148" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1.2"/>
+        <rect x="1500" y="910" width="280" height="48" rx="6" fill="#2d3142" fill-opacity="0.04"/>
+        <rect x="1500" y="950" width="280" height="8" fill="#2d3142" fill-opacity="0.04"/>
+        <line x1="1500" y1="958" x2="1780" y2="958" stroke="#2d3142" stroke-width="1" stroke-opacity="0.22"/>
+        <text x="1520" y="928" fill="#4f5d75" font-size="9.5" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ENTITY</text>
+        <text x="1520" y="950" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist', sans-serif">Vendor</text>
+        <text x="1520" y="980" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace"># id</text>
+        <text x="1760" y="980" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">uuid</text>
+        <text x="1520" y="1006" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">name</text>
+        <text x="1760" y="1006" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">text</text>
+        <text x="1520" y="1032" fill="#2d3142" font-size="13.5" font-family="'Geist Mono', monospace">status</text>
+        <text x="1760" y="1032" fill="#4f5d75" font-size="13.5" font-family="'Geist Mono', monospace" text-anchor="end">enum</text>
+
+        <!-- Legend -->
+        <line x1="40" y1="1160" x2="1800" y2="1160" stroke="#2d3142" stroke-width="0.8" stroke-opacity="0.10"/>
+        <text x="40" y="1184" fill="#4f5d75" font-size="10" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND</text>
+
+        <rect x="40" y="1200" width="18" height="14" rx="2" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.04"/>
+        <text x="68" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Aggregate root</text>
+
+        <rect x="200" y="1200" width="18" height="14" rx="2" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+        <text x="228" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Entity</text>
+
+        <rect x="312" y="1200" width="18" height="14" rx="2" fill="#2d3142" stroke="#4f5d75" stroke-width="1" stroke-dasharray="3,2" fill-opacity="0.04"/>
+        <text x="340" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Join table</text>
+
+        <text x="456" y="1212" fill="#2d3142" font-size="13" font-family="'Geist Mono', monospace" font-weight="600">#</text>
+        <text x="474" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Primary key</text>
+
+        <text x="592" y="1212" fill="#2d3142" font-size="13" font-family="'Geist Mono', monospace" font-weight="600">→</text>
+        <text x="610" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Foreign key</text>
+
+        <text x="724" y="1212" fill="#4f5d75" font-size="13" font-family="'Geist Mono', monospace" font-weight="600">1 / N</text>
+        <text x="768" y="1212" fill="#4f5d75" font-size="12" font-family="'Geist', sans-serif">Cardinality</text>
+      </svg>

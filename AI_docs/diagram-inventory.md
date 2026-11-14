@@ -36,9 +36,7 @@ Each has `.html`, `.png`, `.svg`.
 
 Each has `.html`, `.png`, `.svg`.
 
-## Sequence — `diagrams/sequence/`
-
-| File prefix | Lifelines | Fragment |
+## Sequence — `diagrams/sequence/`| File prefix | Lifelines | Fragment |
 |---|---|---|
 | `UPMS_Sequence_Diagram_Booking` | Passenger, Booking Service, Payment Gateway, Database | `alt [online / cash]` |
 | `UPMS_Sequence_Diagram_Cancellation` | Passenger, Service, Database, Gateway | `alt [20+ min / less]` |
@@ -48,6 +46,24 @@ Each has `.html`, `.png`, `.svg`.
 | `UPMS_Sequence_Diagram_Breakdown` | Staff, Service, Admin, Database, Passenger | `alt [replacement / cancel]` |
 
 Each has `.html`, `.png`, `.svg`.
+
+## ER — `diagrams/erd/`
+
+Six subject-area ER diagrams plus one complete overview, each with large 280px entities and 13.5px field text:
+
+| File prefix | Entities | Focal |
+|---|---|---|
+| `UPMS_ERD_Complete_Chen` | Chen notation: all 18 entities, 17 relationships, primary-key ovals; teal entities, navy relationships, magenta attributes (SmartDraw palette) | — |
+| `UPMS_ERD_Complete` | all 18 entities and 17 relationships (full software) | User |
+| `UPMS_ERD_Booking` | Passenger, Booking, Payment, Trip | Booking |
+| `UPMS_ERD_Network` | Trip, Route, TripVehicleAssignment, Bus, Vendor | Trip |
+| `UPMS_ERD_Stops` | Route, RouteStop (join), Stop | — |
+| `UPMS_ERD_People` | User, PassengerProfile, Staff, AuditLog | User |
+| `UPMS_ERD_Operations` | Booking, CheckIn, Refund | Booking |
+| `UPMS_ERD_Incidents` | Trip, Incident, Notification | Incident |
+
+Fields carry `#` primary keys and `→` foreign keys; cardinality is `1` / `N` /
+`0..1` at each end. Each has `.html`, `.png`, `.svg`.
 
 ## Visual rules used everywhere
 

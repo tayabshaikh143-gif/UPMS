@@ -115,6 +115,26 @@ delivery rules. Committed as `ae6ce4d`.
 - Step 4 (ERD + relational database design) was requested next; only the ER
   reference was read before the session was paused.
 
+## 12. ER diagrams (Step 4, first part)
+
+Created six subject-area ER diagrams in `diagrams/erd/` (rebuilt larger on 2026-11-14 for readability), matching the class-diagram domains:
+
+| Diagram | Entities |
+|---|---|
+| `UPMS_ERD_Booking` | Passenger, Booking, Payment, Trip |
+| `UPMS_ERD_Network` | Trip, Route, TripVehicleAssignment, Bus, Vendor |
+| `UPMS_ERD_Stops` | Route, RouteStop (join), Stop |
+| `UPMS_ERD_People` | User, PassengerProfile, Staff, AuditLog |
+| `UPMS_ERD_Operations` | Booking, CheckIn, Refund |
+| `UPMS_ERD_Incidents` | Trip, Incident, Notification |
+
+Each entity lists `#` primary keys and `→` foreign keys; relationships carry
+`1` / `N` / `0..1` cardinalities. All four passed the skill self-check and were
+exported to PNG + SVG.
+
+Still pending for Step 4: the written relational schema (table definitions,
+data types, indexes, constraints) as a document.
+
 ## 11. Mistakes and fixes (short list)
 
 - First use case diagram was cluttered → replaced with a clean 2-column version.
@@ -123,3 +143,11 @@ delivery rules. Committed as `ae6ce4d`.
 - Sequence diagram labels initially overlapped lifelines and lines (sloped arrows
   caused by patching only `y1`) → fixed y2, moved guards clear of lifelines,
   shortened one guard label.
+
+
+## 13. Complete ER diagram (2026-11-14)
+
+Added `UPMS_ERD_Complete` in `diagrams/erd/`: all 18 entities and 17 relationships
+in one 1840x1240 canvas, zoned by subject area (identity, booking, network,
+fleet/incidents). The six subject ER diagrams remain as the readable detail views.
+

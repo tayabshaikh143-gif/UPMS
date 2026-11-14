@@ -16,7 +16,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 1 | Project proposal | drafted earlier; file not in this repo yet |
 | 2 | SRS v1.0 | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
 | 3 | Use case diagram + detailed descriptions | diagrams done (simple + detailed); `.docx` of descriptions pending |
-| 4 | ERD and relational database design | **in progress — not started yet** (only the ER reference was read) |
+| 4 | ERD and relational database design | in progress — 8 ER diagrams (6 subject + table-style complete + Chen complete), schema document pending |
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | pending (React + ASP.NET Core + SQL Server + EF Core is only a proposal) |
@@ -56,6 +56,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 
 ## Known follow-ups
 
+- Build the written relational schema for Step 4 (tables, types, keys, indexes).
 - Create the Step 3 `.docx` with detailed use case descriptions.
 - Move `UPMS_Chat_Context_Export.docx` into `docs/` once it is closed in Word.
 - Add the Step 1 proposal to the repo.

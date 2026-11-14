@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPMS — Complete ER diagram (Chen)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: #1a1a1a;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+    .frame { max-width: 2000px; width: 100%; min-width: 0; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #6b7280; margin-bottom: 0.35rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 1.6vw + 0.8rem, 2rem); font-weight: 700;
+      letter-spacing: -0.01em; color: #333333; margin-bottom: 1rem;
+      text-align: center;
+    }
+    svg { width: 100%; min-width: 2000px; display: block; }
+    @media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Chen ER notation · complete model</p>
+    <h1>UPMS · complete ER diagram</h1>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 2000 1450" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="upms-chen-title upms-chen-desc">
+        <title id="upms-chen-title">UPMS complete entity-relationship diagram (Chen notation)</title>
+        <desc id="upms-chen-desc">Chen-notation ER diagram of the whole UPMS: entities as rectangles, relationships as diamonds, primary-key attributes as ovals, with 1, N and 0..1 cardinalities.</desc>
+
+        <rect width="100%" height="100%" fill="#ffffff"/>
+
+        <!-- ================= Connector lines ================= -->
+        <line x1="300" y1="164" x2="300" y2="200" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="170" y1="462" x2="200" y2="452" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="600" y1="164" x2="600" y2="200" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1090" y1="164" x2="1090" y2="200" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1445" y1="164" x2="1445" y2="200" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1785" y1="164" x2="1785" y2="200" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1090" y1="394" x2="1090" y2="440" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1445" y1="560" x2="1445" y2="504" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1860" y1="462" x2="1865" y2="462" stroke="#5a6b7a" stroke-width="1.1"/>        <line x1="300" y1="764" x2="300" y2="800" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="150" y1="1052" x2="200" y2="1052" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="640" y1="1004" x2="640" y2="1040" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1100" y1="764" x2="1100" y2="800" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1440" y1="764" x2="1440" y2="800" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1780" y1="764" x2="1780" y2="800" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="985" y1="1092" x2="1000" y2="1092" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="1440" y1="1034" x2="1440" y2="1060" stroke="#5a6b7a" stroke-width="1.1"/>
+        <line x1="640" y1="1340" x2="640" y2="1324" stroke="#5a6b7a" stroke-width="1.1"/>
+
+        <!-- User — Staff -->
+        <path d="M 1000 472 H 900 V 340 H 330 V 264" fill="none" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- User — PassengerProfile -->
+        <line x1="290" y1="264" x2="290" y2="420" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- User — AuditLog -->
+        <line x1="380" y1="232" x2="500" y2="232" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Passenger — Booking -->
+        <line x1="1180" y1="232" x2="1340" y2="232" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Booking — Payment -->
+        <line x1="1520" y1="232" x2="1680" y2="232" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Booking — CheckIn -->
+        <line x1="1430" y1="264" x2="1430" y2="440" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Booking — Refund -->
+        <path d="M 1500 264 V 330 H 1770 V 440" fill="none" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- CheckIn — Staff -->
+        <line x1="1340" y1="472" x2="1180" y2="472" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Booking — Trip -->
+        <path d="M 1340 250 H 1300 V 700 H 290 V 800" fill="none" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Trip — Route -->
+        <line x1="290" y1="864" x2="290" y2="1040" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Trip — TVA -->
+        <line x1="380" y1="832" x2="1000" y2="832" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Trip — Incident -->
+        <path d="M 340 864 V 920 H 1090 V 1060" fill="none" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Route — RouteStop -->
+        <line x1="380" y1="1072" x2="540" y2="1072" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- RouteStop — Stop -->
+        <line x1="630" y1="1104" x2="630" y2="1260" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- TVA — Bus -->
+        <line x1="1180" y1="832" x2="1340" y2="832" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Bus — Vendor -->
+        <line x1="1520" y1="832" x2="1680" y2="832" stroke="#5a6b7a" stroke-width="1.1"/>
+        <!-- Incident — Notification -->
+        <line x1="1180" y1="1092" x2="1340" y2="1092" stroke="#5a6b7a" stroke-width="1.1"/>
+
+        <!-- ================= Relationship diamonds ================= -->
+        <g font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-style="italic" fill="#ffffff" text-anchor="middle">
+          <polygon points="600,310 665,340 600,370 535,340" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="600" y="345">is</text>
+
+          <polygon points="290,315 340,342 290,369 240,342" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="290" y="347">has</text>
+
+          <polygon points="440,205 490,232 440,259 390,232" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="440" y="237">writes</text>
+
+          <polygon points="1260,205 1310,232 1260,259 1210,232" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1260" y="237">makes</text>
+
+          <polygon points="1600,205 1650,232 1600,259 1550,232" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1600" y="237">pays</text>
+
+          <polygon points="1430,325 1485,352 1430,379 1375,352" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1430" y="357">has</text>
+
+          <polygon points="1640,300 1705,330 1640,360 1575,330" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1640" y="335">may have</text>
+
+          <polygon points="1260,445 1310,472 1260,499 1210,472" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1260" y="477">done by</text>
+
+          <polygon points="900,670 965,700 900,730 835,700" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="900" y="705">books</text>
+
+          <polygon points="290,925 340,952 290,979 240,952" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="290" y="957">follows</text>
+
+          <polygon points="690,802 755,832 690,862 625,832" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="690" y="837">assigned</text>
+
+          <polygon points="690,890 755,920 690,950 625,920" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="690" y="925">has</text>
+
+          <polygon points="460,1045 510,1072 460,1099 410,1072" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="460" y="1077">includes</text>
+
+          <polygon points="630,1155 680,1182 630,1209 580,1182" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="630" y="1187">at</text>
+
+          <polygon points="1260,805 1310,832 1260,859 1210,832" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1260" y="837">uses</text>
+
+          <polygon points="1600,805 1650,832 1600,859 1550,832" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1600" y="837">owned by</text>
+
+          <polygon points="1260,1065 1310,1092 1260,1119 1210,1092" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="1260" y="1097">triggers</text>
+        </g>
+
+        <!-- ================= Cardinalities ================= -->
+        <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#111" text-anchor="middle">
+          <!-- User–Staff -->
+          <text x="345" y="330">1</text>
+          <text x="940" y="458">0..1</text>
+          <!-- User–Profile -->
+          <text x="305" y="284">1</text>
+          <text x="305" y="410">0..1</text>
+          <!-- User–AuditLog -->
+          <text x="395" y="222">1</text>
+          <text x="485" y="222">N</text>
+          <!-- Passenger–Booking -->
+          <text x="1195" y="222">1</text>
+          <text x="1325" y="222">N</text>
+          <!-- Booking–Payment -->
+          <text x="1535" y="222">1</text>
+          <text x="1665" y="222">0..1</text>
+          <!-- Booking–CheckIn -->
+          <text x="1445" y="286">1</text>
+          <text x="1445" y="422">0..1</text>
+          <!-- Booking–Refund -->
+          <text x="1520" y="320">1</text>
+          <text x="1785" y="422">0..1</text>
+          <!-- CheckIn–Staff -->
+          <text x="1195" y="462">N</text>
+          <text x="1325" y="462">1</text>
+          <!-- Booking–Trip -->
+          <text x="1318" y="240">N</text>
+          <text x="307" y="785">1</text>
+          <!-- Trip–Route -->
+          <text x="307" y="888">N</text>
+          <text x="307" y="1028">1</text>
+          <!-- Trip–TVA -->
+          <text x="395" y="822">N</text>
+          <text x="985" y="822">1</text>
+          <!-- Trip–Incident -->
+          <text x="352" y="884">1</text>
+          <text x="1075" y="908">N</text>
+          <!-- Route–RouteStop -->
+          <text x="395" y="1062">1</text>
+          <text x="505" y="1062">N</text>
+          <!-- RouteStop–Stop -->
+          <text x="645" y="1130">N</text>
+          <text x="645" y="1245">1</text>
+          <!-- TVA–Bus -->
+          <text x="1195" y="822">N</text>
+          <text x="1325" y="822">1</text>
+          <!-- Bus–Vendor -->
+          <text x="1535" y="822">N</text>
+          <text x="1665" y="822">1</text>
+          <!-- Incident–Notification -->
+          <text x="1195" y="1082">1</text>
+          <text x="1325" y="1082">N</text>
+        </g>
+
+        <!-- ================= Entities ================= -->
+        <g font-family="Arial, Helvetica, sans-serif" fill="#ffffff" text-anchor="middle">
+          <rect x="200" y="200" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="290" y="238" font-size="15" font-weight="700">User</text>
+
+          <rect x="200" y="420" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="290" y="458" font-size="15" font-weight="700">PassengerProfile</text>
+
+          <rect x="500" y="200" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="590" y="238" font-size="15" font-weight="700">AuditLog</text>
+
+          <rect x="1000" y="200" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1090" y="238" font-size="15" font-weight="700">Passenger</text>
+
+          <rect x="1340" y="200" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1430" y="238" font-size="15" font-weight="700">Booking</text>
+
+          <rect x="1680" y="200" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1770" y="238" font-size="15" font-weight="700">Payment</text>
+
+          <rect x="1000" y="440" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1090" y="478" font-size="15" font-weight="700">Staff</text>
+
+          <rect x="1340" y="440" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1430" y="478" font-size="15" font-weight="700">CheckIn</text>
+
+          <rect x="1680" y="440" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1770" y="478" font-size="15" font-weight="700">Refund</text>
+
+          <rect x="200" y="800" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="290" y="838" font-size="15" font-weight="700">Trip</text>
+
+          <rect x="1000" y="800" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1090" y="838" font-size="12" font-weight="700">TripVehicleAssignment</text>
+
+          <rect x="1340" y="800" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1430" y="838" font-size="15" font-weight="700">Bus</text>
+
+          <rect x="1680" y="800" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1770" y="838" font-size="15" font-weight="700">Vendor</text>
+
+          <rect x="200" y="1040" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="290" y="1078" font-size="15" font-weight="700">Route</text>
+
+          <rect x="540" y="1040" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="630" y="1078" font-size="15" font-weight="700">RouteStop</text>
+
+          <rect x="1000" y="1060" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1090" y="1098" font-size="15" font-weight="700">Incident</text>
+
+          <rect x="1340" y="1060" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="1430" y="1098" font-size="15" font-weight="700">Notification</text>
+
+          <rect x="540" y="1260" width="180" height="64" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="630" y="1298" font-size="15" font-weight="700">Stop</text>
+        </g>
+
+        <!-- ================= Primary-key attributes ================= -->
+        <g font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">
+          <ellipse cx="300" cy="142" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="300" y="147" text-decoration="underline">id</text>
+
+          <ellipse cx="115" cy="462" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="115" y="467" text-decoration="underline">id</text>
+
+          <ellipse cx="600" cy="142" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="600" y="147" text-decoration="underline">id</text>
+
+          <ellipse cx="1090" cy="142" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1090" y="147" text-decoration="underline">id</text>
+
+          <ellipse cx="1445" cy="142" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1445" y="147" text-decoration="underline">id</text>
+
+          <ellipse cx="1785" cy="142" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1785" y="147" text-decoration="underline">id</text>
+
+          <ellipse cx="1090" cy="372" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1090" y="377" text-decoration="underline">id</text>
+
+          <ellipse cx="1445" cy="582" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1445" y="587" text-decoration="underline">id</text>
+
+          <ellipse cx="1920" cy="462" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1920" y="467" text-decoration="underline">id</text>
+
+          <ellipse cx="300" cy="742" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="300" y="747" text-decoration="underline">id</text>
+
+          <ellipse cx="95" cy="1052" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="95" y="1057" text-decoration="underline">id</text>
+
+          <ellipse cx="640" cy="982" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="640" y="987" text-decoration="underline">id</text>
+
+          <ellipse cx="1100" cy="742" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1100" y="747" text-decoration="underline">id</text>
+
+          <ellipse cx="1440" cy="742" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1440" y="747" text-decoration="underline">id</text>
+
+          <ellipse cx="1780" cy="742" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1780" y="747" text-decoration="underline">id</text>
+
+          <ellipse cx="930" cy="1092" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="930" y="1097" text-decoration="underline">id</text>
+
+          <ellipse cx="1440" cy="1012" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="1440" y="1017" text-decoration="underline">id</text>
+
+          <ellipse cx="640" cy="1362" rx="55" ry="22" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="640" y="1367" text-decoration="underline">id</text>
+        </g>
+
+        <!-- ================= Legend ================= -->
+        <line x1="60" y1="1400" x2="1940" y2="1400" stroke="#ccc" stroke-width="1"/>
+        <g font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">
+          <rect x="60" y="1412" width="34" height="20" fill="#1fb6c9" stroke="#0e7c8a" stroke-width="1.2"/>
+          <text x="104" y="1427">Entity</text>
+
+          <polygon points="200,1412 225,1422 200,1432 175,1422" fill="#0d3b5c" stroke="#08283d" stroke-width="1.2"/>
+          <text x="240" y="1427">Relationship</text>
+
+          <ellipse cx="360" cy="1422" rx="26" ry="11" fill="#c2004f" stroke="#8a0038" stroke-width="1.2"/>
+          <text x="396" y="1427">Attribute (underlined = primary key)</text>
+
+          <text x="740" y="1427" font-weight="700">1 / N / 0..1</text>
+          <text x="850" y="1427">Cardinality</text>
+
+          <text x="980" y="1427">Primary keys shown; full field lists are in the subject-area ER diagrams.</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
+
