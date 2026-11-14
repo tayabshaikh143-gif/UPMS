@@ -17,7 +17,7 @@ Initial target deployment: **University of Sindh, Jamshoro** (single-university 
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React + ASP.NET Core + EF Core + SQL Server |
-| 8 | Implementation and testing | in progress — Slice 1 (foundation, auth, catalog) API + web |
+| 8 | Implementation and testing | in progress — Slice 1 catalog + Slice 2 booking/capacity |
 
 ## Repository layout
 

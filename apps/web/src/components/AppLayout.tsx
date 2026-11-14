@@ -1,19 +1,37 @@
-import { Bus, GraduationCap, LayoutDashboard, MapPin, Navigation, Route as RouteIcon, Users } from 'lucide-react'
+import {
+  Bus,
+  ClipboardList,
+  GraduationCap,
+  LayoutDashboard,
+  MapPin,
+  Navigation,
+  Route as RouteIcon,
+  Ticket,
+  Users,
+} from 'lucide-react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 import { Badge, cx } from './ui'
 
-const nav = [
+const adminNav = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
   { to: '/routes', label: 'Routes', icon: RouteIcon },
   { to: '/stops', label: 'Stops', icon: MapPin },
   { to: '/buses', label: 'Buses', icon: Bus },
   { to: '/vendors', label: 'Vendors', icon: Users },
   { to: '/trips', label: 'Trips', icon: Navigation },
+  { to: '/bookings', label: 'Bookings', icon: Ticket },
+]
+
+const passengerNav = [
+  { to: '/book', label: 'Book a trip', icon: Ticket, end: false },
+  { to: '/my-bookings', label: 'My bookings', icon: ClipboardList, end: false },
 ]
 
 export function AppLayout() {
   const { user, logout } = useAuth()
+  const isAdmin = user?.roles.includes('Admin') ?? false
+  const nav = isAdmin ? adminNav : passengerNav
 
   return (
     <div className="min-h-screen bg-paper">

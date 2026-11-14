@@ -16,6 +16,7 @@ public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     public DbSet<Vendor> Vendors => Set<Vendor>();
     public DbSet<Bus> Buses => Set<Bus>();
     public DbSet<Trip> Trips => Set<Trip>();
+    public DbSet<Booking> Bookings => Set<Booking>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -56,6 +57,18 @@ public class AppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
         {
             e.Property(x => x.Fare).HasPrecision(10, 2);
             e.HasOne(x => x.Route).WithMany().HasForeignKey(x => x.RouteId).OnDelete(DeleteBehavior.Restrict);
+            e.HasOne(x => x.Bus).WithMany().HasForeignKey(x => x.BusId).OnDelete(DeleteBehavior.SetNull);
+            e.HasIndex(x => x.DepartureAt);
+        });
+
+        builder.Entity<Booking>(e =>
+        {
+            e.HasIndex(x => x.Reference).IsUnique();
+            e.Property(x => x.Reference).HasMaxLength(20).IsRequired();
+            e.Property(x => x.Amount).HasPrecision(10, 2);
+            e.HasIndex(x => new { x.TripId, x.Status });
+            e.HasOne(x => x.Trip).WithMany(x => x.Bookings).HasForeignKey(x => x.TripId).OnDelete(DeleteBehavior.Restrict);
+            e.HasOne(x => x.Passenger).WithMany().HasForeignKey(x => x.PassengerId).OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

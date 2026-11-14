@@ -18,6 +18,7 @@ The app applies migrations and seeds demo data on startup.
 | Role | Email | Password |
 |---|---|---|
 | Admin | `admin@upms.local` | `Admin@12345` |
+| Passenger | `student@upms.local` | `Student@123` |
 
 Change the seed values in `appsettings.json` before any real deployment.
 
@@ -41,6 +42,11 @@ Change the seed values in `appsettings.json` before any real deployment.
 | POST/PUT/DELETE | `/api/buses` | Admin |
 | GET | `/api/trips?routeId=` | authenticated |
 | POST/PUT/DELETE | `/api/trips` | Admin |
+| POST | `/api/bookings` | authenticated (creates a booking for the current user) |
+| GET | `/api/bookings/my` | authenticated (own bookings) |
+| GET | `/api/bookings` | Admin, Staff |
+| GET | `/api/bookings/{id}` | owner, Admin or Staff |
+| POST | `/api/bookings/{id}/cancel` | owner or Admin |
 
 Catalog writes validate references and uniqueness: duplicate route codes or bus
 registrations return `409 Conflict` with a readable `message`, missing routes or
@@ -49,6 +55,19 @@ other roles.
 
 Trip responses include the route name and the journey endpoints (`origin` and
 `destination`), derived from the route's first and last ordered stops.
+
+Trips require an assigned bus. Capacity and remaining seats come from that bus,
+minus active bookings (`Reserved`, `Confirmed`, `Boarded`). Booking creation runs
+in a serializable transaction so the last seat cannot be double-booked.
+
+Booking rules in this slice:
+
+- One booking reserves one seat; no numbered seat selection.
+- Online payment uses a demonstration gateway and confirms immediately.
+- Cash bookings start as `Reserved` with payment `Pending`.
+- Unboarded cash bookings expire 5 minutes before departure (background sweep).
+- Passenger cancellation is allowed until 20 minutes before departure.
+- Online cancellations mark the payment as `Refunded` (simulated).
 
 ## Database
 

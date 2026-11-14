@@ -28,6 +28,29 @@ public enum TripStatus
     Completed
 }
 
+public enum BookingStatus
+{
+    Reserved,
+    Confirmed,
+    Cancelled,
+    Expired,
+    Boarded
+}
+
+public enum PaymentMethod
+{
+    Online,
+    Cash
+}
+
+public enum PaymentStatus
+{
+    Pending,
+    Paid,
+    Refunded,
+    Failed
+}
+
 public class Route
 {
     public Guid Id { get; set; } = Guid.NewGuid();
@@ -79,7 +102,28 @@ public class Trip
     public Guid Id { get; set; } = Guid.NewGuid();
     public Guid RouteId { get; set; }
     public Route? Route { get; set; }
+    public Guid? BusId { get; set; }
+    public Bus? Bus { get; set; }
     public DateTime DepartureAt { get; set; }
     public decimal Fare { get; set; }
     public TripStatus Status { get; set; } = TripStatus.Scheduled;
+    public List<Booking> Bookings { get; set; } = new();
+}
+
+public class Booking
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Reference { get; set; } = string.Empty;
+    public Guid TripId { get; set; }
+    public Trip? Trip { get; set; }
+    public Guid PassengerId { get; set; }
+    public AppUser? Passenger { get; set; }
+    public BookingStatus Status { get; set; } = BookingStatus.Reserved;
+    public PaymentMethod Method { get; set; }
+    public PaymentStatus PaymentStatus { get; set; } = PaymentStatus.Pending;
+    public decimal Amount { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime? CancelledAt { get; set; }
+    public DateTime? ExpiredAt { get; set; }
+    public DateTime? BoardedAt { get; set; }
 }

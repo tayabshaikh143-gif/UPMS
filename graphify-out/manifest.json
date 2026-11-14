@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/CatalogDtos.cs": {
-    "mtime": 1794679225.3507388,
-    "seen": 1794679738.8391693,
-    "ast_hash": "31c382edd5f501b2664389f6a5184af9",
+    "mtime": 1794681136.3361316,
+    "seen": 1794682174.0467472,
+    "ast_hash": "5f6a35e441757fd6e7d4a27c0b42b6dd",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/RoutesController.cs": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/TripsController.cs": {
-    "mtime": 1794679601.2991638,
-    "seen": 1794679738.839524,
-    "ast_hash": "dc7bc3806e38d0530dfbda7f51bfd333",
+    "mtime": 1794682301.7813478,
+    "seen": 1794682430.6278365,
+    "ast_hash": "267c0ad8435d359dd3f3f5cac6bf19ee",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/VendorsController.cs": {
@@ -132,21 +132,21 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/AppDbContext.cs": {
-    "mtime": 1794671931.4510815,
-    "seen": 1794672298.0991023,
-    "ast_hash": "0fa8aa0697ee5727b218a0e601bcedfa",
+    "mtime": 1794681129.242957,
+    "seen": 1794682174.0475264,
+    "ast_hash": "eced27ac8e89583fea7b813a66d487f8",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/Entities.cs": {
-    "mtime": 1794671931.4509926,
-    "seen": 1794672298.0991068,
-    "ast_hash": "1fb89bd9ba131df237fc1b5ed41cf062",
+    "mtime": 1794681121.0048819,
+    "seen": 1794682174.0475304,
+    "ast_hash": "9df1d1b7f803596b340602421d049345",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/Seed.cs": {
-    "mtime": 1794671931.4510815,
-    "seen": 1794672298.0991108,
-    "ast_hash": "1c0ccfbb76f88708681416708341a705",
+    "mtime": 1794681200.2727487,
+    "seen": 1794682174.0475342,
+    "ast_hash": "f54f82eb05873ceb2c431945491c4ed3",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Migrations/20261114160207_InitialCreate.Designer.cs": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Migrations/AppDbContextModelSnapshot.cs": {
-    "mtime": 1794672127.4656339,
-    "seen": 1794672298.0991237,
-    "ast_hash": "186dd92e28b2ec5873789458463ea33d",
+    "mtime": 1794681240.8954563,
+    "seen": 1794682174.0481708,
+    "ast_hash": "47ea5815a5cdefde67c78a682ed21f81",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Program.cs": {
-    "mtime": 1794672033.9778535,
-    "seen": 1794672298.0991278,
-    "ast_hash": "736366b4cbfa2187ebad6677c18dac0b",
+    "mtime": 1794681190.8290927,
+    "seen": 1794682174.048174,
+    "ast_hash": "545cc480bbc22c88f8c6f5bc6f6b0998",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Properties/launchSettings.json": {
@@ -192,9 +192,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/appsettings.json": {
-    "mtime": 1794672033.9778535,
-    "seen": 1794672298.0991445,
-    "ast_hash": "93665e41f17396d7bf0654811a867aa5",
+    "mtime": 1794681963.2340293,
+    "seen": 1794682174.0489595,
+    "ast_hash": "6085d412942f8e9643469da9b1006d43",
     "semantic_hash": ""
   },
   "skills/grill-me/agents/openai.yaml": {
@@ -600,9 +600,9 @@
     "semantic_hash": ""
   },
   "AI_docs/2026-11-09-session-log.md": {
-    "mtime": 1794679659.2777638,
-    "seen": 1794679738.875733,
-    "ast_hash": "f040d9e59b715593040adce4742c49bb",
+    "mtime": 1794683420.811858,
+    "seen": 1794683446.2180243,
+    "ast_hash": "fc3c1be406f80f42931d116517343da7",
     "semantic_hash": ""
   },
   "AI_docs/README.md": {
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "AI_docs/project-status.md": {
-    "mtime": 1794679645.7663279,
-    "seen": 1794679738.876494,
-    "ast_hash": "1e7a817f6468979853112175e1af5073",
+    "mtime": 1794683403.41281,
+    "seen": 1794683446.2185817,
+    "ast_hash": "131d6f49f23762fc02dc334f05c701ee",
     "semantic_hash": ""
   },
   "AI_docs/skills-and-tooling.md": {
@@ -630,9 +630,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794673463.0151136,
-    "seen": 1794673538.551174,
-    "ast_hash": "12461033649a2fc082cb7db2e22df634",
+    "mtime": 1794681948.213125,
+    "seen": 1794682174.072871,
+    "ast_hash": "a70398d997730cdbd5dbfeded875614f",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Boarding.html": {
@@ -4278,21 +4278,21 @@
     "semantic_hash": ""
   },
   "apps/web/src/App.tsx": {
-    "mtime": 1794672758.0394208,
-    "seen": 1794673538.5237887,
-    "ast_hash": "c0648c38a5491291af78cf353d37cd0c",
+    "mtime": 1794681473.660576,
+    "seen": 1794682174.0494063,
+    "ast_hash": "e987918b924f096113c063107434aaa0",
     "semantic_hash": ""
   },
   "apps/web/src/auth/AuthContext.tsx": {
-    "mtime": 1794672729.7722893,
-    "seen": 1794673538.5237956,
-    "ast_hash": "5fa3ac47acc35c626a89792fcaee61a3",
+    "mtime": 1794681401.6818142,
+    "seen": 1794682174.0494103,
+    "ast_hash": "433a70cca294b6035f7f239bce72a2f8",
     "semantic_hash": ""
   },
   "apps/web/src/components/AppLayout.tsx": {
-    "mtime": 1794675127.9288619,
-    "seen": 1794675283.9989312,
-    "ast_hash": "1cb7f36ead4aabd0478b43688c17b45d",
+    "mtime": 1794681571.4028778,
+    "seen": 1794682174.0494146,
+    "ast_hash": "b8e5316df126d3952630c24cd8717fd7",
     "semantic_hash": ""
   },
   "apps/web/src/components/ui.tsx": {
@@ -4314,9 +4314,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/lib/types.ts": {
-    "mtime": 1794679232.9455674,
-    "seen": 1794679738.8473437,
-    "ast_hash": "7af0eadd1e1cab524e385a1a75516b9d",
+    "mtime": 1794681392.510588,
+    "seen": 1794682174.050181,
+    "ast_hash": "47391edc01f3730011157c62322b704d",
     "semantic_hash": ""
   },
   "apps/web/src/main.tsx": {
@@ -4332,15 +4332,15 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/Dashboard.tsx": {
-    "mtime": 1794679601.3001528,
-    "seen": 1794679738.8476305,
-    "ast_hash": "29e6aa9b9c9f4f7343321a297099116b",
+    "mtime": 1794681539.9406588,
+    "seen": 1794682174.050589,
+    "ast_hash": "7c01e141a6f556a72562e798e8907d65",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Login.tsx": {
-    "mtime": 1794674959.2128825,
-    "seen": 1794675108.2986882,
-    "ast_hash": "1a1426cadfc601456ff197748b0a6721",
+    "mtime": 1794681835.039276,
+    "seen": 1794682174.0505934,
+    "ast_hash": "63b61e33b38540cfc12601e7881a7b95",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Routes.tsx": {
@@ -4356,9 +4356,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/Trips.tsx": {
-    "mtime": 1794679601.3021379,
-    "seen": 1794679738.8479488,
-    "ast_hash": "d84f33b24594eed0cdaf2dea4f8511ab",
+    "mtime": 1794682322.051533,
+    "seen": 1794682430.6398916,
+    "ast_hash": "23a41fa66ebcfc1a9ba15867b612ac35",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Vendors.tsx": {
@@ -4392,15 +4392,15 @@
     "semantic_hash": ""
   },
   "apps/api/README.md": {
-    "mtime": 1794679637.0853188,
-    "seen": 1794679738.8772726,
-    "ast_hash": "b4cd3271aeb85add1222a78d16372b27",
+    "mtime": 1794681948.2735617,
+    "seen": 1794682174.0728748,
+    "ast_hash": "799a34f914bdc18796c32e8dd9209656",
     "semantic_hash": ""
   },
   "apps/web/README.md": {
-    "mtime": 1794679667.3494494,
-    "seen": 1794679738.8772836,
-    "ast_hash": "1e015c899701f21a510906cfe05e4edd",
+    "mtime": 1794683403.41281,
+    "seen": 1794683446.2196164,
+    "ast_hash": "88f54c6551c631a0d22eccea9687d01b",
     "semantic_hash": ""
   },
   "apps/web/index.html": {
@@ -4409,82 +4409,82 @@
     "ast_hash": "ad98b8021670f3e762170267dbc58d7a",
     "semantic_hash": ""
   },
-  "apps/web/public/favicon.svg": {
-    "mtime": 1794672619.1184757,
-    "seen": 1794673538.7398946,
-    "ast_hash": "7e840862161341271697daa99a40d76b",
-    "semantic_hash": ""
-  },
-  "apps/web/public/icons.svg": {
-    "mtime": 1794672619.1419518,
-    "seen": 1794673538.7398996,
-    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
-    "semantic_hash": ""
-  },
-  "apps/web/src/assets/hero.png": {
-    "mtime": 1794672619.081256,
-    "seen": 1794673538.739903,
-    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
-    "semantic_hash": ""
-  },
-  "apps/web/src/assets/react.svg": {
-    "mtime": 1794672619.1614432,
-    "seen": 1794673538.739906,
-    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
-    "semantic_hash": ""
-  },
-  "apps/web/src/assets/vite.svg": {
-    "mtime": 1794672619.1765163,
-    "seen": 1794673538.739909,
-    "ast_hash": "9960a24288958394ac50e57ff638b036",
-    "semantic_hash": ""
-  },
   "apps/web/public/upms.svg": {
     "mtime": 1794673684.004706,
     "seen": 1794673709.8743086,
     "ast_hash": "284034cbee62ad32f8735db059a4d916",
     "semantic_hash": ""
   },
-  "docs/screenshots/01-login.png": {
-    "mtime": 1794675060.3026426,
-    "seen": 1794675108.484668,
-    "ast_hash": "1369b65cad21e93f2958f6a35cc46ed2",
+  "apps/api/src/UPMS.Api/Bookings/BookingDtos.cs": {
+    "mtime": 1794681168.9899209,
+    "seen": 1794682174.0463476,
+    "ast_hash": "b3a1db59d7e8c52541417e31c2419bbf",
     "semantic_hash": ""
   },
-  "docs/screenshots/02-dashboard.png": {
-    "mtime": 1794679678.1892812,
-    "seen": 1794679739.1223752,
-    "ast_hash": "05dc6956548a7eaee06bd8e3c516c37b",
+  "apps/api/src/UPMS.Api/Bookings/BookingExpiryService.cs": {
+    "mtime": 1794681184.892689,
+    "seen": 1794682174.0463529,
+    "ast_hash": "4def3632cf008bad694db93d97c166dc",
     "semantic_hash": ""
   },
-  "docs/screenshots/03-routes.png": {
-    "mtime": 1794679682.2105339,
-    "seen": 1794679739.122382,
-    "ast_hash": "b54b446233dc1056e6213d69c54a8993",
+  "apps/api/src/UPMS.Api/Bookings/BookingService.cs": {
+    "mtime": 1794681168.9919186,
+    "seen": 1794682174.0463777,
+    "ast_hash": "e0cb16cf464081cc4e815b71c7dea8bc",
     "semantic_hash": ""
   },
-  "docs/screenshots/04-stops.png": {
-    "mtime": 1794679686.1234097,
-    "seen": 1794679739.122386,
-    "ast_hash": "3defac813ca1e564dee9c6a004d25efb",
+  "apps/api/src/UPMS.Api/Bookings/BookingsController.cs": {
+    "mtime": 1794681184.892689,
+    "seen": 1794682174.046381,
+    "ast_hash": "996e49d6bbe38b145b77c79c06e50d3d",
     "semantic_hash": ""
   },
-  "docs/screenshots/05-vendors.png": {
-    "mtime": 1794679690.1887043,
-    "seen": 1794679739.122391,
-    "ast_hash": "2bda60a9662832b7a9519b23cfa2cd02",
+  "apps/api/src/UPMS.Api/Migrations/20261114183400_AddBookings.Designer.cs": {
+    "mtime": 1794681240.8944542,
+    "seen": 1794682174.0481637,
+    "ast_hash": "a78532f8b55c040a63c6a0b0f702a207",
     "semantic_hash": ""
   },
-  "docs/screenshots/06-buses.png": {
-    "mtime": 1794679694.0468893,
-    "seen": 1794679739.122395,
-    "ast_hash": "fc5ecff54a710984caab4288b9aafad9",
+  "apps/api/src/UPMS.Api/Migrations/20261114183400_AddBookings.cs": {
+    "mtime": 1794681240.8410962,
+    "seen": 1794682174.0481672,
+    "ast_hash": "10064479705b1e7e2b3b6d5e93859615",
     "semantic_hash": ""
   },
-  "docs/screenshots/07-trips.png": {
-    "mtime": 1794679698.0477471,
-    "seen": 1794679739.1223998,
-    "ast_hash": "52d19ebf27d7f2fb9243b76269d9b1af",
+  "apps/web/src/pages/Book.tsx": {
+    "mtime": 1794681438.1946504,
+    "seen": 1794682174.0503697,
+    "ast_hash": "6aa87dbd4431bb8a7f64b6dc65e506b8",
+    "semantic_hash": ""
+  },
+  "apps/web/src/pages/Bookings.tsx": {
+    "mtime": 1794683263.5690484,
+    "seen": 1794683446.1863227,
+    "ast_hash": "e83a5a976435e456e4f51e4a2d8ce806",
+    "semantic_hash": ""
+  },
+  "apps/web/src/pages/MyBookings.tsx": {
+    "mtime": 1794683247.1605732,
+    "seen": 1794683446.1872091,
+    "ast_hash": "e41a12e6ddbab55cbd506ec2bc4f7780",
+    "semantic_hash": ""
+  },
+  "apps/web/src/pages/Register.tsx": {
+    "mtime": 1794681411.7701921,
+    "seen": 1794682174.0506012,
+    "ast_hash": "cfe39715af1c7db0e3ce6262542ec13b",
+    "semantic_hash": ""
+  },
+  "apps/web/src/components/TicketReceipt.tsx": {
+    "mtime": 1794683479.6213908,
+    "seen": 1794683547.235776,
+    "ast_hash": "86c575e6fb609aa548932d5a85a7e5c5",
+    "semantic_hash": ""
+  },
+  "apps/web/src/lib/bookingLabels.ts": {
+    "mtime": 1794683235.3788614,
+    "seen": 1794683446.184753,
+    "ast_hash": "2e7812ddcc4021a6e01b04c0925fa7f9",
     "semantic_hash": ""
   },
   "apps/web/package-lock.json": {

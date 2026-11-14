@@ -223,6 +223,60 @@ namespace UPMS.Api.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("UPMS.Api.Data.Booking", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<DateTime?>("BoardedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CancelledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpiredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Method")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PassengerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PaymentStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Reference")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TripId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PassengerId");
+
+                    b.HasIndex("Reference")
+                        .IsUnique();
+
+                    b.HasIndex("TripId", "Status");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("UPMS.Api.Data.Bus", b =>
                 {
                     b.Property<Guid>("Id")
@@ -336,6 +390,9 @@ namespace UPMS.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("BusId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DepartureAt")
                         .HasColumnType("datetime2");
 
@@ -350,6 +407,10 @@ namespace UPMS.Api.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BusId");
+
+                    b.HasIndex("DepartureAt");
 
                     b.HasIndex("RouteId");
 
@@ -426,6 +487,25 @@ namespace UPMS.Api.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("UPMS.Api.Data.Booking", b =>
+                {
+                    b.HasOne("UPMS.Api.Data.AppUser", "Passenger")
+                        .WithMany()
+                        .HasForeignKey("PassengerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("UPMS.Api.Data.Trip", "Trip")
+                        .WithMany("Bookings")
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Passenger");
+
+                    b.Navigation("Trip");
+                });
+
             modelBuilder.Entity("UPMS.Api.Data.Bus", b =>
                 {
                     b.HasOne("UPMS.Api.Data.Vendor", "Vendor")
@@ -457,11 +537,18 @@ namespace UPMS.Api.Migrations
 
             modelBuilder.Entity("UPMS.Api.Data.Trip", b =>
                 {
+                    b.HasOne("UPMS.Api.Data.Bus", "Bus")
+                        .WithMany()
+                        .HasForeignKey("BusId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("UPMS.Api.Data.Route", "Route")
                         .WithMany()
                         .HasForeignKey("RouteId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Bus");
 
                     b.Navigation("Route");
                 });
@@ -469,6 +556,11 @@ namespace UPMS.Api.Migrations
             modelBuilder.Entity("UPMS.Api.Data.Route", b =>
                 {
                     b.Navigation("Stops");
+                });
+
+            modelBuilder.Entity("UPMS.Api.Data.Trip", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("UPMS.Api.Data.Vendor", b =>

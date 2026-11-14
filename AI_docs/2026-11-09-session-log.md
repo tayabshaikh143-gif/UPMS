@@ -284,5 +284,72 @@ section needs an edit action.
 - Committed and pushed as `3c22d1c`; screenshots stay local and gitignored.
 - Screenshots refreshed in `docs/screenshots/`.
 
+## 22. Slice 2 - booking and capacity (2026-11-14)
 
+Owner asked to move to the next step. Implemented Slice 2 around the SRS
+booking rules.
+
+Backend:
+
+- `Trip` now has `BusId`/`Bus`; trip DTOs expose bus registration, capacity,
+  booked count and remaining seats. Existing trips are auto-assigned to the
+  first bus on startup if they have no bus.
+- `Booking` entity, statuses (`Reserved`, `Confirmed`, `Cancelled`, `Expired`,
+  `Boarded`), payment methods (`Online`, `Cash`) and payment statuses
+  (`Pending`, `Paid`, `Refunded`, `Failed`).
+- Migration `AddBookings` applied to LocalDB. Seed passenger added:
+  `student@upms.local` / `Student@123`.
+- `BookingService` creates bookings inside a `Serializable` transaction so the
+  capacity check and insert are atomic; online payment is simulated and confirms
+  immediately, cash stays `Reserved`/`Pending`.
+- Cancellation closes 20 minutes before departure for passengers; Admin can
+  override. Online cancellations are marked `Refunded` (simulated).
+- `BookingExpiryService` sweeps unboarded cash bookings 5 minutes before
+  departure and marks them `Expired`, releasing capacity.
+- Endpoints: `POST /api/bookings`, `GET /api/bookings/my`,
+  `GET /api/bookings` (Admin/Staff), `GET /api/bookings/{id}`,
+  `POST /api/bookings/{id}/cancel`. Trips now require an assigned bus.
+- Trip deletion is blocked when bookings exist.
+
+Frontend:
+
+- Passenger registration page; login now routes admins to the dashboard and
+  passengers to `/book`.
+- Role-aware navigation. Passengers see `Book a trip` and `My bookings`; admins
+  see the catalog plus `Bookings`.
+- `Book` shows upcoming trips with journey, bus, fare, occupancy and seats left,
+  with an inline booking panel for online/cash.
+- `My bookings` shows reference, trip, payment, status and cancellation.
+- `Bookings` admin page lists all reservations and passenger details.
+- Trip form now selects a bus; trip table shows bus and `left / booked` seats.
+  Dashboard adds bookings count and seats column.
+
+Verified live:
+
+- Online booking -> capacity 1/45; cash booking -> `Reserved`/`Pending`;
+  cancellation -> `Cancelled`/`Refunded` and capacity released.
+- Concurrency: 5 parallel bookings against capacity 1 -> one `201`, four `409`.
+- Cash no-show: trip moved to departure + 4 minutes, cash booking expired by the
+  background sweep, capacity restored; trip time restored afterwards.
+- Web and API builds pass; admin/passenger screenshots refreshed locally.
+- Graphify refreshed: 2730 nodes / 6836 edges / 112 communities.
+- Pending: owner review and approval to commit/push Slice 2. Screenshots and the
+  LocalDB test rows stay out of the repository.
+
+## 23. Ticket receipt modal (2026-11-15)
+
+Owner asked: after booking, clicking `Show ticket` should show a receipt.
+
+- `My bookings` now has a `Show ticket` action beside `Cancel`.
+- Added `TicketReceipt` modal: booking reference, passenger, route/journey,
+  departure, bus, payment method/status, fare, status and booked timestamp.
+- Receipt has a `Print receipt` action and print-only CSS; Escape or backdrop
+  click closes it, and background scrolling is locked while open.
+- Moved booking status/payment labels into `lib/bookingLabels.ts` so My bookings,
+  admin bookings and the receipt stay consistent.
+- Verified the modal in Playwright; print media shows only the receipt on one
+  page. Screenshot: `docs/screenshots/13-ticket-receipt.png`.
+- `npm run build` passes. Commit/push still pending owner approval.
+- Graphify refreshed after the receipt change: 2730 nodes / 6836 edges / 112
+  communities.
 

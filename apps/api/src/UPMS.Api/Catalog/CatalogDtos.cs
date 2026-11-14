@@ -25,8 +25,18 @@ public record TripDto(
     string Destination,
     DateTime DepartureAt,
     decimal Fare,
-    TripStatus Status);
-public record TripRequest(Guid RouteId, DateTime DepartureAt, decimal Fare, TripStatus Status = TripStatus.Scheduled);
+    TripStatus Status,
+    Guid? BusId,
+    string? BusRegistration,
+    int Capacity,
+    int BookedCount,
+    int RemainingSeats);
+public record TripRequest(
+    Guid RouteId,
+    Guid? BusId,
+    DateTime DepartureAt,
+    decimal Fare,
+    TripStatus Status = TripStatus.Scheduled);
 
 public record RouteStopRequest(Guid StopId, int Sequence, int OffsetMinutes);
 public record RouteStopNameRequest(string Name);

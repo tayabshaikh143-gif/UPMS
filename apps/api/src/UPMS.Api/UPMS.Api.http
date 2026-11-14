@@ -40,3 +40,44 @@ Content-Type: application/json
   "name": "Campus to Kotri",
   "active": true
 }
+
+### Login (passenger seed)
+POST {{UPMS.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "student@upms.local",
+  "password": "Student@123"
+}
+
+### Create an online booking (Passenger)
+POST {{UPMS.Api_HostAddress}}/api/bookings
+Authorization: Bearer {{passengerToken}}
+Content-Type: application/json
+
+{
+  "tripId": "{{tripId}}",
+  "method": 0
+}
+
+### Create a cash booking (Passenger)
+POST {{UPMS.Api_HostAddress}}/api/bookings
+Authorization: Bearer {{passengerToken}}
+Content-Type: application/json
+
+{
+  "tripId": "{{tripId}}",
+  "method": 1
+}
+
+### My bookings (Passenger)
+GET {{UPMS.Api_HostAddress}}/api/bookings/my
+Authorization: Bearer {{passengerToken}}
+
+### All bookings (Admin)
+GET {{UPMS.Api_HostAddress}}/api/bookings
+Authorization: Bearer {{token}}
+
+### Cancel a booking
+POST {{UPMS.Api_HostAddress}}/api/bookings/{{bookingId}}/cancel
+Authorization: Bearer {{passengerToken}}

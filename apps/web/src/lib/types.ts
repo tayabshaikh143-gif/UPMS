@@ -72,4 +72,29 @@ export type TripDto = {
   departureAt: string
   fare: number
   status: number
+  busId: string | null
+  busRegistration: string | null
+  capacity: number
+  bookedCount: number
+  remainingSeats: number
+}
+
+export type BookingDto = {
+  id: string
+  reference: string
+  tripId: string
+  routeCode: string
+  routeName: string
+  origin: string
+  destination: string
+  departureAt: string
+  busRegistration: string | null
+  amount: number
+  status: number
+  method: number
+  paymentStatus: number
+  createdAt: string
+  cancelledAt: string | null
+  passengerName: string
+  passengerEmail: string
 }

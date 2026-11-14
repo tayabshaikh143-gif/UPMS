@@ -33,3 +33,30 @@
     outline-offset: 2px;
   }
 }
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+  body {
+    background: #ffffff;
+  }
+  #root {
+    display: none !important;
+  }
+  #ticket-receipt-overlay {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+  }
+  #ticket-receipt {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}

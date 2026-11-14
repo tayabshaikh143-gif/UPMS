@@ -64,15 +64,39 @@ public static class Seed
 
             var vendor = new Vendor { Name = "Indus Transport Services", Status = VendorStatus.Approved };
             db.Vendors.Add(vendor);
-            db.Buses.AddRange(
-                new Bus { Registration = "SND-1001", Capacity = 45, Ownership = Ownership.University },
-                new Bus { Registration = "SND-2002", Capacity = 32, Ownership = Ownership.Vendor, Vendor = vendor }
-            );
+
+            var universityBus = new Bus { Registration = "SND-1001", Capacity = 45, Ownership = Ownership.University };
+            var vendorBus = new Bus { Registration = "SND-2002", Capacity = 32, Ownership = Ownership.Vendor, Vendor = vendor };
+            db.Buses.AddRange(universityBus, vendorBus);
 
             db.Trips.AddRange(
-                new Trip { Route = route, DepartureAt = DateTime.UtcNow.Date.AddDays(1).AddHours(8), Fare = 120m },
-                new Trip { Route = route, DepartureAt = DateTime.UtcNow.Date.AddDays(1).AddHours(16), Fare = 120m }
+                new Trip { Route = route, Bus = universityBus, DepartureAt = DateTime.UtcNow.Date.AddDays(1).AddHours(8), Fare = 120m },
+                new Trip { Route = route, Bus = universityBus, DepartureAt = DateTime.UtcNow.Date.AddDays(1).AddHours(16), Fare = 120m }
             );
+        }
+
+        var passengerEmail = config["Seed:PassengerEmail"] ?? "student@upms.local";
+        var passengerPassword = config["Seed:PassengerPassword"] ?? "Student@123";
+        if (await users.FindByEmailAsync(passengerEmail) is null)
+        {
+            var passenger = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                UserName = passengerEmail,
+                Email = passengerEmail,
+                EmailConfirmed = true,
+                FullName = "Demo Passenger"
+            };
+            await users.CreateAsync(passenger, passengerPassword);
+            await users.AddToRoleAsync(passenger, "Passenger");
+        }
+
+        var fallbackBus = await db.Buses.OrderBy(b => b.Registration).FirstOrDefaultAsync();
+        var unassignedTrips = await db.Trips.Where(t => t.BusId == null).ToListAsync();
+        if (fallbackBus is not null && unassignedTrips.Count > 0)
+        {
+            foreach (var trip in unassignedTrips)
+                trip.BusId = fallbackBus.Id;
         }
 
         await db.SaveChangesAsync();

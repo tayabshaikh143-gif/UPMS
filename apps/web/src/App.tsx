@@ -1,13 +1,18 @@
+import type { ReactElement } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useAuth } from './auth/AuthContext'
 import { AppLayout } from './components/AppLayout'
 import { Login } from './pages/Login'
+import { Register } from './pages/Register'
 import { Dashboard } from './pages/Dashboard'
 import { RoutesPage } from './pages/Routes'
 import { StopsPage } from './pages/Stops'
 import { VendorsPage } from './pages/Vendors'
 import { BusesPage } from './pages/Buses'
 import { TripsPage } from './pages/Trips'
+import { BookPage } from './pages/Book'
+import { MyBookingsPage } from './pages/MyBookings'
+import { BookingsPage } from './pages/Bookings'
 
 function Protected() {
   const { user, loading } = useAuth()
@@ -22,17 +27,75 @@ function Protected() {
   return <AppLayout />
 }
 
+function Home() {
+  const { user } = useAuth()
+  if (!user) return null
+  return user.roles.includes('Admin') ? <Dashboard /> : <Navigate to="/book" replace />
+}
+
+function AdminOnly({ children }: { children: ReactElement }) {
+  const { user } = useAuth()
+  if (!user) return null
+  return user.roles.includes('Admin') ? children : <Navigate to="/book" replace />
+}
+
 export function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route element={<Protected />}>
-        <Route index element={<Dashboard />} />
-        <Route path="routes" element={<RoutesPage />} />
-        <Route path="stops" element={<StopsPage />} />
-        <Route path="vendors" element={<VendorsPage />} />
-        <Route path="buses" element={<BusesPage />} />
-        <Route path="trips" element={<TripsPage />} />
+        <Route index element={<Home />} />
+        <Route
+          path="routes"
+          element={
+            <AdminOnly>
+              <RoutesPage />
+            </AdminOnly>
+          }
+        />
+        <Route
+          path="stops"
+          element={
+            <AdminOnly>
+              <StopsPage />
+            </AdminOnly>
+          }
+        />
+        <Route
+          path="vendors"
+          element={
+            <AdminOnly>
+              <VendorsPage />
+            </AdminOnly>
+          }
+        />
+        <Route
+          path="buses"
+          element={
+            <AdminOnly>
+              <BusesPage />
+            </AdminOnly>
+          }
+        />
+        <Route
+          path="trips"
+          element={
+            <AdminOnly>
+              <TripsPage />
+            </AdminOnly>
+          }
+        />
+        <Route
+          path="bookings"
+          element={
+            <AdminOnly>
+              <BookingsPage />
+            </AdminOnly>
+          }
+        />
+        <Route path="book" element={<BookPage />} />
+        <Route path="my-bookings" element={<MyBookingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

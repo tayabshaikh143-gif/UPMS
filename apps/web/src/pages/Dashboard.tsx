@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { ArrowRight, Bus, MapPin, Navigation, Route as RouteIcon, Users } from 'lucide-react'
+import { ArrowRight, Bus, MapPin, Navigation, Route as RouteIcon, Ticket, Users } from 'lucide-react'
 import { api } from '../lib/api'
 import { formatDateTime } from '../lib/format'
-import type { BusDto, RouteDto, StopDto, TripDto, VendorDto } from '../lib/types'
+import type { BookingDto, BusDto, RouteDto, StopDto, TripDto, VendorDto } from '../lib/types'
 import { Card, Loading, PageHeader, Table, Td, Th } from '../components/ui'
 
 const tripStatus = ['Scheduled', 'Delayed', 'Cancelled', 'Completed']
@@ -13,9 +13,15 @@ export function Dashboard() {
   const buses = useQuery({ queryKey: ['buses'], queryFn: () => api.get<BusDto[]>('/api/buses') })
   const vendors = useQuery({ queryKey: ['vendors'], queryFn: () => api.get<VendorDto[]>('/api/vendors') })
   const trips = useQuery({ queryKey: ['trips'], queryFn: () => api.get<TripDto[]>('/api/trips') })
+  const bookings = useQuery({ queryKey: ['bookings'], queryFn: () => api.get<BookingDto[]>('/api/bookings') })
 
   const loading =
-    routes.isLoading || stops.isLoading || buses.isLoading || vendors.isLoading || trips.isLoading
+    routes.isLoading ||
+    stops.isLoading ||
+    buses.isLoading ||
+    vendors.isLoading ||
+    trips.isLoading ||
+    bookings.isLoading
 
   if (loading) return <Loading />
 
@@ -25,6 +31,7 @@ export function Dashboard() {
     { label: 'Buses', value: buses.data?.length ?? 0, icon: Bus },
     { label: 'Vendors', value: vendors.data?.length ?? 0, icon: Users },
     { label: 'Trips', value: trips.data?.length ?? 0, icon: Navigation },
+    { label: 'Bookings', value: bookings.data?.length ?? 0, icon: Ticket },
   ]
 
   const upcoming = [...(trips.data ?? [])]
@@ -36,7 +43,7 @@ export function Dashboard() {
     <>
       <PageHeader title="Dashboard" subtitle="A quick view of the transport network." />
 
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
         {stats.map(({ label, value, icon: Icon }) => (
           <Card key={label} className="flex items-center gap-3">
             <div className="rounded-lg bg-brand-soft p-2 text-brand">
@@ -64,6 +71,7 @@ export function Dashboard() {
                 <Th>Journey</Th>
                 <Th>Departure</Th>
                 <Th>Fare</Th>
+                <Th>Seats</Th>
                 <Th>Status</Th>
               </tr>
             </thead>
@@ -87,6 +95,10 @@ export function Dashboard() {
                   </Td>
                   <Td>{formatDateTime(trip.departureAt)}</Td>
                   <Td>Rs {trip.fare.toFixed(2)}</Td>
+                  <Td>
+                    <span className="font-medium text-ink">{trip.remainingSeats}</span>
+                    <span className="text-xs text-muted"> / {trip.capacity}</span>
+                  </Td>
                   <Td>{tripStatus[trip.status] ?? 'Unknown'}</Td>
                 </tr>
               ))}

@@ -49,7 +49,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | `ee51438` | feat(api): slice 1 foundation, auth and catalog |
 | `3c22d1c` | feat(web): add slice 1 admin UI with route stops and edit actions |
 
-## Current implementation — Slice 1
+## Current implementation — Slices 1 and 2
 
 - `apps/api`: ASP.NET Core 8 Web API with Identity + JWT, EF Core 8, LocalDB
   database `UPMS`, migration `InitialCreate`, seeded demo catalog and admin
@@ -61,12 +61,25 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   ordered origin-to-destination timeline; admins can append or remove stops
   without entering coordinates. Routes, vendors, buses and trips all support
   inline edit forms.
-- Graphify master graph refreshed after the web app: 2629 nodes / 6486 edges /
-  101 communities (`graphify-out/`).
+- Graphify master graph refreshed after Slice 2: 2730 nodes / 6836 edges / 112
+  communities (`graphify-out/`).
 - Live verification: login, dashboard, create/edit/delete for routes, vendors,
   buses and trips, route-stop add/remove, and duplicate/error handling all pass
   in Playwright. Production build passes.
 - The web app is committed as `3c22d1c` and pushed to `main`.
+- Slice 2 adds bus assignment to trips, capacity/remaining-seat calculations,
+  passenger registration, online/cash booking, my-bookings, cancellation and an
+  admin bookings list. Capacity uses a serializable transaction; cash bookings
+  expire 5 minutes before departure via a background sweep.
+- Online payment is a demonstration gateway that confirms immediately. Online
+  cancellations are marked `Refunded` (simulated).
+- Migration `AddBookings` applied; demo passenger seeded as
+  `student@upms.local` / `Student@123`.
+- Slice 2 verification: online and cash booking, capacity decrement, cancellation
+  release, 5 parallel requests against capacity 1 (one `201`, four `409`), and a
+  cash booking expiring via the background sweep.
+- Passengers can open a printable ticket receipt from My bookings; it shows the
+  reference, passenger, journey, departure, bus, payment and fare.
 
 ## Open decisions (from SRS v1.0)
 
@@ -84,7 +97,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 - Move `UPMS_Chat_Context_Export.docx` into `docs/` once it is closed in Word.
 - Add the Step 1 proposal to the repo.
 - Architecture and UI/UX wireframes (Step 6).
-- Slice 2: booking + capacity (atomic seat hold, online/cash, cancellation,
-  no-show).
-- Decide whether to remove demo/test rows (`TEST-01`, test vendor/bus/trip)
-  from the LocalDB database.
+- Slice 3: staff boarding, offline ticket sales, incidents/replacement bus and
+  operational reports.
+- Decide whether to remove demo/test rows and test bookings from the LocalDB
+  database.

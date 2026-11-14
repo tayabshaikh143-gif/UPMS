@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
 import { api } from '../lib/api'
 import { formatDateTime } from '../lib/format'
-import type { RouteDto, TripDto } from '../lib/types'
+import type { BusDto, RouteDto, TripDto } from '../lib/types'
 import {
   Badge,
   Button,
@@ -32,6 +32,7 @@ export function TripsPage() {
   const [open, setOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [routeId, setRouteId] = useState('')
+  const [busId, setBusId] = useState('')
   const [departureAt, setDepartureAt] = useState('')
   const [fare, setFare] = useState('120')
   const [status, setStatus] = useState('0')
@@ -39,10 +40,12 @@ export function TripsPage() {
 
   const trips = useQuery({ queryKey: ['trips'], queryFn: () => api.get<TripDto[]>('/api/trips') })
   const routes = useQuery({ queryKey: ['routes'], queryFn: () => api.get<RouteDto[]>('/api/routes') })
+  const buses = useQuery({ queryKey: ['buses'], queryFn: () => api.get<BusDto[]>('/api/buses') })
 
   function startCreate() {
     setEditingId(null)
     setRouteId('')
+    setBusId('')
     setDepartureAt('')
     setFare('120')
     setStatus('0')
@@ -53,6 +56,7 @@ export function TripsPage() {
   function startEdit(trip: TripDto) {
     setEditingId(trip.id)
     setRouteId(trip.routeId)
+    setBusId(trip.busId ?? '')
     setDepartureAt(toInputValue(trip.departureAt))
     setFare(String(trip.fare))
     setStatus(String(trip.status))
@@ -63,6 +67,7 @@ export function TripsPage() {
   function closeForm() {
     setEditingId(null)
     setRouteId('')
+    setBusId('')
     setDepartureAt('')
     setFare('120')
     setStatus('0')
@@ -74,6 +79,7 @@ export function TripsPage() {
     mutationFn: async () => {
       const body = {
         routeId,
+        busId: busId || null,
         departureAt,
         fare: Number(fare),
         status: Number(status),
@@ -123,7 +129,7 @@ export function TripsPage() {
             </Button>
           </div>
           <form
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_120px_150px_auto]"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1.2fr_160px_1fr_100px_130px_auto]"
             onSubmit={(event) => {
               event.preventDefault()
               setError('')
@@ -136,6 +142,16 @@ export function TripsPage() {
                 {(routes.data ?? []).map((route) => (
                   <option key={route.id} value={route.id}>
                     {route.code} — {route.name}
+                  </option>
+                ))}
+              </Select>
+            </Field>
+            <Field label="Bus">
+              <Select value={busId} onChange={(e) => setBusId(e.target.value)} required>
+                <option value="">Select a bus</option>
+                {(buses.data ?? []).map((bus) => (
+                  <option key={bus.id} value={bus.id}>
+                    {bus.registration} — {bus.capacity} seats
                   </option>
                 ))}
               </Select>
@@ -180,6 +196,8 @@ export function TripsPage() {
               <Th>Route</Th>
               <Th>Journey</Th>
               <Th>Departure</Th>
+              <Th>Bus</Th>
+              <Th>Seats</Th>
               <Th>Fare</Th>
               <Th>Status</Th>
               {isAdmin && <Th> </Th>}
@@ -204,6 +222,13 @@ export function TripsPage() {
                   )}
                 </Td>
                 <Td>{formatDateTime(trip.departureAt)}</Td>
+                <Td className="whitespace-nowrap">{trip.busRegistration ?? '—'}</Td>
+                <Td>
+                  <div className="font-medium text-ink">{trip.remainingSeats} left</div>
+                  <div className="text-xs text-muted">
+                    {trip.bookedCount}/{trip.capacity} booked
+                  </div>
+                </Td>
                 <Td>Rs {trip.fare.toFixed(2)}</Td>
                 <Td>
                   <Badge
