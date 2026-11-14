@@ -47,6 +47,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | `a22f36e` | feat(skills): sync design, graph and interview skills; add skill-sync rule |
 | `3d9f185` | feat(diagrams): add complete ER model in table and Chen notation |
 | `ee51438` | feat(api): slice 1 foundation, auth and catalog |
+| `3c22d1c` | feat(web): add slice 1 admin UI with route stops and edit actions |
 
 ## Current implementation — Slice 1
 
@@ -62,11 +63,10 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   inline edit forms.
 - Graphify master graph refreshed after the web app: 2629 nodes / 6486 edges /
   101 communities (`graphify-out/`).
-- Live verification: login, dashboard, routes list, create for stop/vendor/bus/
-  trip, and delete for route/trip all pass in Playwright. Production build
-  passes.
-- The web app is implemented but **not yet committed** (waiting for owner
-  approval).
+- Live verification: login, dashboard, create/edit/delete for routes, vendors,
+  buses and trips, route-stop add/remove, and duplicate/error handling all pass
+  in Playwright. Production build passes.
+- The web app is committed as `3c22d1c` and pushed to `main`.
 
 ## Open decisions (from SRS v1.0)
 
@@ -79,7 +79,6 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 
 ## Known follow-ups
 
-- Commit and push the Slice 1 web app after owner approval.
 - Build the written relational schema for Step 4 (tables, types, keys, indexes).
 - Create the Step 3 `.docx` with detailed use case descriptions.
 - Move `UPMS_Chat_Context_Export.docx` into `docs/` once it is closed in Word.

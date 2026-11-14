@@ -238,9 +238,8 @@ Slice 1 API:
 - Graphify master graph refreshed after the web app: 2608 nodes / 6453 edges /
   97 communities.
 
-Pending: owner approval to commit the web app; decide whether to remove the
-test rows (`TEST-01`, `Mehran Coach Service`, `SND-4411`, `Sehwan Adda`, extra
-trip) from the LocalDB demo data.
+Committed and pushed as `3c22d1c` after owner approval. Test rows are kept as
+demo data, and all screenshots stay local (gitignored) by owner request.
 
 ## 20. UI feedback - brand size and journey details (2026-11-14)
 
@@ -282,8 +281,8 @@ section needs an edit action.
 - Verified: add/remove route stops on JS-02, edit round-trips for a route,
   vendor, bus and trip; web and API builds pass.
 - Graphify refreshed: 2629 nodes / 6486 edges / 101 communities.
-- Screenshots refreshed in `docs/screenshots/`; they are gitignored and stay
-  local. The owner wants the GitHub repo free of verification images.
+- Committed and pushed as `3c22d1c`; screenshots stay local and gitignored.
+- Screenshots refreshed in `docs/screenshots/`.
 
 
 
