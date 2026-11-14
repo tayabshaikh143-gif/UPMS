@@ -151,3 +151,43 @@ Added `UPMS_ERD_Complete` in `diagrams/erd/`: all 18 entities and 17 relationshi
 in one 1840x1240 canvas, zoned by subject area (identity, booking, network,
 fleet/incidents). The six subject ER diagrams remain as the readable detail views.
 
+
+## 14. Graphify + lazy-senior-dev (2026-11-14)
+
+Installed Graphify 0.9.108 (PyPI `graphifyy`, Apache-2.0) with `uv`;
+registered its skill and built `graphify-out/` (code-only): 459 nodes, 953
+edges, 19 communities from 12 code files. Docs/images need an LLM key. The
+owner asked to keep `graphify-out/` in the repo (not gitignored) and to map
+upcoming steps through Graphify with `graphify update .` after each module.
+
+Built `lazy-senior-dev`, our trimmed adaptation of Ponytail (MIT,
+DietrichGebert/ponytail): smallest-complete-change ladder, scope mapping,
+safety carve-outs, review/audit checklists, levels lite/full/ultra. Installed
+globally and copied to `skills/lazy-senior-dev/` with an ATTRIBUTION file.
+
+
+## 15. lazy-senior-dev disabled (2026-11-14)
+
+Owner decided not to use the Ponytail-derived `lazy-senior-dev` skill. Its
+global folder was moved to `~/.config/opencode/disabled-skills/` and the repo
+copy was moved out of the project, so it is no longer loaded. Documentation was
+updated to mark it disabled. Nothing else was deleted.
+
+## 16. Skill sync rule + UI/UX skills (2026-11-14)
+
+Added AGENTS.md rule 6: every skill the agent installs or adopts is also copied
+into `skills/<name>/` in the repo, with attribution and the upstream license.
+
+Installed four design skills and synced them into the repo: `hallmark` 2.0.0
+(MIT), `impeccable` 4.9.1 (Apache 2.0), `ui-ux-pro-max` 2.15.0, plus
+`graphify` 0.9.108 and `find-skills` (Vercel Labs, MIT). `ui-ux-pro-max`'s
+search paths were patched to the local skill folder. README and skills table
+updated.
+
+
+## 17. grilling / grill-me installed (2026-11-14)
+
+Installed Matt Pocock's `grilling` and `grill-me` skills (via npx skills),
+synced into `skills/` with attribution. `grilling` runs a design-tree
+interview in rounds and is the tool to use before implementation decisions.
+

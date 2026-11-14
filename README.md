@@ -49,6 +49,13 @@ skills/
     references/
     assets/
     scripts/
+  hallmark/                 anti-AI-slop design skill (MIT, v2.0.0)
+  impeccable/               frontend design vocabulary + audit (Apache 2.0, v4.9.1)
+  ui-ux-pro-max/            UI/UX design intelligence database (v2.15.0)
+  graphify/                 code knowledge graph skill (Apache 2.0, v0.9.108)
+  find-skills/              skill discovery via the `skills` CLI (MIT)
+  grilling/                 design-tree interview skill (Matt Pocock)
+  grill-me/                 alias that calls grilling
 ```
 
 ## Key rules fixed in the SRS

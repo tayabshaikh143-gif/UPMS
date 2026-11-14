@@ -74,6 +74,18 @@ Owner: Tayab Shaikh (`tayabshaikh143-gif` on GitHub).
 - When something is blocked (missing login, missing data, unclear decision),
   say so plainly instead of inventing a workaround.
 
+## 6. Skills — keep a copy in this repo
+
+- **Every skill the agent installs, creates, or adopts for this project must
+  also be copied into `skills/<name>/` in this repository.** A global install
+  alone is not enough; the repo is the record.
+- Keep third-party skill files unmodified. Add an `ATTRIBUTION.md` with the
+  source URL, author, version and license; include the upstream `LICENSE` when
+  one exists.
+- Update `README.md` and `AI_docs/skills-and-tooling.md` in the same change.
+- Never add `skills/` or `graphify-out/` to `.gitignore`.
+- Ask for permission before committing a newly added skill, like any module.
+
 ---
 
 ## Corrections Log

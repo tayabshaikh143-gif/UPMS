@@ -6,6 +6,14 @@
 |---|---|---|
 | `use-case-diagram` | `C:\Users\Taha\.config\opencode\skill\use-case-diagram\` | Built in this project. UML use case modelling + JSON renderer (SVG/PNG, optional PlantUML). |
 | `diagram-design` | `C:\Users\Taha\.config\opencode\skill\diagram-design\` | Third-party, MIT, v2.6. 45 diagram types, editorial HTML + SVG. Source: https://github.com/cathrynlavery/diagram-design |
+| `lazy-senior-dev` | `C:\Users\Taha\.config\opencode\skill\lazy-senior-dev\` | Our adaptation of Ponytail (MIT). **Disabled by owner on 2026-11-14** — moved to `disabled-skills/`, not loaded. |
+| `hallmark` | `C:\Users\Taha\.config\opencode\skill\hallmark\` | Anti-AI-slop design skill, v2.0.0, MIT. Floor rules, 50 themes, slop lint, audit/redesign/study. |
+| `impeccable` | `C:\Users\Taha\.config\opencode\skill\impeccable\` | Design vocabulary for coding agents, v4.9.1, Apache 2.0. Modes, critique/audit/polish/adapt, design system. |
+| `ui-ux-pro-max` | `C:\Users\Taha\.config\opencode\skill\ui-ux-pro-max\` | Design intelligence database v2.15.0. Local search (styles, palettes, fonts, UX rules, stacks). Search paths patched to local skill folder. |
+| `graphify` | `C:\Users\Taha\.config\opencode\skills\graphify\` | Installed by Graphify 0.9.108. Code knowledge graph + query/path/explain. |
+| `find-skills` | `C:\Users\Taha\.agents\skills\find-skills\` | Vercel Labs skill discovery via `npx skills find` / `add`. MIT. |
+| `grilling` | `C:\Users\Taha\.agents\skills\grilling\` | Matt Pocock. Relentless design-tree interview in rounds; use before big decisions. |
+| `grill-me` | `C:\Users\Taha\.agents\skills\grill-me\` | User-invoked alias for `grilling`. |
 
 Both are also copied into the repo under `skills/`.
 
@@ -65,3 +73,20 @@ chrome --headless=new --disable-gpu --hide-scrollbars --no-first-run `
   `diagrams/sequence/`), always `.html` + `.png` + `.svg`.
 - Every completed module updates `README.md` and the files in `AI_docs/`.
 - Word deliverables: one `.docx` per project step (SRS already done).
+
+## Graphify workflow
+
+Graphify 0.9.108 is installed (`graphify`, `graphify-mcp`) and its skill is
+registered. The project graph lives in `graphify-out/` and is **kept in the
+repo** — do not add it to `.gitignore` (owner's instruction).
+
+- Refresh after code changes: `graphify update .`
+- Ask the graph before grepping: `graphify query "..."`,
+  `graphify path "A" "B"`, `graphify explain "X"`
+- Full rebuild: `graphify .` (code-only needs no key; docs/images need an LLM
+  key such as `GEMINI_API_KEY`, `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or
+  `DEEPSEEK_API_KEY`)
+- After each module: refresh the graph, then commit it with the module.
+- The current graph is code-only: 459 nodes / 953 edges / 19 communities from
+  12 code files. Docs and images were skipped without an LLM key.
+
