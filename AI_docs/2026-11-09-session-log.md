@@ -191,3 +191,20 @@ Installed Matt Pocock's `grilling` and `grill-me` skills (via npx skills),
 synced into `skills/` with attribution. `grilling` runs a design-tree
 interview in rounds and is the tool to use before implementation decisions.
 
+## 18. Slice 1 — backend foundation (2026-11-14)
+
+Stack confirmed: .NET 8 (installed SDK), React 19 + Vite later, EF Core 8, SQL
+Server LocalDB (MSSQLLocalDB). Repo layout: `apps/api` and `apps/web`.
+
+Built `apps/api`: ASP.NET Core Web API, Identity + JWT (roles Admin,
+Passenger, Staff, Vendor), EF Core entities for Route, Stop, RouteStop, Vendor,
+Bus, Trip, LocalDB database `UPMS`, migration `InitialCreate`, demo seed
+(route JS-01, 4 stops, 2 buses, vendor, 2 trips) and admin seed
+`admin@upms.local`. Endpoints for auth and catalog CRUD are live.
+
+Verified: build clean, migration applied, `/health` ok, admin login returns
+JWT, routes/trips seeded, passenger registration works, anonymous POST -> 401,
+passenger POST -> 403, admin POST -> 201. Graphify graph refreshed:
+2441 nodes / 6023 edges / 93 communities.
+
+

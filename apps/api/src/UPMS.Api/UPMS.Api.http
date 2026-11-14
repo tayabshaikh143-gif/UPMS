@@ -1,0 +1,42 @@
+@UPMS.Api_HostAddress = http://localhost:5080
+
+### Health
+GET {{UPMS.Api_HostAddress}}/health
+
+### Login (admin seed)
+POST {{UPMS.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@upms.local",
+  "password": "Admin@12345"
+}
+
+### Register a passenger
+POST {{UPMS.Api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "student@upms.local",
+  "password": "Student@123",
+  "fullName": "Demo Student"
+}
+
+### List routes (paste the token)
+GET {{UPMS.Api_HostAddress}}/api/routes
+Authorization: Bearer {{token}}
+
+### List trips
+GET {{UPMS.Api_HostAddress}}/api/trips
+Authorization: Bearer {{token}}
+
+### Create a route (Admin)
+POST {{UPMS.Api_HostAddress}}/api/routes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "code": "JS-02",
+  "name": "Campus to Kotri",
+  "active": true
+}

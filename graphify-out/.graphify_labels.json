@@ -1,1 +1,18 @@
-{"0": "mermaid_extract.py", "1": "drawio_extract.py", "2": "self_check.py", "3": "excalidraw_extract.py", "4": "usecase_diagram.py", "5": "export_svg.py", "6": "decode_xml_references", "7": "UPMS_UseCase_Diagram_Simple.json", "8": "export_svg_document", "9": "upms-simple.json", "10": "normalize_rgba_presentation_attrs", "11": "UPMS_UseCase_Diagram.json", "12": "css_escape", "13": "_CssRule", "14": "_rewrite_start_tags", "15": "upms.json", "16": "mini.json", "17": "normalize_html_entities", "18": "assert_export_gate"}
+{
+  "0": "mermaid_extract.py",
+  "2": "self_check.py",
+  "3": "excalidraw_extract.py",
+  "4": "usecase_diagram.py",
+  "6": "decode_xml_references",
+  "7": "UPMS_UseCase_Diagram_Simple.json",
+  "8": "export_svg_document",
+  "9": "upms-simple.json",
+  "10": "normalize_rgba_presentation_attrs",
+  "11": "UPMS_UseCase_Diagram.json",
+  "12": "css_escape",
+  "13": "_CssRule",
+  "14": "_rewrite_start_tags",
+  "15": "upms.json",
+  "16": "mini.json",
+  "17": "normalize_html_entities"
+}

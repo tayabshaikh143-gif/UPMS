@@ -9,6 +9,17 @@ __pycache__/
 .venv/
 venv/
 
+# .NET
+bin/
+obj/
+*.user
+
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
 # OS / editor
 Thumbs.db
 Desktop.ini

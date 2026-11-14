@@ -20,7 +20,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | pending (React + ASP.NET Core + SQL Server + EF Core is only a proposal) |
-| 8 | Implementation and testing | pending |
+| 8 | Implementation and testing | in progress — Slice 1 backend (foundation + auth + catalog) running |
 
 ## Repository
 

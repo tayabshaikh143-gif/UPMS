@@ -37,6 +37,10 @@ diagrams/                   rendered project diagrams
   UPMS_UseCase_Diagram_Simple.png / .svg / .json   clean 2-column view (recommended)
   UPMS_UseCase_Diagram.png / .svg / .json          detailed view with «include»/«extend»
 Initial_daigrams/           early Mermaid workflow sketches
+apps/                       implemented software
+  api/                      ASP.NET Core 8 + EF Core + LocalDB (Slice 1)
+    UPMS.sln
+    src/UPMS.Api/
 AI_docs/                    session memory: status, logs, inventory, tooling
 skills/
   use-case-diagram/         opencode skill: UML use case modelling + SVG/PNG renderer
