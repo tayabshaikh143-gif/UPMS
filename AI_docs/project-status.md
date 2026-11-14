@@ -20,7 +20,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React 19 + ASP.NET Core 8 + EF Core 8 + SQL Server LocalDB |
-| 8 | Implementation and testing | in progress — Slice 1 API committed; Slice 1 web app built, pending commit |
+| 8 | Implementation and testing | in progress — Slices 1–2 API + web; Slice 2 committed locally, push pending |
 
 ## Repository
 
@@ -48,6 +48,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | `3d9f185` | feat(diagrams): add complete ER model in table and Chen notation |
 | `ee51438` | feat(api): slice 1 foundation, auth and catalog |
 | `3c22d1c` | feat(web): add slice 1 admin UI with route stops and edit actions |
+| `89d4a1e` | feat(bookings): add ticket booking, capacity control and receipts |
 
 ## Current implementation — Slices 1 and 2
 
@@ -80,6 +81,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   cash booking expiring via the background sweep.
 - Passengers can open a printable ticket receipt from My bookings; it shows the
   reference, passenger, journey, departure, bus, payment and fare.
+- Slice 2 is committed locally as `89d4a1e`; push is pending owner permission.
 
 ## Open decisions (from SRS v1.0)
 
