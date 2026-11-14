@@ -20,7 +20,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React 19 + ASP.NET Core 8 + EF Core 8 + SQL Server LocalDB |
-| 8 | Implementation and testing | in progress — Slices 1–2 API + web; Slice 2 committed locally, push pending |
+| 8 | Implementation and testing | in progress — Slices 1–2 API + web; Slice 2 committed and pushed |
 
 ## Repository
 
@@ -81,7 +81,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   cash booking expiring via the background sweep.
 - Passengers can open a printable ticket receipt from My bookings; it shows the
   reference, passenger, journey, departure, bus, payment and fare.
-- Slice 2 is committed locally as `89d4a1e`; push is pending owner permission.
+- Slice 2 is committed as `89d4a1e` and pushed to `main`.
 
 ## Open decisions (from SRS v1.0)
 

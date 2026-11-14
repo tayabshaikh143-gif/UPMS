@@ -333,8 +333,8 @@ Verified live:
   background sweep, capacity restored; trip time restored afterwards.
 - Web and API builds pass; admin/passenger screenshots refreshed locally.
 - Graphify refreshed: 2730 nodes / 6836 edges / 112 communities.
-- Pending: push `89d4a1e` after owner permission. Screenshots and the LocalDB
-  test rows stay out of the repository.
+- Committed and pushed as `89d4a1e` after owner approval. Screenshots and the
+  LocalDB test rows stay out of the repository.
 
 ## 23. Ticket receipt modal (2026-11-15)
 
@@ -349,8 +349,7 @@ Owner asked: after booking, clicking `Show ticket` should show a receipt.
   admin bookings and the receipt stay consistent.
 - Verified the modal in Playwright; print media shows only the receipt on one
   page. Screenshot: `docs/screenshots/13-ticket-receipt.png`.
-- `npm run build` passes. Committed locally as `89d4a1e`; push still pending
-  owner permission.
+- `npm run build` passes. Committed and pushed as `89d4a1e` after owner approval.
 - Graphify refreshed after the receipt change: 2730 nodes / 6836 edges / 112
   communities.
 
