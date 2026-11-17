@@ -448,6 +448,7 @@ Added the remaining data-model pieces and wired the booking ledger.
 - Pending: staff/trip assignment endpoints/UI, offline-ticket issuance flow,
   notification UI, vendor/staff portals and broader audit coverage.
 - Graphify refreshed: 2920 nodes / 7245 edges / 117 communities.
+- Committed as `13a3dc1` on `main` (not pushed yet).
 
 
 
