@@ -477,6 +477,7 @@ Added the remaining data-model pieces and wired the booking ledger.
   `24-admin-vendor-approved.png`, `25-vendor-portal.png`.
 - Pending: vendor bus maintenance, staff portal, offline tickets, notification UI
   and broader admin audit coverage.
+- Committed as `ae869f8` on `main`.
 
 
 
