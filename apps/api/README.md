@@ -47,6 +47,11 @@ Change the seed values in `appsettings.json` before any real deployment.
 | GET | `/api/bookings` | Admin, Staff |
 | GET | `/api/bookings/{id}` | owner, Admin or Staff |
 | POST | `/api/bookings/{id}/cancel` | owner or Admin |
+| GET | `/api/notifications/my` | authenticated (own notifications) |
+| POST | `/api/notifications/{id}/read` | authenticated (own notification) |
+| GET | `/api/audit?take=` | Admin |
+| GET | `/api/vendors/{id}/settlements` | Admin, Staff |
+| POST | `/api/vendors/{id}/settlements` | Admin |
 
 Catalog writes validate references and uniqueness: duplicate route codes or bus
 registrations return `409 Conflict` with a readable `message`, missing routes or
@@ -54,11 +59,30 @@ vendors return `400 Bad Request`, and admin-only endpoints return `403` for
 other roles.
 
 Trip responses include the route name and the journey endpoints (`origin` and
-`destination`), derived from the route's first and last ordered stops.
+`destination`), derived from the route's first and last ordered stops. They also
+include the ordered `stops` list and cancellation fields (`cancelledAt`,
+`cancellationReason`).
 
 Trips require an assigned bus. Capacity and remaining seats come from that bus,
-minus active bookings (`Reserved`, `Confirmed`, `Boarded`). Booking creation runs
-in a serializable transaction so the last seat cannot be double-booked.
+minus active bookings (`Reserved`, `Confirmed`, `Boarded`). Inactive buses cannot
+be assigned to a trip. Booking creation runs in a serializable transaction so the
+last seat cannot be double-booked.
+
+Cancelling a trip through `PUT /api/trips/{id}` with `status = Cancelled` also
+cancels its active bookings, marks paid bookings refunded and records the reason.
+The same update can restore a cancelled trip; this clears the cancellation fields.
+
+Time zone and cutoff settings live in `appsettings.json` under `Bookings`:
+
+```json
+"Bookings": {
+  "TimeZoneId": "Asia/Karachi",
+  "CancellationCutoffMinutes": 20,
+  "CashNoShowMinutes": 5,
+  "BoardingStartMinutes": 20,
+  "OnlinePaymentHoldMinutes": 10
+}
+```
 
 Booking rules in this slice:
 
@@ -68,6 +92,18 @@ Booking rules in this slice:
 - Unboarded cash bookings expire 5 minutes before departure (background sweep).
 - Passenger cancellation is allowed until 20 minutes before departure.
 - Online cancellations mark the payment as `Refunded` (simulated).
+- Boarding opens 20 minutes before departure by default (configurable).
+- Payments and refunds are written to separate `Payments` and `Refunds` records;
+  `Bookings` keeps a payment snapshot for quick reads.
+- Online approval uses `PaymentStatus.Approved` (5); cash collection uses `Paid`.
+- Booking, payment, cancellation and trip-cancellation actions are written to
+  `AuditLogs`.
+- Trip cancellation creates in-app `Notifications` for affected passengers.
+- Vendors have an optional user link, contact, monthly subscription and
+  settlement records.
+- Staff profiles and trip/staff assignments are modelled for the staff portal;
+  the offline-ticket, notification and vendor/staff UI flows arrive in Slice 3.
+- Registration accepts an optional phone number for later offline-ticket use.
 
 ## Database
 

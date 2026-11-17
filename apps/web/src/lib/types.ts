@@ -51,6 +51,10 @@ export type VendorDto = {
   name: string
   status: number
   busCount: number
+  userId: string | null
+  contact: string | null
+  monthlySubscription: number
+  subscriptionStatus: number
 }
 
 export type BusDto = {
@@ -60,6 +64,7 @@ export type BusDto = {
   ownership: number
   vendorId: string | null
   vendorName: string | null
+  active: boolean
 }
 
 export type TripDto = {
@@ -77,6 +82,9 @@ export type TripDto = {
   capacity: number
   bookedCount: number
   remainingSeats: number
+  stops: RouteStopDto[]
+  cancelledAt: string | null
+  cancellationReason: string | null
 }
 
 export type BookingDto = {

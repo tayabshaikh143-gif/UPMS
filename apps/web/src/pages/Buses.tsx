@@ -28,6 +28,7 @@ export function BusesPage() {
   const [capacity, setCapacity] = useState('45')
   const [ownership, setOwnership] = useState('0')
   const [vendorId, setVendorId] = useState('')
+  const [active, setActive] = useState('true')
   const [error, setError] = useState('')
 
   const buses = useQuery({ queryKey: ['buses'], queryFn: () => api.get<BusDto[]>('/api/buses') })
@@ -39,6 +40,7 @@ export function BusesPage() {
     setCapacity('45')
     setOwnership('0')
     setVendorId('')
+    setActive('true')
     setError('')
     setOpen(true)
   }
@@ -49,6 +51,7 @@ export function BusesPage() {
     setCapacity(String(bus.capacity))
     setOwnership(String(bus.ownership))
     setVendorId(bus.vendorId ?? '')
+    setActive(bus.active ? 'true' : 'false')
     setError('')
     setOpen(true)
   }
@@ -59,6 +62,7 @@ export function BusesPage() {
     setCapacity('45')
     setOwnership('0')
     setVendorId('')
+    setActive('true')
     setError('')
     setOpen(false)
   }
@@ -70,6 +74,7 @@ export function BusesPage() {
         capacity: Number(capacity),
         ownership: Number(ownership),
         vendorId: Number(ownership) === 1 && vendorId ? vendorId : null,
+        active: active === 'true',
       }
       if (editingId) {
         await api.put<void>(`/api/buses/${editingId}`, body)
@@ -113,7 +118,7 @@ export function BusesPage() {
             </Button>
           </div>
           <form
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_120px_160px_1fr_auto]"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_100px_150px_1fr_130px_auto]"
             onSubmit={(event) => {
               event.preventDefault()
               setError('')
@@ -153,6 +158,12 @@ export function BusesPage() {
                 ))}
               </Select>
             </Field>
+            <Field label="Status">
+              <Select value={active} onChange={(e) => setActive(e.target.value)}>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+              </Select>
+            </Field>
             <div className="flex items-end">
               <Button type="submit" disabled={save.isPending}>
                 {save.isPending ? 'Saving…' : editingId ? 'Update' : 'Save'}
@@ -174,6 +185,7 @@ export function BusesPage() {
               <Th>Capacity</Th>
               <Th>Ownership</Th>
               <Th>Vendor</Th>
+              <Th>Status</Th>
               {isAdmin && <Th> </Th>}
             </tr>
           </thead>
@@ -188,6 +200,11 @@ export function BusesPage() {
                   </Badge>
                 </Td>
                 <Td>{bus.vendorName ?? '—'}</Td>
+                <Td>
+                  <Badge tone={bus.active ? 'success' : 'neutral'}>
+                    {bus.active ? 'Active' : 'Inactive'}
+                  </Badge>
+                </Td>
                 {isAdmin && (
                   <Td>
                     <Button

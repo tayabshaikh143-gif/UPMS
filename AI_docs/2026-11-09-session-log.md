@@ -353,3 +353,103 @@ Owner asked: after booking, clicking `Show ticket` should show a receipt.
 - Graphify refreshed after the receipt change: 2730 nodes / 6836 edges / 112
   communities.
 
+## 24. Requirements and design review (2026-11-15)
+
+Owner asked for a full review of the SRS, diagrams and current implementation,
+with any requirement conflicts or discrepancies reported before fixing them.
+
+- Reviewed SRS v1.0, 2 use case diagrams, 6 activity, 6 sequence, 4 class and
+  8 ER diagrams, plus the Slice 1–2 code.
+- Wrote `docs/UPMS_Requirements_Review_2026-11-15.md` with prioritised findings,
+  diagram/document inconsistencies, missing deliverables, planned scope and a
+  decision checklist.
+- Highest-priority items: undefined timezone/schedule semantics; trip
+  cancellation not cascading to bookings/refunds; missing
+  `TripVehicleAssignment` history; missing vendor/staff identity and trip
+  assignment links; missing offline-ticket/passenger phone data; missing
+  Payment/Refund/AuditLog records; passengers cannot browse intermediate stops.
+- No SRS, diagram or code change has been made yet. Report is uncommitted and
+  awaiting owner decisions.
+
+## 25. SRS v1.1 + diagram alignment (2026-11-17)
+
+Owner approved the suggested next order and confirmed three changes to the
+proposed defaults: boarding starts 20 minutes before departure, online payment
+shows Pending → Approved, and vendor-operated bus fares are retained by the
+vendor who pays the university a monthly subscription.
+
+- Created `docs/UPMS_Step_2_SRS_v1.1.docx` (v1.0 retained as history):
+  - document control upgraded to v1.1 implementation baseline;
+  - FR-27..FR-32 added for timezone, payment statuses, vendor settlement, bus
+    active status, trip-cancellation cascade and audit logging;
+  - BR-11..BR-16 and §6.5 vendor settlement added;
+  - §7 data list updated (VendorSettlement, Payment statuses, CheckIn method,
+    Notification links, phone, TripVehicleAssignment reason);
+  - §10 old open decisions replaced by resolved decisions and remaining risks;
+  - §11 stack marked approved;
+  - §13 decision log added.
+- Updated selected diagrams: use case subtitles to SRS v1.1, class Trip capacity
+  annotated from Bus, Payment approvedAt, RouteStop.isPickup removed, booking
+  activity Pending → Approved, cancellation full refund, no-show T-20/T-5,
+  sequence cancellation full refund.
+- Regenerated affected SVGs/PNGs with the bundled renderers.
+- Added `UPMS_ERD_v1.1_Additions` (HTML/SVG/PNG) showing VendorSettlement,
+  Vendor user link, Bus.Active, Payment/Refund fields, TripStaffAssignment,
+  Notification links and AuditLog fields; linked it from the complete ERD.
+- Remaining structural diagram/code alignment is tracked in
+  `docs/UPMS_Requirements_Review_2026-11-15.md`.
+
+## 26. SRS v1.1 code alignment - phase 1 (2026-11-17)
+
+Started the high-priority code alignment from the review.
+
+- Added `BookingOptions` + `IClock`: Asia/Karachi wall-clock, cancellation 20,
+  cash no-show 5, boarding start 20, online hold 10 minutes. API now reads
+  `Bookings:*` from `appsettings.json`; BookingService and expiry use the clock.
+- Added `Bus.Active` with `AddSrsV11Alignment` and `BusActiveDefault` migrations
+  (existing buses set active). Trip create/update rejects inactive buses; bus
+  update blocks capacity below active bookings; admin Buses page has status.
+- Added `Trip.CancelledAt` + `CancellationReason`. Updating a trip to Cancelled
+  cascades active bookings to Cancelled/Refunded and records the reason; restoring
+  the trip clears those fields. Trips page shows a reason field when Cancelled.
+- `TripDto` now includes ordered `stops`, `cancelledAt` and
+  `cancellationReason`; passenger Book page has a search box and expandable
+  stop lists.
+- Seed now ensures two upcoming demo trips exist when the seeded dates pass.
+- Verified: trip cancellation cascade (booking status 2, payment 2, reason
+  saved, trip restored), inactive bus rejected with 400, future trips visible,
+  trip stops/search in the passenger UI, web/API builds pass.
+- Pending: separate Payment/Refund/AuditLog records, VendorSettlement + Vendor
+  user link, staff/trip assignment, Notification trip/booking links, phone
+  capture and offline-ticket model.
+- Graphify refreshed: 2764 nodes / 6931 edges / 111 communities.
+
+## 27. SRS v1.1 code alignment - phase 2 (2026-11-17)
+
+Added the remaining data-model pieces and wired the booking ledger.
+
+- New entities: `Payment`, `Refund`, `AuditLog`, `VendorSettlement`,
+  `StaffProfile`, `TripStaffAssignment`, `Notification`, `OfflineTicket`.
+- Vendor gained `UserId`, contact, monthly subscription and subscription status;
+  registration now stores an optional phone number.
+- `PaymentStatus` gained `Approved` (4). Existing online paid bookings were
+  migrated to Approved; cash uses Paid.
+- Migration `AddPaymentAuditVendorPhase2` created the tables and backfilled
+  Payments/Refunds from the existing Booking snapshot.
+- BookingService now creates Payment rows, writes audit actions, creates Refund
+  records on cancellation and updates payment status. Trip cancellation cascades
+  bookings/refunds and creates in-app notifications for affected passengers.
+- Added APIs: vendor settlements (`GET/POST /api/vendors/{id}/settlements`),
+  my notifications + mark read, and admin audit list.
+- Verified: backfill (10 payments / 5 refunds), new booking creates
+  BookingCreated + PaymentApproved audit rows, cancel creates a Refund and
+  BookingCancelled/RefundProcessed rows, vendor settlement create/list works,
+  trip cancellation creates notifications and TripCancelled audit.
+- Pending: staff/trip assignment endpoints/UI, offline-ticket issuance flow,
+  notification UI, vendor/staff portals and broader audit coverage.
+- Graphify refreshed: 2920 nodes / 7245 edges / 117 communities.
+
+
+
+
+

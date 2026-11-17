@@ -8,6 +8,6 @@ public class JwtOptions
     public int ExpiryHours { get; set; } = 8;
 }
 
-public record RegisterRequest(string Email, string Password, string FullName);
+public record RegisterRequest(string Email, string Password, string FullName, string? Phone = null);
 public record LoginRequest(string Email, string Password);
 public record AuthResponse(string Token, Guid UserId, string Email, string FullName, IReadOnlyList<string> Roles);

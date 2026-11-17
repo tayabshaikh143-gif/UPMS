@@ -1,6 +1,6 @@
 # Project status — UPMS
 
-Last updated: 2026-11-14
+Last updated: 2026-11-17
 
 ## What this project is
 
@@ -14,13 +14,13 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | Step | Deliverable | Status |
 |---|---|---|
 | 1 | Project proposal | drafted earlier; file not in this repo yet |
-| 2 | SRS v1.0 | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
+| 2 | SRS v1.1 | done — `docs/UPMS_Step_2_SRS_v1.1.docx` (v1.0 retained as history) |
 | 3 | Use case diagram + detailed descriptions | diagrams done (simple + detailed); `.docx` of descriptions pending |
 | 4 | ERD and relational database design | in progress — 8 ER diagrams (6 subject + table-style complete + Chen complete), schema document pending |
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React 19 + ASP.NET Core 8 + EF Core 8 + SQL Server LocalDB |
-| 8 | Implementation and testing | in progress — Slices 1–2 API + web; Slice 2 committed and pushed |
+| 8 | Implementation and testing | in progress - Slices 1-2 + SRS v1.1 alignment; phase 2 uncommitted |
 
 ## Repository
 
@@ -62,7 +62,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   ordered origin-to-destination timeline; admins can append or remove stops
   without entering coordinates. Routes, vendors, buses and trips all support
   inline edit forms.
-- Graphify master graph refreshed after Slice 2: 2730 nodes / 6836 edges / 112
+- Graphify master graph refreshed after phase 2: 2920 nodes / 7245 edges / 117
   communities (`graphify-out/`).
 - Live verification: login, dashboard, create/edit/delete for routes, vendors,
   buses and trips, route-stop add/remove, and duplicate/error handling all pass
@@ -82,15 +82,49 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 - Passengers can open a printable ticket receipt from My bookings; it shows the
   reference, passenger, journey, departure, bus, payment and fare.
 - Slice 2 is committed as `89d4a1e` and pushed to `main`.
+- SRS v1.1 created with the confirmed decisions and a decision log. Selected
+  diagrams were aligned (SRS v1.1 label, capacity from bus, approved payment,
+  20-minute boarding, full refund); structural diagram updates are captured in
+  `UPMS_ERD_v1.1_Additions`.
+- SRS v1.1 code alignment started: configurable timezone/cutoffs, `Bus.Active`,
+  trip cancellation reason + booking cascade/refund status, trip stops in the
+  DTO and passenger search/stops on the booking page.
+- Phase 2 data model is in place: separate `Payments`, `Refunds` and `AuditLogs`;
+  `VendorSettlement`, Vendor user/contact/subscription fields, `StaffProfile`,
+  `TripStaffAssignment`, `Notification` and `OfflineTicket` entities. Existing
+  bookings/payments were backfilled; online payments now show `Approved`.
+- Booking create/cancel and trip cancellation write payment/refund/audit rows;
+  trip cancellation creates in-app notifications. Vendor settlements, my
+  notifications and the admin audit list have API endpoints.
+- Registration accepts an optional phone number.
 
-## Open decisions (from SRS v1.0)
+## Decisions fixed in SRS v1.1
 
-1. Online cancellation refund amount/fee and the actual refund workflow.
-2. Default boarding start time before departure (admin-configurable; no default agreed).
-3. Minimum passenger information for an offline ticket.
-4. Online payment session hold expiry.
-5. Fare structure and vendor settlement rules.
-6. Whether a real payment gateway is feasible (otherwise label the flow as a simulation).
+1. Online cancellation before the 20-minute cutoff: full refund, no fee; the
+   demo gateway is simulated and administrator exceptions are recorded.
+2. Boarding opens 20 minutes before departure by default (configurable); the
+   cash no-show cutoff remains 5 minutes before departure.
+3. Offline tickets capture passenger name + phone, issuing staff and timestamp.
+4. All schedule times are Asia/Karachi wall-clock time; server/database session
+   timezone must match. UTC migration is future work.
+5. Online payment sessions have a 10-minute hold; the demo gateway confirms
+   instantly.
+6. Vendor-operated bus fares are retained by the vendor, who pays the university
+   a monthly subscription. University-owned bus fares accrue to the university.
+7. One booking reserves one seat for one passenger; group booking is out of scope.
+8. Admin cancellation after the cutoff is allowed for operational reasons and is
+   audited.
+9. Notifications are in-app only for the MVP.
+10. Separate Payment/Refund records and an audit log are planned; the current
+    code still embeds payment fields on Booking.
+
+## Open decisions and risks
+
+1. Real payment-provider integration and provider refund workflow.
+2. Subscription collection/reporting and monthly settlement enforcement.
+3. Timezone deployment outside Asia/Karachi (UTC migration).
+4. Email/SMS/push notification delivery.
+5. Detailed operational reports and audit-log retention.
 
 ## Known follow-ups
 
@@ -99,7 +133,25 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 - Move `UPMS_Chat_Context_Export.docx` into `docs/` once it is closed in Word.
 - Add the Step 1 proposal to the repo.
 - Architecture and UI/UX wireframes (Step 6).
+- Reconcile remaining code with SRS v1.1: staff/trip assignment endpoints/UI,
+  offline-ticket flow, notification UI, vendor/staff portals and audit coverage
+  for all admin actions.
 - Slice 3: staff boarding, offline ticket sales, incidents/replacement bus and
   operational reports.
 - Decide whether to remove demo/test rows and test bookings from the LocalDB
   database.
+- Decide what to do with the 12 MB raw session export in `AI_docs/sessions/`
+  (commit, keep local, or drop now that the digest exists).
+
+## Session archive
+
+- `AI_docs/sessions/2026-11-03_2026-11-15-session-e5e0c278-digest.md` — digest
+  of the long build chat `ses_e5e0c2789ffeTpaTQFNjk2wr9K` (2026-11-03 →
+  2026-11-15): 44 owner requests, deliverables, decisions, corrections, open
+  items.
+- `AI_docs/sessions/session-075912de-d724-4fdf-a17a-d91add73d749.md` — the raw
+  export of that chat (~12 MB, untracked).
+- The live session was moved into this project on 2026-11-15 with
+  `session_move`; it now belongs to the UPMS project
+  `21081e0fc24af1ae3063977eae4fab8023faada0`. A stale legacy row for the same
+  session still sits under `project_id = global` in the old session table.

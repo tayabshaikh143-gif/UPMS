@@ -35,6 +35,7 @@ public class AuthController : ControllerBase
             UserName = email,
             Email = email,
             FullName = request.FullName.Trim(),
+            PhoneNumber = string.IsNullOrWhiteSpace(request.Phone) ? null : request.Phone.Trim(),
             EmailConfirmed = true
         };
 

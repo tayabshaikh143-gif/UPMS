@@ -45,15 +45,15 @@ Demo passenger: `student@upms.local` / `Student@123`.
 | Route | Page | Notes |
 |---|---|---|
 | `/login` | Sign in | JWT stored in `localStorage`, restored on reload |
-| `/register` | Register | Creates a Passenger account and signs in |
+| `/register` | Register | Creates a Passenger account (optional phone) and signs in |
 | `/` | Dashboard | Admin catalog counts, bookings and upcoming trips |
 | `/routes` | Routes | Admin create/edit/delete |
 | `/stops` | Route stops | Ordered stops per route; admin add/remove by name |
-| `/vendors` | Vendors | Admin create/edit with approval status |
-| `/buses` | Buses | Admin create/edit, vendor selection for vendor-owned buses |
-| `/trips` | Trips | Admin create/edit/delete, bus assignment and seat counts |
+| `/vendors` | Vendors | Admin create/edit, approval status, contact and monthly subscription |
+| `/buses` | Buses | Admin create/edit, active/inactive status, vendor selection |
+| `/trips` | Trips | Admin create/edit/delete, bus assignment, seat counts, cancellation reason |
 | `/bookings` | Bookings | Admin list of all reservations |
-| `/book` | Book a trip | Passenger trip cards with online/cash booking |
+| `/book` | Book a trip | Passenger trip cards with search, stops, online/cash booking |
 | `/my-bookings` | My bookings | Passenger ticket references, status, printable receipt and cancellation |
 
 Passengers are routed to `/book` after login and see only the booking pages.
@@ -70,5 +70,8 @@ still enforces authorization on every request.
 - Online payment is a demonstration gateway and confirms immediately. Cash
   bookings stay reserved until the passenger is marked boarded or the 5-minute
   pre-departure cutoff expires them.
-- The frontend covers Slices 1–2. Boarding, staff offline tickets, incidents and
-  reports arrive in later slices.
+- Boarding opens 20 minutes before departure by default; the cancellation and
+  cash cutoffs are shared constants in `src/lib/bookingLabels.ts`.
+- The frontend covers Slices 1–2 plus the SRS v1.1 alignment (bus status,
+  cancellation reason, passenger stops/search). Boarding, staff offline tickets,
+  incidents and reports arrive in later slices.

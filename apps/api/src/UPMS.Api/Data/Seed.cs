@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using UPMS.Api.Bookings;
 using UPMS.Api.Data;
 
 namespace UPMS.Api.Data;
@@ -84,6 +85,7 @@ public static class Seed
                 Id = Guid.NewGuid(),
                 UserName = passengerEmail,
                 Email = passengerEmail,
+                PhoneNumber = "03000000000",
                 EmailConfirmed = true,
                 FullName = "Demo Passenger"
             };
@@ -97,6 +99,35 @@ public static class Seed
         {
             foreach (var trip in unassignedTrips)
                 trip.BusId = fallbackBus.Id;
+        }
+
+        // Keep the demo useful when the seeded dates have passed: ensure at least
+        // two upcoming scheduled trips exist on the first route.
+        var clock = services.GetRequiredService<IClock>();
+        var hasUpcomingTrip = await db.Trips.AnyAsync(t =>
+            t.DepartureAt > clock.Now && t.Status == TripStatus.Scheduled);
+        if (!hasUpcomingTrip)
+        {
+            var demoRoute = await db.Routes.OrderBy(r => r.Code).FirstOrDefaultAsync();
+            var demoBus = await db.Buses.Where(b => b.Active).OrderBy(b => b.Registration).FirstOrDefaultAsync();
+            if (demoRoute is not null && demoBus is not null)
+            {
+                db.Trips.AddRange(
+                    new Trip
+                    {
+                        RouteId = demoRoute.Id,
+                        BusId = demoBus.Id,
+                        DepartureAt = clock.Now.Date.AddDays(1).AddHours(8),
+                        Fare = 120m
+                    },
+                    new Trip
+                    {
+                        RouteId = demoRoute.Id,
+                        BusId = demoBus.Id,
+                        DepartureAt = clock.Now.Date.AddDays(1).AddHours(16),
+                        Fare = 120m
+                    });
+            }
         }
 
         await db.SaveChangesAsync();

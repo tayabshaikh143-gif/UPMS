@@ -36,6 +36,7 @@ export function TripsPage() {
   const [departureAt, setDepartureAt] = useState('')
   const [fare, setFare] = useState('120')
   const [status, setStatus] = useState('0')
+  const [cancellationReason, setCancellationReason] = useState('')
   const [error, setError] = useState('')
 
   const trips = useQuery({ queryKey: ['trips'], queryFn: () => api.get<TripDto[]>('/api/trips') })
@@ -49,6 +50,7 @@ export function TripsPage() {
     setDepartureAt('')
     setFare('120')
     setStatus('0')
+    setCancellationReason('')
     setError('')
     setOpen(true)
   }
@@ -60,6 +62,7 @@ export function TripsPage() {
     setDepartureAt(toInputValue(trip.departureAt))
     setFare(String(trip.fare))
     setStatus(String(trip.status))
+    setCancellationReason(trip.cancellationReason ?? '')
     setError('')
     setOpen(true)
   }
@@ -71,6 +74,7 @@ export function TripsPage() {
     setDepartureAt('')
     setFare('120')
     setStatus('0')
+    setCancellationReason('')
     setError('')
     setOpen(false)
   }
@@ -83,6 +87,7 @@ export function TripsPage() {
         departureAt,
         fare: Number(fare),
         status: Number(status),
+        cancellationReason: status === '2' ? cancellationReason : null,
       }
       if (editingId) {
         await api.put<void>(`/api/trips/${editingId}`, body)
@@ -128,6 +133,17 @@ export function TripsPage() {
               Cancel
             </Button>
           </div>
+          {status === '2' && (
+            <div className="mb-4">
+              <Field label="Cancellation reason">
+                <Input
+                  value={cancellationReason}
+                  onChange={(e) => setCancellationReason(e.target.value)}
+                  placeholder="Operational reason (optional)"
+                />
+              </Field>
+            </div>
+          )}
           <form
             className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1.2fr_160px_1fr_100px_130px_auto]"
             onSubmit={(event) => {
@@ -149,7 +165,7 @@ export function TripsPage() {
             <Field label="Bus">
               <Select value={busId} onChange={(e) => setBusId(e.target.value)} required>
                 <option value="">Select a bus</option>
-                {(buses.data ?? []).map((bus) => (
+                {(buses.data ?? []).filter((bus) => bus.active).map((bus) => (
                   <option key={bus.id} value={bus.id}>
                     {bus.registration} — {bus.capacity} seats
                   </option>
@@ -244,6 +260,9 @@ export function TripsPage() {
                   >
                     {statuses[trip.status] ?? 'Unknown'}
                   </Badge>
+                  {trip.cancellationReason && (
+                    <div className="mt-1 max-w-40 text-xs text-muted">{trip.cancellationReason}</div>
+                  )}
                 </Td>
                 {isAdmin && (
                   <Td>

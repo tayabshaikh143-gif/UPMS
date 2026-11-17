@@ -5,6 +5,22 @@ All diagrams are **self-contained HTML + inline SVG** produced with the
 SVG with the skill's scripts. Use case diagrams come from the custom
 `use-case-diagram` skill instead.
 
+## SRS v1.1 alignment
+
+- Use case diagram subtitles now say **SRS v1.1**.
+- Class `Trip.capacity` is annotated **from Bus**; `Payment.paidAt` is now
+  `approvedAt`; the unused `RouteStop.isPickup` field was removed from the
+  Network class diagram.
+- Booking activity now shows online **Pending → Approved**, cash **Pending**,
+  and the shared confirm step reads **online Approved · cash Pending**.
+- Cancellation activity shows **full refund, no fee**; no-show activity shows
+  **T-20 boarding · T-5 expiry**.
+- Cancellation sequence shows **FULL REFUND (IF ONLINE)**.
+
+The remaining structural diagram changes (separate Payment/Refund/AuditLog,
+VendorSettlement, Vendor user link, staff assignment) are still pending and are
+tracked in `docs/UPMS_Requirements_Review_2026-11-15.md`.
+
 ## Use case — `diagrams/`
 
 | File | Contents |
@@ -49,7 +65,7 @@ Each has `.html`, `.png`, `.svg`.
 
 ## ER — `diagrams/erd/`
 
-Six subject-area ER diagrams plus one complete overview, each with large 280px entities and 13.5px field text:
+Six subject-area ER diagrams plus one complete overview, each with large 280px entities and 13.5px field text. The v1.1 additions are shown separately in `UPMS_ERD_v1.1_Additions`.
 
 | File prefix | Entities | Focal |
 |---|---|---|
@@ -61,6 +77,7 @@ Six subject-area ER diagrams plus one complete overview, each with large 280px e
 | `UPMS_ERD_People` | User, PassengerProfile, Staff, AuditLog | User |
 | `UPMS_ERD_Operations` | Booking, CheckIn, Refund | Booking |
 | `UPMS_ERD_Incidents` | Trip, Incident, Notification | Incident |
+| `UPMS_ERD_v1.1_Additions` | Delta view for SRS v1.1: VendorSettlement, Vendor user link, Bus.Active, Payment/Refund fields, TripStaffAssignment, Notification links, AuditLog fields | — |
 
 Fields carry `#` primary keys and `→` foreign keys; cardinality is `1` / `N` /
 `0..1` at each end. Each has `.html`, `.png`, `.svg`.

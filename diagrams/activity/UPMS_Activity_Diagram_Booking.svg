@@ -67,7 +67,7 @@
         <!-- Action: pay online (light blue-grey tint) -->
         <rect x="590" y="338" width="220" height="56" rx="6" fill="#4f5d75" stroke="#4f5d75" stroke-width="1" fill-opacity="0.08"/>
         <text x="700" y="362" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Pay online</text>
-        <text x="700" y="378" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">payment provider</text>
+        <text x="700" y="378" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">status Pending</text>
 
         <!-- Decision: payment approved -->
         <polygon points="700,424 790,470 700,516 610,470" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
@@ -82,7 +82,7 @@
         <!-- Action: confirm (focal) -->
         <rect x="260" y="528" width="280" height="64" rx="6" fill="#bf4520" stroke="#bf4520" stroke-width="1" fill-opacity="0.08"/>
         <text x="400" y="556" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Confirm booking</text>
-        <text x="400" y="574" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">issue digital ticket</text>
+        <text x="400" y="574" fill="#5a6580" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">online Approved · cash Pending</text>
 
         <!-- Final node -->
         <circle cx="400" cy="620" r="11" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../lib/api'
 import {
+  CANCELLATION_CUTOFF_MINUTES,
   bookingStatusLabels,
   bookingStatusTone,
   paymentMethodLabels,
@@ -16,7 +17,7 @@ import { TicketReceipt } from '../components/TicketReceipt'
 
 function canCancel(booking: BookingDto) {
   const active = booking.status === 0 || booking.status === 1
-  const cutoff = new Date(booking.departureAt).getTime() - 20 * 60 * 1000
+  const cutoff = new Date(booking.departureAt).getTime() - CANCELLATION_CUTOFF_MINUTES * 60 * 1000
   return active && Date.now() < cutoff
 }
 
@@ -55,8 +56,8 @@ export function MyBookingsPage() {
       />
 
       <p className="mb-4 text-xs text-muted">
-        Self-service cancellation is open until 20 minutes before departure. Online refunds are
-        simulated in this MVP.
+        Self-service cancellation is open until {CANCELLATION_CUTOFF_MINUTES} minutes before
+        departure. Online refunds are simulated in this MVP.
       </p>
 
       {cancel.isError && (

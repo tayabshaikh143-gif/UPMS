@@ -1,23 +1,23 @@
-# Graph Report - UPMS  (2026-11-15)
+# Graph Report - UPMS  (2026-11-17)
 
 ## Corpus Check
-- 133 files · ~1,263,988 words
+- 143 files · ~1,722,586 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 49 file(s) not represented in the graph (top: .csv 37, (none) 7, .css 3)
 
 ## Summary
-- 2730 nodes · 6836 edges · 112 communities (90 shown, 22 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 263 edges (avg confidence: 0.85)
+- 2920 nodes · 7245 edges · 117 communities (90 shown, 27 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 277 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3e2c9568`
+- Built from commit: `f59c3d0a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - mermaid_extract.py
-- excalidraw_extract.py
+- drawio_extract.py
 - self_check.py
 - test_data_contracts.py
 - usecase_diagram.py
@@ -45,7 +45,7 @@
 - theme.mjs
 - initPageChat
 - usecase_diagram.py
-- init
+- connectSSE
 - Guid
 - AppDbContext
 - showToast
@@ -61,7 +61,7 @@
 - parseColor
 - http
 - Booking
-- ActionResult
+- Payment
 - test_core_data_quality.py
 - test_design_system_mode.py
 - RtlCliTest
@@ -72,10 +72,10 @@
 - UPMS.Api.Data
 - createLiveBrowserDomHelpers
 - sloplint-render.mjs
-- mountSvelteComponentVariant
+- showToast
 - capture.mjs
 - createLiveBrowserSessionState
-- normalizeManualContextText
+- Notification
 - compilerOptions
 - package.json
 - install.mjs
@@ -87,7 +87,7 @@
 - CatalogRefreshTest
 - imagegen.mjs
 - checkTailwind
-- CatalogDtos.cs
+- Entities.cs
 - detect_domain
 - UPMS.Api.csproj
 - install-hook.mjs
@@ -99,43 +99,40 @@
 - live-browser-ignores.js
 - .oxlintrc.json
 - TestThresholdGate
-- read_rows
+- enableInlineEdit
 - interface
 - CatalogSummaryLineEndingsTest
-- test_skill_script_paths.py
+- TestTextLayoutDataContracts
 - TestStackFlagWithDesignSystem
 - Trips.tsx
 - interface
 - Feature.vue
-- drawio_extract.py
+- VendorSettlement
 - tsconfig.json
 - TestMetricMath
-- TestFixtureValidation
 - format_ascii_box
-- parse_page
-- generate_design_system
-- _fail
+- Clock
 - _style_is_dark_primary
-- _row_identities
 - _normalize
+- test_skill_script_paths.py
+- _row_identities
+- read_rows
 - TestImeGuidance
-- hasTextRows
+- TestFixtureValidation
 
 ## God Nodes (most connected - your core abstractions)
 1. `report()` - 90 edges
 2. `search()` - 54 edges
-3. `trunc()` - 44 edges
-4. `resolveVars()` - 42 edges
-5. `DesignSystemGenerator` - 38 edges
-6. `connectSSE()` - 37 edges
-7. `search_stack()` - 36 edges
-8. `setLiveState()` - 34 edges
-9. `resumeSession()` - 33 edges
-10. `showToast()` - 33 edges
+3. `AppDbContext` - 48 edges
+4. `trunc()` - 44 edges
+5. `resolveVars()` - 42 edges
+6. `DesignSystemGenerator` - 38 edges
+7. `connectSSE()` - 37 edges
+8. `search_stack()` - 36 edges
+9. `Booking` - 34 edges
+10. `setLiveState()` - 34 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Bookings` --references--> `Booking`  [EXTRACTED]
-  apps/api/src/UPMS.Api/Data/AppDbContext.cs → apps/api/src/UPMS.Api/Data/Entities.cs
 - `TestEndToEndCoherence` --uses--> `DesignSystemGenerator`  [INFERRED]
   skills/ui-ux-pro-max/scripts/tests/test_design_system_mode.py → skills/ui-ux-pro-max/scripts/design_system.py
 - `TestLightResultOutputCoherence` --uses--> `DesignSystemGenerator`  [INFERRED]
@@ -144,19 +141,21 @@
   skills/impeccable/scripts/live-browser.js → skills/impeccable/scripts/live-browser-dom.js
 - `removalOriginalText()` --indirect_call--> `own()`  [INFERRED]
   skills/impeccable/scripts/live-browser.js → skills/impeccable/scripts/live-browser-dom.js
+- `AuthController` --references--> `AppUser`  [EXTRACTED]
+  apps/api/src/UPMS.Api/Auth/AuthController.cs → apps/api/src/UPMS.Api/Data/Entities.cs
 
 ## Import Cycles
 - None detected.
 
-## Communities (112 total, 22 thin omitted)
+## Communities (117 total, 27 thin omitted)
 
 ### Community 0 - "mermaid_extract.py"
 Cohesion: 0.06
 Nodes (52): analyze(), _block_summary(), classify_shape(), clean_label(), _configure_stdout_utf8(), Diagram, digest(), _discard_nonsemantic() (+44 more)
 
-### Community 1 - "excalidraw_extract.py"
-Cohesion: 0.14
-Nodes (20): analyze(), clean_label(), _configure_stdout_utf8(), digest(), Edge, _escape_inline(), _escape_markdown(), _escape_table() (+12 more)
+### Community 1 - "drawio_extract.py"
+Cohesion: 0.05
+Nodes (51): _aligned(), analyze(), classify_shape(), clean_label(), _configure_stdout_utf8(), _decompress_limited(), digest(), Edge (+43 more)
 
 ### Community 2 - "self_check.py"
 Cohesion: 0.07
@@ -164,11 +163,11 @@ Nodes (26): BalanceParser, canonical_controller(), check_css_references(), check
 
 ### Community 3 - "test_data_contracts.py"
 Cohesion: 0.10
-Nodes (10): apply_decision_rules(), _object_without_duplicates(), parse_decision_rules(), _validate_action(), read_rows(), split_values(), style_identities(), TestGeneratedCatalogContract (+2 more)
+Nodes (8): apply_decision_rules(), _object_without_duplicates(), parse_decision_rules(), _validate_action(), split_values(), style_identities(), TestLandingAndStackContract, TestStyleIdentityContract
 
 ### Community 4 - "usecase_diagram.py"
-Cohesion: 0.10
-Nodes (18): escape(), _boxes_overlap(), choose_grid(), Diagram, die(), Ellipse, find_browser(), _has_cycle() (+10 more)
+Cohesion: 0.16
+Nodes (7): escape(), _boxes_overlap(), choose_grid(), Diagram, Ellipse, text_width(), wrap_text()
 
 ### Community 5 - "_diagram_css_leaf"
 Cohesion: 0.21
@@ -224,23 +223,23 @@ Nodes (4): normalize_html_entities(), normalize_region(), replace_entity(), repl
 
 ### Community 18 - "live-browser.js"
 Cohesion: 0.03
-Nodes (144): absolutizeUrls(), applyGlobalBarLabelState(), applyOriginalAttrsToSvelteAnchor(), applyParamDefaults(), applyParamValue(), applyPlaceholderSizingStyles(), applySavedParamValues(), averageRgb01() (+136 more)
+Nodes (150): absolutizeUrls(), addManualContextText(), applyGlobalBarLabelState(), applyOriginalAttrsToSvelteAnchor(), applyPlaceholderSizingStyles(), averageRgb01(), bindEditBadgeProxy(), bufferToBase64() (+142 more)
 
 ### Community 19 - "connectSSE"
 Cohesion: 0.05
-Nodes (95): abortSvelteComponentInjection(), applyPlaceholderDimensions(), applySavedSessionMeta(), checkpointPayload(), clampVariantIndex(), closedClipPath(), completeParameterGenerationIfReady(), completeParameterPublication() (+87 more)
+Nodes (85): abortSvelteComponentInjection(), applyParamDefaults(), applyParamValue(), applySavedParamValues(), applySavedSessionMeta(), buildParamsPanel(), checkpointPayload(), clampVariantIndex() (+77 more)
 
 ### Community 20 - "sloplint.mjs"
 Cohesion: 0.03
 Nodes (72): ANSWERED, APP_SKIP, args, BUILD_DIRS, check25(), check62(), check76(), CHECKS (+64 more)
 
 ### Community 21 - "setLiveState"
-Cohesion: 0.07
-Nodes (81): applyEditing(), applyLiveBarPreference(), beginNewLiveConfiguration(), buildInsertPlaceholderSnapshotFromDom(), buildLocatorForLeaf(), buildPickedAnchorSnapshot(), cancelEditing(), cancelEditingToPicking() (+73 more)
+Cohesion: 0.06
+Nodes (84): applyEditing(), beginNewLiveConfiguration(), buildInsertPlaceholderSnapshotFromDom(), buildLocatorForLeaf(), buildPickedAnchorSnapshot(), cancelEditing(), cancelEditingToPicking(), cancelInsertConfigure() (+76 more)
 
 ### Community 22 - "validate_data.py"
-Cohesion: 0.11
-Nodes (32): _catalog_date(), _check_app_interface_contract(), _check_catalog_contract(), _check_catalog_summary(), _check_color_contract(), _check_core_data_contract(), _check_file(), _check_font_catalog() (+24 more)
+Cohesion: 0.09
+Nodes (33): TestGeneratedCatalogContract, _catalog_date(), _check_app_interface_contract(), _check_catalog_contract(), _check_catalog_summary(), _check_color_contract(), _check_core_data_contract(), _check_file() (+25 more)
 
 ### Community 23 - "el"
 Cohesion: 0.07
@@ -259,28 +258,28 @@ Cohesion: 0.09
 Nodes (51): addLog(), ADJUST, args, ASK, BASE_CUSTOM, buildIndex(), check(), contrastOf() (+43 more)
 
 ### Community 27 - "initPageChat"
-Cohesion: 0.09
-Nodes (50): armPageChatForTyping(), attachSteerFocusDebug(), attachSteerFocusGuard(), buildSteerProcessingDots(), buildSteerQueueHint(), clearSteerAwaitTimer(), collapsePageChat(), expandPageChat() (+42 more)
+Cohesion: 0.08
+Nodes (51): agentHasWorkInFlight(), armPageChatForTyping(), attachSteerFocusDebug(), attachSteerFocusGuard(), buildSteerProcessingDots(), buildSteerQueueHint(), clearSteerAwaitTimer(), clearSteerFocusRecoverTimer() (+43 more)
 
 ### Community 28 - "usecase_diagram.py"
 Cohesion: 0.09
-Nodes (5): _write_persisted_file(), format_output(), read_rows(), read_rows(), TestTextLayoutDataContracts
+Nodes (13): read_rows(), read_rows(), die(), find_browser(), _has_cycle(), visit(), load_spec(), main() (+5 more)
 
-### Community 29 - "init"
-Cohesion: 0.15
-Nodes (20): agentHasWorkInFlight(), agentStatusText(), barPaletteForTheme(), brandMarkSvg(), buildParamsPanel(), detectPageTheme(), ensureAgentPollTooltip(), formatRangeValue() (+12 more)
+### Community 29 - "connectSSE"
+Cohesion: 0.08
+Nodes (48): agentStatusText(), applyLiveBarPreference(), barPaletteForTheme(), brandMarkSvg(), buildDesignHeader(), connectSSE(), cursorForInsertAxis(), designPanelCss() (+40 more)
 
 ### Community 30 - "Guid"
-Cohesion: 0.10
-Nodes (9): BusesController, RouteRequest, RouteStopRequest, StopDto, StopRequest, RoutesController, StopsController, TripsController (+1 more)
+Cohesion: 0.06
+Nodes (24): AuthController, AuthResponse, AuditLogDto, NotificationsController, BusesController, BusDto, BusRequest, RouteDetailDto (+16 more)
 
 ### Community 31 - "AppDbContext"
-Cohesion: 0.05
-Nodes (53): AppDbContext, Bookings, Buses, Routes, RouteStops, Stops, Trips, Vendors (+45 more)
+Cohesion: 0.03
+Nodes (80): AppDbContext, Buses, Routes, RouteStops, StaffProfiles, Stops, Trips, TripStaffAssignments (+72 more)
 
 ### Community 32 - "showToast"
-Cohesion: 0.09
-Nodes (48): clearStoredManualApplyState(), collectEditableTextRows(), visit(), copyEditContainerContext(), copyEditLeafContext(), dismissToast(), documentRefForElement(), ensureRemovedElementStyle() (+40 more)
+Cohesion: 0.17
+Nodes (28): clearStoredManualApplyState(), fetchPendingCount(), handleManualEditActivity(), hidePendingApplyDock(), manualApplyLoadingText(), manualApplyStateKey(), manualEditEventForCurrentPage(), numberOrNull() (+20 more)
 
 ### Community 33 - "report"
 Cohesion: 0.08
@@ -307,12 +306,12 @@ Cohesion: 0.12
 Nodes (35): accentedHeads(), accentedWordInHero(), ancestorMap(), capsRatio(), check28(), check3(), check30(), check33() (+27 more)
 
 ### Community 39 - "onAnnotDown"
-Cohesion: 0.24
-Nodes (15): beginEditPin(), buildAnnotationsForCapture(), buildPinElement(), cancelEditingPin(), finalizeEditingPin(), initAnnotOverlay(), localCoords(), onAnnotDown() (+7 more)
+Cohesion: 0.18
+Nodes (19): applyPlaceholderDimensions(), beginEditPin(), buildAnnotationsForCapture(), buildPinElement(), cancelEditingPin(), finalizeEditingPin(), initAnnotOverlay(), localCoords() (+11 more)
 
 ### Community 40 - "20261114160207_InitialCreate.Designer.cs"
-Cohesion: 0.15
-Nodes (4): InitialCreate, AddBookings, AppDbContextModelSnapshot, UPMS.Api.Migrations
+Cohesion: 0.12
+Nodes (7): InitialCreate, AddBookings, AddSrsV11Alignment, BusActiveDefault, AddPaymentAuditVendorPhase2, AppDbContextModelSnapshot, UPMS.Api.Migrations
 
 ### Community 41 - "ref_node_fs"
 Cohesion: 0.12
@@ -327,12 +326,12 @@ Cohesion: 0.07
 Nodes (28): ASPNETCORE_ENVIRONMENT, applicationUrl, commandName, dotnetRunMessages, environmentVariables, launchBrowser, launchUrl, applicationUrl (+20 more)
 
 ### Community 44 - "Booking"
-Cohesion: 0.08
-Nodes (26): Booking, Amount, BoardedAt, CancelledAt, CreatedAt, ExpiredAt, Id, Method (+18 more)
+Cohesion: 0.07
+Nodes (30): BookingDto, CreateBookingRequest, BookingsController, Bookings, Booking, Amount, BoardedAt, CancelledAt (+22 more)
 
-### Community 45 - "ActionResult"
-Cohesion: 0.17
-Nodes (6): BookingDto, CreateBookingRequest, BookingsController, PaymentMethod, Cash, Online
+### Community 45 - "Payment"
+Cohesion: 0.07
+Nodes (30): Payments, Refunds, Payment, Amount, ApprovedAt, Booking, BookingId, CreatedAt (+22 more)
 
 ### Community 46 - "test_core_data_quality.py"
 Cohesion: 0.15
@@ -343,32 +342,36 @@ Cohesion: 0.08
 Nodes (12): _button_outline_text_color(), _contrast_ratio(), _derive_dark_palette(), _filter_anti_patterns_for_mode(), format_master_md(), _palette_is_dark(), _relative_luminance(), _select_palette_for_mode() (+4 more)
 
 ### Community 49 - "mountSvelteComponentVariant"
-Cohesion: 0.23
-Nodes (14): acceptedDomAlreadyClean(), clearHandledWrapperReloadStamp(), commitAcceptedVariantToDom(), deferredRecoverySuperseded(), ensureAcceptedDomClean(), findAcceptedRuntimeWrappers(), handledWrapperReloadKey(), reloadAfterMissingAcceptedDom() (+6 more)
+Cohesion: 0.12
+Nodes (26): acceptedDomAlreadyClean(), clearHandledWrapperReloadStamp(), commitAcceptedSvelteComponentToDom(), commitAcceptedVariantToDom(), componentModuleCandidates(), deferredRecoverySuperseded(), describeMountFailure(), detectDevServerBase() (+18 more)
 
 ### Community 50 - "DesignSystemGenerator"
-Cohesion: 0.09
-Nodes (4): DesignSystemGenerator, _resolve_dial(), TestReasoningMatch, TestReasoningContract
+Cohesion: 0.11
+Nodes (4): DesignSystemGenerator, TestReasoningMatch, read_rows(), TestReasoningContract
 
 ### Community 51 - "ActionResult"
-Cohesion: 0.12
-Nodes (13): AuthController, AuthResponse, JwtOptions, Audience, ExpiryHours, Issuer, Key, LoginRequest (+5 more)
+Cohesion: 0.14
+Nodes (8): JwtOptions, Audience, ExpiryHours, Issuer, Key, LoginRequest, RegisterRequest, JwtService
 
 ### Community 52 - "BM25"
 Cohesion: 0.16
 Nodes (5): BM25, _get_bm25(), _suggest_identities(), TestBm25CoreBehavior, TestTokenizer
 
+### Community 53 - "UPMS.Api.Data"
+Cohesion: 0.13
+Nodes (5): AuditController, UPMS.Api.Auth, UPMS.Api.Catalog, UPMS.Api.Bookings, UPMS.Api.Data
+
 ### Community 54 - "createLiveBrowserDomHelpers"
-Cohesion: 0.14
-Nodes (18): createLiveBrowserDomHelpers(), activeElementDeep(), cloneWithoutChrome(), copyTextViaSelection(), cssId(), liveUiRoot(), makeFrozenAnchor(), own() (+10 more)
+Cohesion: 0.16
+Nodes (15): createLiveBrowserDomHelpers(), activeElementDeep(), cloneWithoutChrome(), copyTextViaSelection(), cssId(), liveUiRoot(), makeFrozenAnchor(), raiseHitModal() (+7 more)
 
 ### Community 55 - "sloplint-render.mjs"
 Cohesion: 0.18
 Nodes (21): CHROMES, contrast(), focusRing(), frames(), hideStyles(), inventory(), isUrl(), lineBreaks() (+13 more)
 
-### Community 56 - "mountSvelteComponentVariant"
+### Community 56 - "showToast"
 Cohesion: 0.15
-Nodes (17): abandonForeignSession(), abandonSupersededGo(), commitAcceptedSvelteComponentToDom(), componentModuleCandidates(), describeMountFailure(), detectDevServerBase(), getMountedSvelteComponentAnchor(), importFirstReachable() (+9 more)
+Nodes (19): abandonForeignSession(), abandonSupersededGo(), discardOrphanedSession(), handleDiscard(), injectVariantsFromSource(), isCompiledTemplateSourceFile(), isSvelteComponentManifestPath(), markSessionHandled() (+11 more)
 
 ### Community 57 - "capture.mjs"
 Cohesion: 0.10
@@ -378,9 +381,9 @@ Nodes (15): argv, chrome, CHROMES, HERE, isUrl, made, out, roots (+7 more)
 Cohesion: 0.19
 Nodes (17): createLiveBrowserSessionState(), clearHandled(), clearScrollY(), clearSession(), isHandled(), loadSession(), markHandled(), nextCheckpointRevision() (+9 more)
 
-### Community 59 - "normalizeManualContextText"
-Cohesion: 0.09
-Nodes (26): addManualContextText(), canRestoreManualEditElement(), collectManualContextPieces(), walk(), contextElementForManualEdit(), cssIdent(), directMixedTextRestoreNodes(), documentRefClassSuffix() (+18 more)
+### Community 59 - "Notification"
+Cohesion: 0.11
+Nodes (18): NotificationDto, Notifications, Notification, Booking, BookingId, Channel, Id, Message (+10 more)
 
 ### Community 60 - "compilerOptions"
 Cohesion: 0.10
@@ -395,8 +398,8 @@ Cohesion: 0.13
 Nodes (14): args, copyDir(), DRY, explicit, FLAGS, has(), HERE, HOME (+6 more)
 
 ### Community 63 - "actOnAgentTarget"
-Cohesion: 0.26
-Nodes (18): actOnAgentTarget(), agentTargetBusyReason(), agentTargetOverlayGone(), agentTargetTaken(), claimAgentTarget(), claimAndActOnAgentTarget(), declineAgentTargetBusy(), declineAgentTargetUnresolvable() (+10 more)
+Cohesion: 0.29
+Nodes (17): actOnAgentTarget(), agentTargetBusyReason(), agentTargetOverlayGone(), agentTargetTaken(), claimAgentTarget(), claimAndActOnAgentTarget(), declineAgentTargetBusy(), declineAgentTargetUnresolvable() (+9 more)
 
 ### Community 64 - "compilerOptions"
 Cohesion: 0.12
@@ -422,9 +425,9 @@ Nodes (7): args, hash, n, prompt, stem, steps, [w, h]
 Cohesion: 0.23
 Nodes (12): checkComponentText(), checkTailwind(), closeIndex(), compInner(), directChildren(), tw54(), tw67(), twDataText() (+4 more)
 
-### Community 71 - "CatalogDtos.cs"
-Cohesion: 0.08
-Nodes (19): BusDto, BusRequest, RouteDetailDto, RouteDto, RouteStopDto, RouteStopNameRequest, TripDto, TripRequest (+11 more)
+### Community 71 - "Entities.cs"
+Cohesion: 0.04
+Nodes (51): AuditLogs, OfflineTickets, AuditLog, Action, ActorId, ActorName, At, Details (+43 more)
 
 ### Community 74 - "UPMS.Api.csproj"
 Cohesion: 0.20
@@ -435,12 +438,12 @@ Cohesion: 0.22
 Nodes (6): args, HERE, hookEntry, ourHook(), settings, withoutOurs()
 
 ### Community 76 - "argparse"
-Cohesion: 0.36
+Cohesion: 0.39
 Nodes (3): exact_size_scale(), main(), rasterize()
 
 ### Community 77 - "BookingService"
-Cohesion: 0.16
-Nodes (4): BookingExpiryService, BookingActionResult, BookingService, UPMS.Api.Bookings
+Cohesion: 0.14
+Nodes (4): AuditService, BookingExpiryService, BookingActionResult, BookingService
 
 ### Community 78 - "selector_list_parts"
 Cohesion: 0.25
@@ -462,73 +465,69 @@ Nodes (6): globToRegex(), matchesScope(), normalizeIgnoreRule(), normalizeIgnore
 Cohesion: 0.33
 Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema
 
+### Community 84 - "enableInlineEdit"
+Cohesion: 0.33
+Nodes (6): collectEditableTextRows(), visit(), enableInlineEdit(), onInlineInput(), removalOriginalText(), wrapMixedContentTextNodes()
+
 ### Community 85 - "interface"
 Cohesion: 0.33
 Nodes (5): interface, display_name, short_description, policy, allow_implicit_invocation
 
-### Community 87 - "test_skill_script_paths.py"
-Cohesion: 0.38
-Nodes (3): resolve(), shipped_invocations(), SkillScriptPathsTest
-
 ### Community 89 - "Trips.tsx"
 Cohesion: 0.07
-Nodes (79): dependencies, lucide-react@^1.73.0, react@^19.3.1, react-dom@^19.3.1, react-router-dom@^7.18.5, @tanstack/react-query@^5.107.1, AdminOnly(), App() (+71 more)
+Nodes (82): dependencies, lucide-react@^1.73.0, react@^19.3.1, react-dom@^19.3.1, react-router-dom@^7.18.5, @tanstack/react-query@^5.107.1, AdminOnly(), App() (+74 more)
 
 ### Community 90 - "interface"
 Cohesion: 0.50
 Nodes (3): interface, display_name, short_description
 
-### Community 92 - "drawio_extract.py"
-Cohesion: 0.11
-Nodes (11): clean_label(), _configure_stdout_utf8(), _decompress_limited(), _escape_inline(), _escape_markdown(), _escape_table(), _fold_lines(), _inflate() (+3 more)
+### Community 92 - "VendorSettlement"
+Cohesion: 0.12
+Nodes (15): VendorSettlementRequest, VendorSettlements, SettlementStatus, Paid, Pending, VendorSettlement, CreatedAt, GrossFares (+7 more)
 
 ### Community 96 - "format_ascii_box"
-Cohesion: 0.13
-Nodes (9): ansi_ljust(), format_ascii_box(), add_wrapped(), wrap_text(), format_markdown(), hex_to_ansi(), _mode_support_labels(), section_header() (+1 more)
+Cohesion: 0.06
+Nodes (19): ansi_ljust(), _detect_page_type(), format_ascii_box(), add_wrapped(), wrap_text(), format_markdown(), format_page_override_md(), generate_design_system() (+11 more)
 
-### Community 101 - "parse_page"
-Cohesion: 0.15
-Nodes (10): _aligned(), analyze(), classify_shape(), Edge, _has_cycle(), Node, _num(), parse_page() (+2 more)
+### Community 101 - "Clock"
+Cohesion: 0.16
+Nodes (10): BookingOptions, BoardingStartMinutes, CancellationCutoffMinutes, CashNoShowMinutes, OnlinePaymentHoldMinutes, TimeZoneId, Clock, Now (+2 more)
 
-### Community 102 - "generate_design_system"
-Cohesion: 0.13
-Nodes (7): _detect_page_type(), format_page_override_md(), generate_design_system(), _generate_intelligent_overrides(), persist_design_system(), safe_slug(), TestPersistence
-
-### Community 103 - "_fail"
-Cohesion: 0.32
-Nodes (10): digest(), _fail(), load_mxfile(), main(), Page, page_bounds(), parse_file(), _reject_unsafe_xml() (+2 more)
-
-### Community 104 - "_style_is_dark_primary"
+### Community 103 - "_style_is_dark_primary"
 Cohesion: 0.21
 Nodes (4): _query_wants_dark(), _resolve_color_mode(), _style_is_dark_primary(), TestModeResolution
 
-### Community 105 - "_row_identities"
-Cohesion: 0.33
-Nodes (3): _exact_row_identity(), _row_identities(), _style_identity()
-
-### Community 106 - "_normalize"
+### Community 108 - "_normalize"
 Cohesion: 0.22
 Nodes (5): _exact_match_diagnostic(), _legacy_successor_guidance(), _normalize(), _stack_query_requests_legacy(), _stack_row_filter()
 
+### Community 109 - "test_skill_script_paths.py"
+Cohesion: 0.38
+Nodes (3): resolve(), shipped_invocations(), SkillScriptPathsTest
+
+### Community 110 - "_row_identities"
+Cohesion: 0.33
+Nodes (3): _exact_row_identity(), _row_identities(), _style_identity()
+
 ## Knowledge Gaps
-- **81 isolated node(s):** `Capacity`, `Id`, `Ownership`, `Registration`, `Vendor` (+76 more)
-  These have ≤1 connection - possible missing edges. (Counts symbols only; 777 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **193 isolated node(s):** `Issuer`, `Audience`, `Key`, `ExpiryHours`, `FullName` (+188 more)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 904 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `search()` connect `search` to `search_stack`, `core.py`, `generate_design_system`, `detect_domain`, `_row_identities`, `_normalize`, `TestImeGuidance`, `test_core_data_quality.py`, `DesignSystemGenerator`, `BM25`, `read_rows`, `usecase_diagram.py`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **What connects `Capacity`, `Id`, `Ownership` to the rest of the system?**
-  _81 weakly-connected nodes found - possible missing edges._
+- **Why does `OfflineTicket` connect `Entities.cs` to `20261114160207_InitialCreate.Designer.cs`, `Booking`, `Guid`, `AppDbContext`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **What connects `Issuer`, `Audience`, `Key` to the rest of the system?**
+  _193 weakly-connected nodes found - possible missing edges._
 - **Should `mermaid_extract.py` be split into smaller, more focused modules?**
   _Cohesion score 0.059097127222982215 - nodes in this community are weakly interconnected._
-- **Why does `Booking` connect `Booking` to `20261114160207_InitialCreate.Designer.cs`, `BookingService`, `ActionResult`, `ActionResult`, `Guid`, `AppDbContext`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Should `excalidraw_extract.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.13725490196078433 - nodes in this community are weakly interconnected._
-- **Why does `Trip` connect `AppDbContext` to `20261114160207_InitialCreate.Designer.cs`, `Booking`, `Guid`, `CatalogDtos.cs`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `AppDbContext` connect `AppDbContext` to `Entities.cs`, `Booking`, `BookingService`, `Payment`, `UPMS.Api.Data`, `Notification`, `VendorSettlement`, `Guid`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Should `drawio_extract.py` be split into smaller, more focused modules?**
+  _Cohesion score 0.05040611562350693 - nodes in this community are weakly interconnected._
+- **Why does `search_stack()` connect `search_stack` to `format_ascii_box`, `search`, `core.py`, `_normalize`, `usecase_diagram.py`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Should `self_check.py` be split into smaller, more focused modules?**
   _Cohesion score 0.06857142857142857 - nodes in this community are weakly interconnected._

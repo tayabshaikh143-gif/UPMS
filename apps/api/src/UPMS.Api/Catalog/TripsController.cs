@@ -1,6 +1,8 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using UPMS.Api.Bookings;
 using UPMS.Api.Data;
 using Route = UPMS.Api.Data.Route;
 
@@ -12,10 +14,16 @@ namespace UPMS.Api.Catalog;
 public class TripsController : ControllerBase
 {
     private readonly AppDbContext _db;
+    private readonly BookingService _bookings;
+    private readonly IClock _clock;
+    private readonly AuditService _audit;
 
-    public TripsController(AppDbContext db)
+    public TripsController(AppDbContext db, BookingService bookings, IClock clock, AuditService audit)
     {
         _db = db;
+        _bookings = bookings;
+        _clock = clock;
+        _audit = audit;
     }
 
     [HttpGet]
@@ -52,6 +60,8 @@ public class TripsController : ControllerBase
         var bus = await _db.Buses.FindAsync(request.BusId.Value);
         if (bus is null)
             return BadRequest(new { message = "Bus not found." });
+        if (!bus.Active)
+            return BadRequest(new { message = "This bus is inactive." });
 
         var trip = new Trip
         {
@@ -61,7 +71,11 @@ public class TripsController : ControllerBase
             Bus = bus,
             DepartureAt = request.DepartureAt,
             Fare = request.Fare,
-            Status = request.Status
+            Status = request.Status,
+            CancelledAt = request.Status == TripStatus.Cancelled ? _clock.Now : null,
+            CancellationReason = request.Status == TripStatus.Cancelled
+                ? string.IsNullOrWhiteSpace(request.CancellationReason) ? "Cancelled by administrator." : request.CancellationReason.Trim()
+                : null
         };
         _db.Trips.Add(trip);
         await _db.SaveChangesAsync();
@@ -83,12 +97,33 @@ public class TripsController : ControllerBase
         var bus = await _db.Buses.FindAsync(request.BusId.Value);
         if (bus is null)
             return BadRequest(new { message = "Bus not found." });
+        if (!bus.Active)
+            return BadRequest(new { message = "This bus is inactive." });
 
         var activeBookings = await _db.Bookings.CountAsync(b =>
             b.TripId == id &&
             (b.Status == BookingStatus.Reserved || b.Status == BookingStatus.Confirmed || b.Status == BookingStatus.Boarded));
         if (bus.Capacity < activeBookings)
             return Conflict(new { message = $"Bus capacity ({bus.Capacity}) is lower than the {activeBookings} active booking(s) on this trip." });
+
+        var cancelling = request.Status == TripStatus.Cancelled && trip.Status != TripStatus.Cancelled;
+        if (cancelling)
+        {
+            trip.CancelledAt = _clock.Now;
+            trip.CancellationReason = string.IsNullOrWhiteSpace(request.CancellationReason)
+                ? "Cancelled by administrator."
+                : request.CancellationReason.Trim();
+            var actorId = Guid.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var parsedActorId)
+                ? parsedActorId
+                : (Guid?)null;
+            await _bookings.CancelTripBookingsAsync(id, actorId, HttpContext.RequestAborted);
+            _audit.Add(actorId, "TripCancelled", "Trip", id, trip.CancellationReason);
+        }
+        else if (request.Status != TripStatus.Cancelled)
+        {
+            trip.CancelledAt = null;
+            trip.CancellationReason = null;
+        }
 
         trip.RouteId = request.RouteId;
         trip.BusId = bus.Id;
@@ -139,6 +174,14 @@ public class TripsController : ControllerBase
             trip.Bus?.Registration,
             capacity,
             booked,
-            Math.Max(0, capacity - booked));
+            Math.Max(0, capacity - booked),
+            stops.Select(rs => new RouteStopDto(
+                rs.Id,
+                rs.StopId,
+                rs.Stop?.Name ?? string.Empty,
+                rs.Sequence,
+                rs.OffsetMinutes)).ToList(),
+            trip.CancelledAt,
+            trip.CancellationReason);
     }
 }

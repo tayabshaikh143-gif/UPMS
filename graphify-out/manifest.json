@@ -1,15 +1,15 @@
 {
   "diagrams/UPMS_UseCase_Diagram.json": {
-    "mtime": 1793718948.0709612,
-    "seen": 1794668036.8782508,
-    "ast_hash": "14641858bc23d68ca9f3adb289d6190a",
-    "semantic_hash": "14641858bc23d68ca9f3adb289d6190a"
+    "mtime": 1794918662.0858338,
+    "seen": 1794920891.1101952,
+    "ast_hash": "90b3e44345523cea45d429090250b740",
+    "semantic_hash": ""
   },
   "diagrams/UPMS_UseCase_Diagram_Simple.json": {
-    "mtime": 1794190327.7940147,
-    "seen": 1794668036.878258,
-    "ast_hash": "b6382f4540442425af806a3c57be6bc4",
-    "semantic_hash": "b6382f4540442425af806a3c57be6bc4"
+    "mtime": 1794918662.0885954,
+    "seen": 1794920891.1102016,
+    "ast_hash": "4a4b337dad86a5ab5c2c49966d442757",
+    "semantic_hash": ""
   },
   "skills/diagram-design/scripts/drawio_extract.py": {
     "mtime": 1794189724.4002755,
@@ -78,15 +78,15 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Auth/AuthController.cs": {
-    "mtime": 1794671957.4525754,
-    "seen": 1794672298.0990553,
-    "ast_hash": "97165c2b72f87c104227cdbd02d9b538",
+    "mtime": 1794922102.7902348,
+    "seen": 1794923440.3139977,
+    "ast_hash": "65a7ed9e3b07f506a364e3e754764e20",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Auth/AuthDtos.cs": {
-    "mtime": 1794671957.4525754,
-    "seen": 1794672298.0990636,
-    "ast_hash": "867456be6ab1c40a83f87676797ac952",
+    "mtime": 1794922102.7892404,
+    "seen": 1794923440.3140118,
+    "ast_hash": "7b21ce36a3490344e3c92758bef85ccd",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Auth/JwtService.cs": {
@@ -96,15 +96,15 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/BusesController.cs": {
-    "mtime": 1794673588.3192134,
-    "seen": 1794673709.6918223,
-    "ast_hash": "64e11dae850f237fe54cd54b450dbf51",
+    "mtime": 1794920011.9283388,
+    "seen": 1794920891.095444,
+    "ast_hash": "84f8ad62f95bf1b8a2ebd3ca2dcf41cc",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/CatalogDtos.cs": {
-    "mtime": 1794681136.3361316,
-    "seen": 1794682174.0467472,
-    "ast_hash": "5f6a35e441757fd6e7d4a27c0b42b6dd",
+    "mtime": 1794922816.0060287,
+    "seen": 1794923440.3173525,
+    "ast_hash": "c0be3ee7ba188e1a0619912aa24cb201",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/RoutesController.cs": {
@@ -120,33 +120,33 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/TripsController.cs": {
-    "mtime": 1794682301.7813478,
-    "seen": 1794682430.6278365,
-    "ast_hash": "267c0ad8435d359dd3f3f5cac6bf19ee",
+    "mtime": 1794922930.1242647,
+    "seen": 1794923440.318504,
+    "ast_hash": "7dc1e7f05181b2a7b8d5f9776de3caf6",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Catalog/VendorsController.cs": {
-    "mtime": 1794672009.8547232,
-    "seen": 1794672298.099095,
-    "ast_hash": "bcb28677b9904787695783ac37e8ac62",
+    "mtime": 1794922839.5552726,
+    "seen": 1794923440.3185136,
+    "ast_hash": "39dc18509f226af2211095799b20ae7d",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/AppDbContext.cs": {
-    "mtime": 1794681129.242957,
-    "seen": 1794682174.0475264,
-    "ast_hash": "eced27ac8e89583fea7b813a66d487f8",
+    "mtime": 1794921668.2656944,
+    "seen": 1794923440.3185194,
+    "ast_hash": "e820f1d7e83b34f29db23de887c4a9a4",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/Entities.cs": {
-    "mtime": 1794681121.0048819,
-    "seen": 1794682174.0475304,
-    "ast_hash": "9df1d1b7f803596b340602421d049345",
+    "mtime": 1794921590.2885997,
+    "seen": 1794923440.318524,
+    "ast_hash": "d5501a625a2bf0c40ba42e5435f76c79",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Data/Seed.cs": {
-    "mtime": 1794681200.2727487,
-    "seen": 1794682174.0475342,
-    "ast_hash": "f54f82eb05873ceb2c431945491c4ed3",
+    "mtime": 1794922102.7903426,
+    "seen": 1794923440.318528,
+    "ast_hash": "7f0a88c6749a3bc72d250c479c5f3676",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Migrations/20261114160207_InitialCreate.Designer.cs": {
@@ -162,15 +162,15 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Migrations/AppDbContextModelSnapshot.cs": {
-    "mtime": 1794681240.8954563,
-    "seen": 1794682174.0481708,
-    "ast_hash": "47ea5815a5cdefde67c78a682ed21f81",
+    "mtime": 1794922229.9817579,
+    "seen": 1794923440.3219583,
+    "ast_hash": "f2fea8d781f46824d47fae59da745e0f",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Program.cs": {
-    "mtime": 1794681190.8290927,
-    "seen": 1794682174.048174,
-    "ast_hash": "545cc480bbc22c88f8c6f5bc6f6b0998",
+    "mtime": 1794921904.35329,
+    "seen": 1794923440.3219638,
+    "ast_hash": "eb2bbae14f773df32cfcbab011ba03c7",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Properties/launchSettings.json": {
@@ -192,9 +192,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/appsettings.json": {
-    "mtime": 1794681963.2340293,
-    "seen": 1794682174.0489595,
-    "ast_hash": "6085d412942f8e9643469da9b1006d43",
+    "mtime": 1794919925.409402,
+    "seen": 1794920891.1004906,
+    "ast_hash": "4b6723a4232e114f519e19fd813f8d95",
     "semantic_hash": ""
   },
   "skills/grill-me/agents/openai.yaml": {
@@ -600,9 +600,9 @@
     "semantic_hash": ""
   },
   "AI_docs/2026-11-09-session-log.md": {
-    "mtime": 1794683420.811858,
-    "seen": 1794683446.2180243,
-    "ast_hash": "fc3c1be406f80f42931d116517343da7",
+    "mtime": 1794923156.104054,
+    "seen": 1794923440.3567631,
+    "ast_hash": "6543c00e9376d457dcfa8ded7e85eb57",
     "semantic_hash": ""
   },
   "AI_docs/README.md": {
@@ -612,15 +612,15 @@
     "semantic_hash": ""
   },
   "AI_docs/diagram-inventory.md": {
-    "mtime": 1794666541.4282622,
-    "seen": 1794672298.1042118,
-    "ast_hash": "b5415d83fd838aaac38b4b9093b29f1b",
+    "mtime": 1794919478.4547896,
+    "seen": 1794920891.1483886,
+    "ast_hash": "304bc6ffbcb57df8fc4a3c79d1331425",
     "semantic_hash": ""
   },
   "AI_docs/project-status.md": {
-    "mtime": 1794683403.41281,
-    "seen": 1794683446.2185817,
-    "ast_hash": "131d6f49f23762fc02dc334f05c701ee",
+    "mtime": 1794923097.9620013,
+    "seen": 1794923440.3576233,
+    "ast_hash": "3a22fe0b950b53ceb06bbbcfba52332e",
     "semantic_hash": ""
   },
   "AI_docs/skills-and-tooling.md": {
@@ -630,9 +630,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1794681948.213125,
-    "seen": 1794682174.072871,
-    "ast_hash": "a70398d997730cdbd5dbfeded875614f",
+    "mtime": 1794919128.4642065,
+    "seen": 1794920891.1487432,
+    "ast_hash": "52919f7875b654a53f726dbb0d529dab",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Boarding.html": {
@@ -642,9 +642,9 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Booking.html": {
-    "mtime": 1794190934.3046608,
-    "seen": 1794672298.1042333,
-    "ast_hash": "a6d44f917da252014773c3244624e83b",
+    "mtime": 1794918784.6064708,
+    "seen": 1794920891.1499403,
+    "ast_hash": "451196cc745e4fd271aab1751ba9578d",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Breakdown.html": {
@@ -654,9 +654,9 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Cancellation.html": {
-    "mtime": 1794191339.1596243,
-    "seen": 1794672298.1042418,
-    "ast_hash": "167f14aa7902d895a49e950ea5837418",
+    "mtime": 1794918662.0935874,
+    "seen": 1794920891.1503024,
+    "ast_hash": "385827a3a535e1b1e09bd0168b84e03a",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Delay.html": {
@@ -666,27 +666,27 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_NoShow.html": {
-    "mtime": 1794191456.5343244,
-    "seen": 1794672298.1042502,
-    "ast_hash": "153edfdbcef0929189ea01cfc86e97af",
+    "mtime": 1794918662.0955844,
+    "seen": 1794920891.1506329,
+    "ast_hash": "77a433b02b48dddf780e3b2e208648f4",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Booking.html": {
-    "mtime": 1794192360.5364118,
-    "seen": 1794672298.1042545,
-    "ast_hash": "71ce75e1dc1362d2eceb8043eb6b416a",
+    "mtime": 1794918662.12208,
+    "seen": 1794920891.1506379,
+    "ast_hash": "9b8b28ee9cc47a5668a2c2591f01115c",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Network.html": {
-    "mtime": 1794192641.6689758,
-    "seen": 1794672298.1042583,
-    "ast_hash": "e95aeb19f3cb51fb34b0c97c542e56fe",
+    "mtime": 1794918662.1382668,
+    "seen": 1794920891.1506426,
+    "ast_hash": "358fc2fd169fc6d7daccf20bc534bef6",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Operations.html": {
-    "mtime": 1794192858.9813457,
-    "seen": 1794672298.1042619,
-    "ast_hash": "19b03bc94fe3a02d785b139a06c2a517",
+    "mtime": 1794918662.1029923,
+    "seen": 1794920891.1506467,
+    "ast_hash": "ee73893514f206fca21d4c6cc4534621",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_People.html": {
@@ -702,9 +702,9 @@
     "semantic_hash": ""
   },
   "diagrams/erd/UPMS_ERD_Complete.html": {
-    "mtime": 1794665470.9408467,
-    "seen": 1794672298.1042752,
-    "ast_hash": "08ae33f16d4e59d2de437ebc7e02c8c1",
+    "mtime": 1794919462.1349595,
+    "seen": 1794920891.1515477,
+    "ast_hash": "4fac942bb595c6567f3d36d728d8ecd7",
     "semantic_hash": ""
   },
   "diagrams/erd/UPMS_ERD_Complete_Chen.html": {
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "diagrams/sequence/UPMS_Sequence_Diagram_Cancellation.html": {
-    "mtime": 1794194414.4426131,
-    "seen": 1794672298.1043184,
-    "ast_hash": "0d3fd3638db54e5bae732242bc13451b",
+    "mtime": 1794918662.0984304,
+    "seen": 1794920891.1578,
+    "ast_hash": "a65443027e4c409ae4cf8812b9b95ddf",
     "semantic_hash": ""
   },
   "diagrams/sequence/UPMS_Sequence_Diagram_Delay.html": {
@@ -3642,27 +3642,27 @@
     "semantic_hash": ""
   },
   "diagrams/UPMS_UseCase_Diagram.png": {
-    "mtime": 1793719531.2013357,
-    "seen": 1794672298.1066084,
-    "ast_hash": "b3a7b6436a51b6eca99605803d83eb14",
+    "mtime": 1794918685.5080857,
+    "seen": 1794920891.3542767,
+    "ast_hash": "58c48ce4160f784390fc7b7a4ad25fa0",
     "semantic_hash": ""
   },
   "diagrams/UPMS_UseCase_Diagram.svg": {
-    "mtime": 1793719530.0576303,
-    "seen": 1794672298.1066127,
-    "ast_hash": "923be222f97249b023cbc2596e725576",
+    "mtime": 1794918682.8544416,
+    "seen": 1794920891.3542836,
+    "ast_hash": "61f2c8689fff3804ceac68dd521d22ad",
     "semantic_hash": ""
   },
   "diagrams/UPMS_UseCase_Diagram_Simple.png": {
-    "mtime": 1794190341.7554493,
-    "seen": 1794672298.106617,
-    "ast_hash": "412f4505eb426134093ed4cfc15463d0",
+    "mtime": 1794918688.435072,
+    "seen": 1794920891.354289,
+    "ast_hash": "8e22777fed7ab3e983fd78aef6f0bfda",
     "semantic_hash": ""
   },
   "diagrams/UPMS_UseCase_Diagram_Simple.svg": {
-    "mtime": 1794190340.0319605,
-    "seen": 1794672298.1066215,
-    "ast_hash": "099b96cc9a75be14821918bfc2dac6ca",
+    "mtime": 1794918686.255294,
+    "seen": 1794920891.3542933,
+    "ast_hash": "85fee330d078cea07ab33787ba4405c2",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Boarding.png": {
@@ -3678,15 +3678,15 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Booking.png": {
-    "mtime": 1794190963.4814737,
-    "seen": 1794672298.106636,
-    "ast_hash": "7d4236b462cab923ad473cae45266d01",
+    "mtime": 1794918788.4926438,
+    "seen": 1794920891.354935,
+    "ast_hash": "2788cfe5b3978b22718025863e050a4a",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Booking.svg": {
-    "mtime": 1794191009.2437737,
-    "seen": 1794672298.1066408,
-    "ast_hash": "422ff990736ee0cb4f82fe6f07b66213",
+    "mtime": 1794918784.624902,
+    "seen": 1794920891.3549404,
+    "ast_hash": "beb18dee1049141541cc3667389fd0a4",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Breakdown.png": {
@@ -3702,15 +3702,15 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Cancellation.png": {
-    "mtime": 1794191355.3823855,
-    "seen": 1794672298.1066527,
-    "ast_hash": "28193947eb09f80891c982bab1fff134",
+    "mtime": 1794918715.5022736,
+    "seen": 1794920891.3556328,
+    "ast_hash": "2a40546f8a2fab6c5ec4946e67379493",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Cancellation.svg": {
-    "mtime": 1794191662.4611142,
-    "seen": 1794672298.1066563,
-    "ast_hash": "56627025f7420242502ea71a66cc31c1",
+    "mtime": 1794918662.0945888,
+    "seen": 1794920891.355638,
+    "ast_hash": "e24e070ed630bda5ee58096eef8f33f2",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_Delay.png": {
@@ -3726,51 +3726,51 @@
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_NoShow.png": {
-    "mtime": 1794191472.4031706,
-    "seen": 1794672298.1066675,
-    "ast_hash": "c5769be9f7099ed0c98127d4064cdee6",
+    "mtime": 1794918719.3136873,
+    "seen": 1794920891.3562734,
+    "ast_hash": "63ab9545ca32192e8bf3f7fdbc86f17e",
     "semantic_hash": ""
   },
   "diagrams/activity/UPMS_Activity_Diagram_NoShow.svg": {
-    "mtime": 1794191663.0146368,
-    "seen": 1794672298.106671,
-    "ast_hash": "a439e0cb31dbc13ce2b1a237591b6328",
+    "mtime": 1794918662.0965905,
+    "seen": 1794920891.356279,
+    "ast_hash": "cf9df7ea2c08be5d8aa8d448a37e0aab",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Booking.png": {
-    "mtime": 1794192377.0752096,
-    "seen": 1794672298.1066751,
-    "ast_hash": "c07812c7c37ac19388e13c8e9b8d0396",
+    "mtime": 1794918727.2526731,
+    "seen": 1794920891.3562832,
+    "ast_hash": "2c5edafdb95b402ced35b62af7630013",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Booking.svg": {
-    "mtime": 1794192407.955745,
-    "seen": 1794672298.106679,
-    "ast_hash": "ea1d994e6bd605fa75d8abf92519f9a8",
+    "mtime": 1794918662.1362529,
+    "seen": 1794920891.3562872,
+    "ast_hash": "62903e1e38350c65a3558a00886cda9a",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Network.png": {
-    "mtime": 1794192660.4110897,
-    "seen": 1794672298.1066835,
-    "ast_hash": "1521de2b189826825934fd77eb60b76a",
+    "mtime": 1794918734.790886,
+    "seen": 1794920891.356291,
+    "ast_hash": "00c9e2f67dc9fdf82b163c76536f24d3",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Network.svg": {
-    "mtime": 1794192917.9415812,
-    "seen": 1794672298.1066878,
-    "ast_hash": "ee9241708d43591b3c8d5346dcf3328d",
+    "mtime": 1794918662.1398208,
+    "seen": 1794920891.3562949,
+    "ast_hash": "add60b8b858b46484d1eb46a696709e8",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Operations.png": {
-    "mtime": 1794192881.469973,
-    "seen": 1794672298.1066916,
-    "ast_hash": "e61ba9f9618103ee865c77567de17220",
+    "mtime": 1794918731.035318,
+    "seen": 1794920891.3562984,
+    "ast_hash": "33d78993696373fe788b164cb42ed000",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_Operations.svg": {
-    "mtime": 1794192918.4464455,
-    "seen": 1794672298.1066957,
-    "ast_hash": "421d344a6a3752963927173828c77d6d",
+    "mtime": 1794918662.1050043,
+    "seen": 1794920891.356302,
+    "ast_hash": "dbd2e935b322dd4bac05744c5a3ca7ca",
     "semantic_hash": ""
   },
   "diagrams/class/UPMS_Class_Diagram_People.png": {
@@ -3798,15 +3798,15 @@
     "semantic_hash": ""
   },
   "diagrams/erd/UPMS_ERD_Complete.png": {
-    "mtime": 1794665491.915725,
-    "seen": 1794672298.1067183,
-    "ast_hash": "0c852e0503a8c7e64497dfd413f2184c",
+    "mtime": 1794919466.5523422,
+    "seen": 1794920891.357688,
+    "ast_hash": "21f4b266e3a1a4e5e2507a49b43de211",
     "semantic_hash": ""
   },
   "diagrams/erd/UPMS_ERD_Complete.svg": {
-    "mtime": 1794665492.4578776,
-    "seen": 1794672298.1067224,
-    "ast_hash": "8dca67e230fbad3d067efb135bcffaee",
+    "mtime": 1794919462.1359625,
+    "seen": 1794920891.3576992,
+    "ast_hash": "04cf34a95580ea546077e3686cd5875b",
     "semantic_hash": ""
   },
   "diagrams/erd/UPMS_ERD_Complete_Chen.png": {
@@ -3918,15 +3918,15 @@
     "semantic_hash": ""
   },
   "diagrams/sequence/UPMS_Sequence_Diagram_Cancellation.png": {
-    "mtime": 1794194434.1146522,
-    "seen": 1794672298.1068006,
-    "ast_hash": "ef9f735face646af20d3416813273c73",
+    "mtime": 1794918723.2048576,
+    "seen": 1794920891.3663485,
+    "ast_hash": "56269c8ff7628b19872cc17fb2dd53ee",
     "semantic_hash": ""
   },
   "diagrams/sequence/UPMS_Sequence_Diagram_Cancellation.svg": {
-    "mtime": 1794194475.0686293,
-    "seen": 1794672298.1068048,
-    "ast_hash": "210e12d80a52a1b30fabdfd0c17db39d",
+    "mtime": 1794918662.0989754,
+    "seen": 1794920891.366361,
+    "ast_hash": "62399c688bcffeb6360ac1160774734d",
     "semantic_hash": ""
   },
   "diagrams/sequence/UPMS_Sequence_Diagram_Delay.png": {
@@ -4284,9 +4284,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/auth/AuthContext.tsx": {
-    "mtime": 1794681401.6818142,
-    "seen": 1794682174.0494103,
-    "ast_hash": "433a70cca294b6035f7f239bce72a2f8",
+    "mtime": 1794922140.6344962,
+    "seen": 1794923440.324303,
+    "ast_hash": "74cf9e784f00c453b8361b15d717e741",
     "semantic_hash": ""
   },
   "apps/web/src/components/AppLayout.tsx": {
@@ -4314,9 +4314,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/lib/types.ts": {
-    "mtime": 1794681392.510588,
-    "seen": 1794682174.050181,
-    "ast_hash": "47391edc01f3730011157c62322b704d",
+    "mtime": 1794922018.9045653,
+    "seen": 1794923440.3260531,
+    "ast_hash": "e93cc9688c2673e6038930d1c21b3bc0",
     "semantic_hash": ""
   },
   "apps/web/src/main.tsx": {
@@ -4326,9 +4326,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/Buses.tsx": {
-    "mtime": 1794679322.7371774,
-    "seen": 1794679738.847626,
-    "ast_hash": "0c7976d8e60446b09a294a2524918101",
+    "mtime": 1794920277.9235506,
+    "seen": 1794920891.1058936,
+    "ast_hash": "5e8aaf46925945ba58f2ff01d4dde77d",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Dashboard.tsx": {
@@ -4356,15 +4356,15 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/Trips.tsx": {
-    "mtime": 1794682322.051533,
-    "seen": 1794682430.6398916,
-    "ast_hash": "23a41fa66ebcfc1a9ba15867b612ac35",
+    "mtime": 1794920309.6522527,
+    "seen": 1794920891.1080441,
+    "ast_hash": "2f5a239d7e1865d72c097ff686408e95",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Vendors.tsx": {
-    "mtime": 1794679322.735173,
-    "seen": 1794679738.8479526,
-    "ast_hash": "b424c3540349605cbaf8ca439b4f64ab",
+    "mtime": 1794922069.9612525,
+    "seen": 1794923440.3299904,
+    "ast_hash": "608caca8684015779e9ad8637abd617a",
     "semantic_hash": ""
   },
   "apps/web/tsconfig.app.json": {
@@ -4392,15 +4392,15 @@
     "semantic_hash": ""
   },
   "apps/api/README.md": {
-    "mtime": 1794681948.2735617,
-    "seen": 1794682174.0728748,
-    "ast_hash": "799a34f914bdc18796c32e8dd9209656",
+    "mtime": 1794923050.882804,
+    "seen": 1794923440.3588274,
+    "ast_hash": "14f64967e26616bf993d23754c759fd4",
     "semantic_hash": ""
   },
   "apps/web/README.md": {
-    "mtime": 1794683403.41281,
-    "seen": 1794683446.2196164,
-    "ast_hash": "88f54c6551c631a0d22eccea9687d01b",
+    "mtime": 1794923182.42475,
+    "seen": 1794923440.3588333,
+    "ast_hash": "a24c6de5d0dbf02f536840366b4dd7df",
     "semantic_hash": ""
   },
   "apps/web/index.html": {
@@ -4428,9 +4428,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Bookings/BookingService.cs": {
-    "mtime": 1794681168.9919186,
-    "seen": 1794682174.0463777,
-    "ast_hash": "e0cb16cf464081cc4e815b71c7dea8bc",
+    "mtime": 1794922905.173221,
+    "seen": 1794923440.316082,
+    "ast_hash": "e6305e5e31ecf371e448393652feeb19",
     "semantic_hash": ""
   },
   "apps/api/src/UPMS.Api/Bookings/BookingsController.cs": {
@@ -4452,9 +4452,9 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/Book.tsx": {
-    "mtime": 1794681438.1946504,
-    "seen": 1794682174.0503697,
-    "ast_hash": "6aa87dbd4431bb8a7f64b6dc65e506b8",
+    "mtime": 1794920396.6116147,
+    "seen": 1794920891.1053672,
+    "ast_hash": "0e1dae7bdb1ef13eaced1b7c6cd20601",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Bookings.tsx": {
@@ -4464,15 +4464,15 @@
     "semantic_hash": ""
   },
   "apps/web/src/pages/MyBookings.tsx": {
-    "mtime": 1794683247.1605732,
-    "seen": 1794683446.1872091,
-    "ast_hash": "e41a12e6ddbab55cbd506ec2bc4f7780",
+    "mtime": 1794920324.2740464,
+    "seen": 1794920891.106855,
+    "ast_hash": "4c75cbaf03a26fe69328ec29fb00b211",
     "semantic_hash": ""
   },
   "apps/web/src/pages/Register.tsx": {
-    "mtime": 1794681411.7701921,
-    "seen": 1794682174.0506012,
-    "ast_hash": "cfe39715af1c7db0e3ce6262542ec13b",
+    "mtime": 1794922140.6695979,
+    "seen": 1794923440.328518,
+    "ast_hash": "62a82c5cbcfc64cc01ac5b9a867c87b3",
     "semantic_hash": ""
   },
   "apps/web/src/components/TicketReceipt.tsx": {
@@ -4482,9 +4482,111 @@
     "semantic_hash": ""
   },
   "apps/web/src/lib/bookingLabels.ts": {
-    "mtime": 1794683235.3788614,
-    "seen": 1794683446.184753,
-    "ast_hash": "2e7812ddcc4021a6e01b04c0925fa7f9",
+    "mtime": 1794921929.3358748,
+    "seen": 1794923440.3257315,
+    "ast_hash": "de6619720d68d23fdcb68a837336b0e8",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Bookings/BookingOptions.cs": {
+    "mtime": 1794919912.856201,
+    "seen": 1794920891.094953,
+    "ast_hash": "2d29f3fcf30a76913c3ebb8269001ff3",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117125511_AddSrsV11Alignment.Designer.cs": {
+    "mtime": 1794920111.8506148,
+    "seen": 1794920891.0987475,
+    "ast_hash": "3ad2200c6729c4ee7f62945db29fd6d2",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117125511_AddSrsV11Alignment.cs": {
+    "mtime": 1794920111.849608,
+    "seen": 1794920891.0987566,
+    "ast_hash": "d273ed7c24d13800f3d20347dc375054",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117125618_BusActiveDefault.Designer.cs": {
+    "mtime": 1794920178.228881,
+    "seen": 1794920891.0987637,
+    "ast_hash": "94e273f7a7e7a0f42828ada055b62103",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117125618_BusActiveDefault.cs": {
+    "mtime": 1794920216.328181,
+    "seen": 1794920891.09877,
+    "ast_hash": "51c40ecdbb7d096cc17df0757d54029b",
+    "semantic_hash": ""
+  },
+  "AI_docs/2026-11-15-session-log.md": {
+    "mtime": 1794754093.336061,
+    "seen": 1794920891.1480174,
+    "ast_hash": "78d03585523b1b353d1abb5e449b6e92",
+    "semantic_hash": ""
+  },
+  "AI_docs/sessions/2026-11-03_2026-11-15-session-e5e0c278-digest.md": {
+    "mtime": 1794754069.7756257,
+    "seen": 1794920891.148398,
+    "ast_hash": "eb61b70ebd4c8dc348713aa5cccc99a1",
+    "semantic_hash": ""
+  },
+  "AI_docs/sessions/session-075912de-d724-4fdf-a17a-d91add73d749.md": {
+    "mtime": 1794753690.697821,
+    "seen": 1794920891.148402,
+    "ast_hash": "cfec388929fb56d8d4d116e5ef91d62f",
+    "semantic_hash": ""
+  },
+  "diagrams/erd/UPMS_ERD_v1.1_Additions.html": {
+    "mtime": 1794919394.1347916,
+    "seen": 1794920891.1557474,
+    "ast_hash": "d4a15e7e02c0ec03d89df3e2fa541829",
+    "semantic_hash": ""
+  },
+  "docs/UPMS_Requirements_Review_2026-11-15.md": {
+    "mtime": 1794918866.411645,
+    "seen": 1794920891.1587565,
+    "ast_hash": "da432402764ccb83670a0e221bff990f",
+    "semantic_hash": ""
+  },
+  "diagrams/erd/UPMS_ERD_v1.1_Additions.png": {
+    "mtime": 1794919397.1975224,
+    "seen": 1794920891.3631878,
+    "ast_hash": "2fe3f4901cc9a8a7960a648246e84df4",
+    "semantic_hash": ""
+  },
+  "diagrams/erd/UPMS_ERD_v1.1_Additions.svg": {
+    "mtime": 1794919394.13378,
+    "seen": 1794920891.363198,
+    "ast_hash": "64e4504443bbd0e67a6f4552017a0ec9",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Bookings/AuditController.cs": {
+    "mtime": 1794922879.4257476,
+    "seen": 1794923440.3145766,
+    "ast_hash": "c240991be4d801ea0c01220b2408cc61",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Bookings/AuditService.cs": {
+    "mtime": 1794921763.6693835,
+    "seen": 1794923440.3145857,
+    "ast_hash": "55af6fc05708a576e493200ed13df374",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Bookings/NotificationsController.cs": {
+    "mtime": 1794922879.4257476,
+    "seen": 1794923440.3166828,
+    "ast_hash": "63f5f8ad7bb8e979c18c5a4144ed13ae",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117133029_AddPaymentAuditVendorPhase2.Designer.cs": {
+    "mtime": 1794922229.980589,
+    "seen": 1794923440.3219266,
+    "ast_hash": "d17cfd54827b37b7f2be47517726ef03",
+    "semantic_hash": ""
+  },
+  "apps/api/src/UPMS.Api/Migrations/20261117133029_AddPaymentAuditVendorPhase2.cs": {
+    "mtime": 1794922348.705688,
+    "seen": 1794923440.3219504,
+    "ast_hash": "e9dcc0b0746a7af645eb8ad576f565ea",
     "semantic_hash": ""
   },
   "apps/web/package-lock.json": {

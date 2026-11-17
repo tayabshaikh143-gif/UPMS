@@ -44,8 +44,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+builder.Services.Configure<BookingOptions>(builder.Configuration.GetSection("Bookings"));
+builder.Services.AddSingleton<IClock, Clock>();
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<BookingService>();
+builder.Services.AddScoped<AuditService>();
 builder.Services.AddHostedService<BookingExpiryService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

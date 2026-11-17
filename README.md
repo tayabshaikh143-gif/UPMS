@@ -11,7 +11,7 @@ Initial target deployment: **University of Sindh, Jamshoro** (single-university 
 | Step | Deliverable | Status |
 |---|---|---|
 | 1 | Project proposal | drafted (not in this repo yet) |
-| 2 | Software Requirements Specification (SRS v1.0) | done — `docs/UPMS_Step_2_SRS_v1.0.docx` |
+| 2 | Software Requirements Specification (SRS v1.1) | done — `docs/UPMS_Step_2_SRS_v1.1.docx` (v1.0 kept as history) |
 | 3 | Use case diagram + use case descriptions | diagram done, descriptions pending |
 | 4 | ERD and relational database design | diagrams done, schema document pending |
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
@@ -22,8 +22,10 @@ Initial target deployment: **University of Sindh, Jamshoro** (single-university 
 ## Repository layout
 
 ```
-docs/                       SRS document
-  UPMS_Step_2_SRS_v1.0.docx
+docs/                       SRS documents
+  UPMS_Step_2_SRS_v1.0.docx  original SRS draft (history)
+  UPMS_Step_2_SRS_v1.1.docx  implementation baseline + decision log
+  UPMS_Requirements_Review_2026-11-15.md  requirements/design review
 UPMS_Chat_Context_Export.docx   planning/continuity brief (move into docs/ once closed in Word)
 diagrams/                   rendered project diagrams
   activity/                 six activity diagrams (Booking, Cancellation, Boarding,
@@ -68,11 +70,17 @@ skills/
 
 - No student-ID/card verification; any person may book subject to capacity.
 - Payment: online, or cash collected at boarding and recorded by staff.
-- Passenger cancellation allowed up to 20 minutes before departure; capacity is
-  released immediately.
-- Cash booking not boarded by 5 minutes before departure expires automatically.
+- Boarding opens 20 minutes before departure by default (configurable); cash
+  no-show cutoff remains 5 minutes before departure.
+- All schedule times use Asia/Karachi wall-clock time.
+- Online cancellation up to 20 minutes before departure; full refund with no fee
+  for the MVP; capacity is released immediately.
+- Vendor-operated bus fares are retained by the vendor, who pays the university a
+  monthly subscription; university-owned bus fares accrue to the university.
+- One booking reserves one seat; no numbered seat selection and no group booking.
 - No waiting list — released capacity is sold to passengers physically present.
-- Offline tickets must be recorded in the same central system.
+- Offline tickets must be recorded in the same central system (name + phone,
+  issuing staff, timestamp).
 - Routes are administered by the university; vendors operate only on approved routes.
 - Delay/breakdown reporting with replacement bus assignment on the same trip record.
 - Capacity checks are atomic; a ticket cannot be boarded twice.

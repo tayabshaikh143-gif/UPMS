@@ -22,7 +22,7 @@ public class BusesController : ControllerBase
     {
         var buses = await _db.Buses.AsNoTracking()
             .OrderBy(b => b.Registration)
-            .Select(b => new BusDto(b.Id, b.Registration, b.Capacity, b.Ownership, b.VendorId, b.Vendor != null ? b.Vendor.Name : null))
+            .Select(b => new BusDto(b.Id, b.Registration, b.Capacity, b.Ownership, b.VendorId, b.Vendor != null ? b.Vendor.Name : null, b.Active))
             .ToListAsync();
         return Ok(buses);
     }
@@ -45,11 +45,12 @@ public class BusesController : ControllerBase
             Registration = registration,
             Capacity = request.Capacity,
             Ownership = request.Ownership,
-            VendorId = request.VendorId
+            VendorId = request.VendorId,
+            Active = request.Active
         };
         _db.Buses.Add(bus);
         await _db.SaveChangesAsync();
-        return Created($"/api/buses/{bus.Id}", new BusDto(bus.Id, bus.Registration, bus.Capacity, bus.Ownership, bus.VendorId, null));
+        return Created($"/api/buses/{bus.Id}", new BusDto(bus.Id, bus.Registration, bus.Capacity, bus.Ownership, bus.VendorId, null, bus.Active));
     }
 
     [HttpPut("{id:guid}")]
@@ -69,10 +70,24 @@ public class BusesController : ControllerBase
         if (request.VendorId is not null && !await _db.Vendors.AnyAsync(v => v.Id == request.VendorId.Value))
             return BadRequest(new { message = "Vendor not found." });
 
+        var activeCounts = await _db.Trips
+            .Where(t => t.BusId == id)
+            .Select(t => new
+            {
+                Count = t.Bookings.Count(b =>
+                    b.Status == BookingStatus.Reserved ||
+                    b.Status == BookingStatus.Confirmed ||
+                    b.Status == BookingStatus.Boarded)
+            })
+            .ToListAsync();
+        if (activeCounts.Any(x => x.Count > request.Capacity))
+            return Conflict(new { message = "Bus capacity is lower than active bookings on one of its trips." });
+
         bus.Registration = registration;
         bus.Capacity = request.Capacity;
         bus.Ownership = request.Ownership;
         bus.VendorId = request.VendorId;
+        bus.Active = request.Active;
         await _db.SaveChangesAsync();
         return NoContent();
     }

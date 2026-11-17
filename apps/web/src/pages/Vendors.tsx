@@ -27,6 +27,9 @@ export function VendorsPage() {
   const [open, setOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
+  const [monthlySubscription, setMonthlySubscription] = useState('0')
+  const [subscriptionStatus, setSubscriptionStatus] = useState('0')
   const [status, setStatus] = useState('0')
   const [error, setError] = useState('')
 
@@ -35,6 +38,9 @@ export function VendorsPage() {
   function startCreate() {
     setEditingId(null)
     setName('')
+    setContact('')
+    setMonthlySubscription('0')
+    setSubscriptionStatus('0')
     setStatus('0')
     setError('')
     setOpen(true)
@@ -43,6 +49,9 @@ export function VendorsPage() {
   function startEdit(vendor: VendorDto) {
     setEditingId(vendor.id)
     setName(vendor.name)
+    setContact(vendor.contact ?? '')
+    setMonthlySubscription(String(vendor.monthlySubscription))
+    setSubscriptionStatus(String(vendor.subscriptionStatus))
     setStatus(String(vendor.status))
     setError('')
     setOpen(true)
@@ -51,6 +60,9 @@ export function VendorsPage() {
   function closeForm() {
     setEditingId(null)
     setName('')
+    setContact('')
+    setMonthlySubscription('0')
+    setSubscriptionStatus('0')
     setStatus('0')
     setError('')
     setOpen(false)
@@ -58,7 +70,13 @@ export function VendorsPage() {
 
   const save = useMutation({
     mutationFn: async () => {
-      const body = { name, status: Number(status) }
+      const body = {
+        name,
+        contact: contact || null,
+        monthlySubscription: Number(monthlySubscription),
+        subscriptionStatus: Number(subscriptionStatus),
+        status: Number(status),
+      }
       if (editingId) {
         await api.put<void>(`/api/vendors/${editingId}`, body)
       } else {
@@ -101,7 +119,7 @@ export function VendorsPage() {
             </Button>
           </div>
           <form
-            className="grid gap-4 sm:grid-cols-[1fr_200px_auto]"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_160px_150px_auto]"
             onSubmit={(event) => {
               event.preventDefault()
               setError('')
@@ -110,6 +128,18 @@ export function VendorsPage() {
           >
             <Field label="Name">
               <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Indus Transport" required />
+            </Field>
+            <Field label="Contact">
+              <Input value={contact} onChange={(e) => setContact(e.target.value)} placeholder="Phone or email" />
+            </Field>
+            <Field label="Monthly subscription">
+              <Input
+                type="number"
+                min={0}
+                value={monthlySubscription}
+                onChange={(e) => setMonthlySubscription(e.target.value)}
+                required
+              />
             </Field>
             <Field label="Status">
               <Select value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -140,6 +170,7 @@ export function VendorsPage() {
               <Th>Name</Th>
               <Th>Status</Th>
               <Th>Buses</Th>
+              <Th>Subscription</Th>
               {isAdmin && <Th> </Th>}
             </tr>
           </thead>
@@ -153,6 +184,12 @@ export function VendorsPage() {
                   </Badge>
                 </Td>
                 <Td>{vendor.busCount}</Td>
+                <Td>
+                  <div className="text-sm">Rs {vendor.monthlySubscription.toFixed(2)}</div>
+                  <Badge tone={vendor.subscriptionStatus === 1 ? 'success' : 'warning'}>
+                    {vendor.subscriptionStatus === 1 ? 'Paid' : 'Pending'}
+                  </Badge>
+                </Td>
                 {isAdmin && (
                   <Td>
                     <Button

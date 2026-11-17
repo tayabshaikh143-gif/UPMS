@@ -8,6 +8,7 @@ export function Register() {
   const { user, register } = useAuth()
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
@@ -19,7 +20,7 @@ export function Register() {
     setBusy(true)
     setError('')
     try {
-      await register(fullName, email, password)
+      await register(fullName, email, password, phone)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed')
     } finally {
@@ -54,6 +55,14 @@ export function Register() {
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
+              />
+            </Field>
+            <Field label="Phone (optional)">
+              <Input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="0300 0000000"
+                autoComplete="tel"
               />
             </Field>
             <Field label="Password">

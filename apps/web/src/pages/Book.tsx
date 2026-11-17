@@ -5,6 +5,7 @@ import {
   CalendarDays,
   CheckCircle2,
   CreditCard,
+  Search,
   Ticket,
   Users,
   Wallet,
@@ -12,9 +13,10 @@ import {
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../lib/api'
+import { CASH_NO_SHOW_MINUTES } from '../lib/bookingLabels'
 import { formatDateTime } from '../lib/format'
 import type { BookingDto, TripDto } from '../lib/types'
-import { Badge, Button, Card, Loading, PageHeader, cx } from '../components/ui'
+import { Badge, Button, Card, Input, Loading, PageHeader, cx } from '../components/ui'
 
 export function BookPage() {
   const queryClient = useQueryClient()
@@ -22,11 +24,23 @@ export function BookPage() {
   const [method, setMethod] = useState(0)
   const [success, setSuccess] = useState<BookingDto | null>(null)
   const [error, setError] = useState('')
+  const [query, setQuery] = useState('')
 
   const trips = useQuery({ queryKey: ['trips'], queryFn: () => api.get<TripDto[]>('/api/trips') })
 
+  const search = query.trim().toLowerCase()
   const available = [...(trips.data ?? [])]
     .filter((trip) => trip.status === 0 && new Date(trip.departureAt) > new Date())
+    .filter((trip) => {
+      if (!search) return true
+      return [
+        trip.routeCode,
+        trip.routeName,
+        trip.origin,
+        trip.destination,
+        ...trip.stops.map((stop) => stop.stopName),
+      ].some((value) => value.toLowerCase().includes(search))
+    })
     .sort((a, b) => a.departureAt.localeCompare(b.departureAt))
 
   const create = useMutation({
@@ -53,6 +67,17 @@ export function BookPage() {
         title="Book a trip"
         subtitle="One ticket reserves one seat. No numbered seat selection."
       />
+
+      <div className="relative mb-5 max-w-sm">
+        <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" />
+        <Input
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Search route, stop or code"
+          className="pl-9"
+          aria-label="Search trips"
+        />
+      </div>
 
       {success && (
         <div className="mb-6 rounded-xl border border-accent/30 bg-accent-soft p-5">
@@ -134,7 +159,7 @@ export function BookPage() {
                   <Wallet className="size-4" /> Cash at boarding
                 </div>
                 <p className="mt-1 text-xs text-muted">
-                  Seat held until 5 minutes before departure.
+                  Seat held until {CASH_NO_SHOW_MINUTES} minutes before departure.
                 </p>
               </button>
             </div>
@@ -153,7 +178,9 @@ export function BookPage() {
         <Loading />
       ) : available.length === 0 ? (
         <div className="rounded-xl border border-dashed border-line p-8 text-center text-sm text-muted">
-          No upcoming trips are open for booking right now.
+          {query
+            ? 'No upcoming trips match this search.'
+            : 'No upcoming trips are open for booking right now.'}
         </div>
       ) : (
         <div className="grid gap-4 xl:grid-cols-2">
@@ -202,6 +229,23 @@ export function BookPage() {
                     style={{ width: `${Math.min(100, occupancy)}%` }}
                   />
                 </div>
+
+                {trip.stops.length > 0 ? (
+                  <details className="mt-3 text-sm">
+                    <summary className="cursor-pointer font-medium text-accent">
+                      View stops ({trip.stops.length})
+                    </summary>
+                    <ol className="mt-2 space-y-1 border-l border-line pl-3 text-xs text-muted">
+                      {trip.stops.map((stop, index) => (
+                        <li key={stop.id}>
+                          {index + 1}. {stop.stopName}
+                        </li>
+                      ))}
+                    </ol>
+                  </details>
+                ) : (
+                  <p className="mt-3 text-xs text-muted">Stops not set</p>
+                )}
 
                 <Button
                   className="mt-4 w-full"

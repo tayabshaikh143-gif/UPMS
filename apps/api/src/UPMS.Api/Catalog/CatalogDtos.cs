@@ -10,11 +10,39 @@ public record RouteRequest(string Code, string Name, bool Active = true);
 public record StopDto(Guid Id, string Name, double Latitude, double Longitude);
 public record StopRequest(string Name, double Latitude, double Longitude);
 
-public record VendorDto(Guid Id, string Name, VendorStatus Status, int BusCount);
-public record VendorRequest(string Name, VendorStatus Status);
+public record VendorDto(
+    Guid Id,
+    string Name,
+    VendorStatus Status,
+    int BusCount,
+    Guid? UserId,
+    string? Contact,
+    decimal MonthlySubscription,
+    SettlementStatus SubscriptionStatus);
+public record VendorRequest(
+    string Name,
+    VendorStatus Status,
+    Guid? UserId = null,
+    string? Contact = null,
+    decimal MonthlySubscription = 0,
+    SettlementStatus SubscriptionStatus = SettlementStatus.Pending);
+public record VendorSettlementDto(
+    Guid Id,
+    Guid VendorId,
+    string Period,
+    decimal GrossFares,
+    decimal SubscriptionDue,
+    SettlementStatus Status,
+    DateTime? PaidAt,
+    DateTime CreatedAt);
+public record VendorSettlementRequest(
+    string Period,
+    decimal GrossFares,
+    decimal SubscriptionDue,
+    SettlementStatus Status = SettlementStatus.Pending);
 
-public record BusDto(Guid Id, string Registration, int Capacity, Ownership Ownership, Guid? VendorId, string? VendorName);
-public record BusRequest(string Registration, int Capacity, Ownership Ownership, Guid? VendorId);
+public record BusDto(Guid Id, string Registration, int Capacity, Ownership Ownership, Guid? VendorId, string? VendorName, bool Active);
+public record BusRequest(string Registration, int Capacity, Ownership Ownership, Guid? VendorId, bool Active = true);
 
 public record TripDto(
     Guid Id,
@@ -30,13 +58,17 @@ public record TripDto(
     string? BusRegistration,
     int Capacity,
     int BookedCount,
-    int RemainingSeats);
+    int RemainingSeats,
+    IReadOnlyList<RouteStopDto> Stops,
+    DateTime? CancelledAt,
+    string? CancellationReason);
 public record TripRequest(
     Guid RouteId,
     Guid? BusId,
     DateTime DepartureAt,
     decimal Fare,
-    TripStatus Status = TripStatus.Scheduled);
+    TripStatus Status = TripStatus.Scheduled,
+    string? CancellationReason = null);
 
 public record RouteStopRequest(Guid StopId, int Sequence, int OffsetMinutes);
 public record RouteStopNameRequest(string Name);
