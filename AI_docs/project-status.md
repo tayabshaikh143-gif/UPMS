@@ -20,7 +20,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React 19 + ASP.NET Core 8 + EF Core 8 + SQL Server LocalDB |
-| 8 | Implementation and testing | in progress - Slices 1-2 + SRS v1.1 alignment + vendor onboarding + staff boarding |
+| 8 | Implementation and testing | in progress - Slices 1-2 + SRS v1.1 alignment + vendor onboarding + staff boarding committed |
 
 ## Repository
 
@@ -51,6 +51,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | `89d4a1e` | feat(bookings): add ticket booking, capacity control and receipts |
 | `13a3dc1` | feat: align UPMS with SRS v1.1 (payments, audit, vendor settlement) |
 | `ae869f8` | feat(vendors): add self-registration, approval and vendor portal |
+| `c3366a4` | feat(boarding): add staff console for check-in and offline tickets |
 
 ## Current implementation — Slices 1 and 2
 

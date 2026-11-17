@@ -508,6 +508,7 @@ Added the remaining data-model pieces and wired the booking ledger.
   a `QA-CAP-1` bus and its cancelled capacity test trip.
 - Pending: admin staff management, trip/staff assignment UI, vendor bus
   maintenance, notification UI, incidents/reports and broader audit coverage.
+- Committed as `c3366a4` on `main`.
 
 
 
