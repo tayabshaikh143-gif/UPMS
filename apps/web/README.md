@@ -45,7 +45,7 @@ Demo passenger: `student@upms.local` / `Student@123`.
 | Route | Page | Notes |
 |---|---|---|
 | `/login` | Sign in | JWT stored in `localStorage`, restored on reload |
-| `/register` | Register | Student account or vendor application; both sign in after submit |
+| `/register` | Register | Passenger account or vendor application; both sign in after submit |
 | `/` | Dashboard | Admin catalog counts, bookings and upcoming trips |
 | `/routes` | Routes | Admin create/edit/delete |
 | `/stops` | Route stops | Ordered stops per route; admin add/remove by name |
@@ -56,12 +56,13 @@ Demo passenger: `student@upms.local` / `Student@123`.
 | `/book` | Book a trip | Passenger trip cards with search, stops, online/cash booking |
 | `/my-bookings` | My bookings | Passenger ticket references, status, printable receipt and cancellation |
 | `/vendor` | Vendor portal | Vendor profile, approval status, own buses, assigned trips and settlements |
+| `/staff` | Boarding console | Staff trip list, passenger check-in, no-show and offline cash tickets |
 
 Passengers are routed to `/book` after login and see only the booking pages.
 Vendors are routed to `/vendor`; pending or rejected applications see their
-status instead of buses/trips/settlements. Admin-only pages are hidden from the
-sidebar and guarded in the router; the API still enforces authorization on every
-request.
+status instead of buses/trips/settlements. Staff are routed to `/staff` and see
+only the boarding console. Admin-only pages are hidden from the sidebar and
+guarded in the router; the API still enforces authorization on every request.
 
 ## Notes
 

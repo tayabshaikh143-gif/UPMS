@@ -20,7 +20,7 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 | 5 | Activity and sequence diagrams | done — 6 activity + 6 sequence diagrams |
 | 6 | Architecture and UI/UX wireframes | pending |
 | 7 | Technology stack confirmation | confirmed — React 19 + ASP.NET Core 8 + EF Core 8 + SQL Server LocalDB |
-| 8 | Implementation and testing | in progress - Slices 1-2 + SRS v1.1 alignment + vendor onboarding committed |
+| 8 | Implementation and testing | in progress - Slices 1-2 + SRS v1.1 alignment + vendor onboarding + staff boarding |
 
 ## Repository
 
@@ -105,6 +105,14 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   buses, assigned trips and settlements.
 - Demo vendor login: `vendor@upms.local` / `Vendor@123` (linked to Indus
   Transport Services).
+- Register toggle label is now Passenger instead of Student; the system role was
+  already `Passenger`.
+- Staff boarding console is live at `/staff`: trip list, merged passenger list,
+  board/no-show, offline cash ticket issue/board, boarding-window enforcement
+  and audit entries. Offline tickets count toward capacity, and trip
+  cancellation cancels/refunds them.
+- Demo staff login: `staff@upms.local` / `Staff@123` with a seeded
+  `StaffProfile` (`EMP-001`, Boarding Staff).
 
 ## Decisions fixed in SRS v1.1
 
@@ -141,11 +149,11 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 - Move `UPMS_Chat_Context_Export.docx` into `docs/` once it is closed in Word.
 - Add the Step 1 proposal to the repo.
 - Architecture and UI/UX wireframes (Step 6).
-- Reconcile remaining code with SRS v1.1: staff/trip assignment endpoints/UI,
-  offline-ticket flow, notification UI, vendor bus maintenance, staff portal and
-  audit coverage for all admin actions.
-- Slice 3: staff boarding, offline ticket sales, incidents/replacement bus and
-  operational reports.
+- Reconcile remaining code with SRS v1.1: staff/trip assignment admin UI,
+  notification UI, vendor bus maintenance, admin staff management and audit
+  coverage for all admin actions.
+- Slice 3 remaining: incidents/replacement bus and operational reports; staff
+  boarding and offline ticket sales are implemented.
 - Decide whether to remove demo/test rows and test bookings from the LocalDB
   database.
 - Decide what to do with the 12 MB raw session export in `AI_docs/sessions/`

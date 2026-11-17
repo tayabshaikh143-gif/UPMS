@@ -72,6 +72,9 @@ export function Login() {
           <p>
             Demo vendor: <span className="font-medium text-ink">vendor@upms.local</span> / Vendor@123
           </p>
+          <p>
+            Demo staff: <span className="font-medium text-ink">staff@upms.local</span> / Staff@123
+          </p>
           <p className="pt-2">
             New here?{' '}
             <Link to="/register" className="font-medium text-accent hover:underline">

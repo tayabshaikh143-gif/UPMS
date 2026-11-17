@@ -125,6 +125,48 @@ public static class Seed
             demoVendor.Contact ??= "03001234567";
         }
 
+        // Demo boarding staff for the staff console.
+        var staffEmail = config["Seed:StaffEmail"] ?? "staff@upms.local";
+        var staffPassword = config["Seed:StaffPassword"] ?? "Staff@123";
+        var staffUser = await users.FindByEmailAsync(staffEmail);
+        if (staffUser is null)
+        {
+            staffUser = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                UserName = staffEmail,
+                Email = staffEmail,
+                PhoneNumber = "03009876543",
+                EmailConfirmed = true,
+                FullName = "Demo Boarding Staff"
+            };
+            await users.CreateAsync(staffUser, staffPassword);
+            await users.AddToRoleAsync(staffUser, "Staff");
+        }
+        else if (!await users.IsInRoleAsync(staffUser, "Staff"))
+        {
+            await users.AddToRoleAsync(staffUser, "Staff");
+        }
+
+        if (!await db.StaffProfiles.AnyAsync(s => s.UserId == staffUser.Id))
+        {
+            var employeeNo = "EMP-001";
+            var suffix = 1;
+            while (await db.StaffProfiles.AnyAsync(s => s.EmployeeNo == employeeNo))
+            {
+                suffix++;
+                employeeNo = $"EMP-{suffix:000}";
+            }
+
+            db.StaffProfiles.Add(new StaffProfile
+            {
+                UserId = staffUser.Id,
+                EmployeeNo = employeeNo,
+                Position = "Boarding Staff",
+                Active = true
+            });
+        }
+
         var fallbackBus = await db.Buses.OrderBy(b => b.Registration).FirstOrDefaultAsync();
         var unassignedTrips = await db.Trips.Where(t => t.BusId == null).ToListAsync();
         if (fallbackBus is not null && unassignedTrips.Count > 0)

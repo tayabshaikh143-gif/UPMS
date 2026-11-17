@@ -56,8 +56,12 @@ public class BookingService
         var activeBookings = await _db.Bookings.CountAsync(
             b => b.TripId == trip.Id && ActiveStatuses.Contains(b.Status),
             cancellationToken);
+        var activeOfflineTickets = await _db.OfflineTickets.CountAsync(
+            t => t.TripId == trip.Id &&
+                 (t.Status == OfflineTicketStatus.Issued || t.Status == OfflineTicketStatus.Boarded),
+            cancellationToken);
 
-        if (activeBookings >= trip.Bus.Capacity)
+        if (activeBookings + activeOfflineTickets >= trip.Bus.Capacity)
             return new BookingActionResult(null, "This trip is fully booked.", StatusCodes.Status409Conflict);
 
         var isOnline = request.Method == PaymentMethod.Online;
@@ -169,6 +173,21 @@ public class BookingService
             });
         }
 
+        var offlineTickets = await _db.OfflineTickets
+            .Where(t => t.TripId == tripId && t.Status != OfflineTicketStatus.Cancelled)
+            .ToListAsync(cancellationToken);
+        foreach (var ticket in offlineTickets)
+        {
+            ticket.Status = OfflineTicketStatus.Cancelled;
+            ticket.PaymentStatus = PaymentStatus.Refunded;
+            _audit.Add(
+                actorId,
+                "OfflineTicketCancelled",
+                "OfflineTicket",
+                ticket.Id,
+                $"Trip cancellation; offline ticket {ticket.Reference}.");
+        }
+
         return bookings.Count;
     }
 
@@ -248,7 +267,8 @@ public class BookingService
     }
 
     public async Task<int> ExpireCashBookingsAsync(CancellationToken cancellationToken)
-    {        var cutoff = _clock.Now.AddMinutes(_options.CashNoShowMinutes);
+    {
+        var cutoff = _clock.Now.AddMinutes(_options.CashNoShowMinutes);
         var expired = await _db.Bookings
             .Where(b =>
                 b.Status == BookingStatus.Reserved &&

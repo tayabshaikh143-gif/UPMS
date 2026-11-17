@@ -14,6 +14,7 @@ import { BookPage } from './pages/Book'
 import { MyBookingsPage } from './pages/MyBookings'
 import { BookingsPage } from './pages/Bookings'
 import { VendorPortalPage } from './pages/VendorPortal'
+import { StaffPortalPage } from './pages/StaffPortal'
 
 function Protected() {
   const { user, loading } = useAuth()
@@ -32,6 +33,7 @@ function Home() {
   const { user } = useAuth()
   if (!user) return null
   if (user.roles.includes('Admin')) return <Dashboard />
+  if (user.roles.includes('Staff')) return <Navigate to="/staff" replace />
   if (user.roles.includes('Vendor')) return <Navigate to="/vendor" replace />
   return <Navigate to="/book" replace />
 }
@@ -46,6 +48,16 @@ function VendorOnly({ children }: { children: ReactElement }) {
   const { user } = useAuth()
   if (!user) return null
   return user.roles.includes('Vendor') ? children : <Navigate to="/" replace />
+}
+
+function StaffOnly({ children }: { children: ReactElement }) {
+  const { user } = useAuth()
+  if (!user) return null
+  return user.roles.includes('Staff') || user.roles.includes('Admin') ? (
+    children
+  ) : (
+    <Navigate to="/" replace />
+  )
 }
 
 export function App() {
@@ -111,6 +123,14 @@ export function App() {
             <VendorOnly>
               <VendorPortalPage />
             </VendorOnly>
+          }
+        />
+        <Route
+          path="staff"
+          element={
+            <StaffOnly>
+              <StaffPortalPage />
+            </StaffOnly>
           }
         />
       </Route>

@@ -1,6 +1,7 @@
 import {
   Bus,
   Building2,
+  ClipboardCheck,
   ClipboardList,
   GraduationCap,
   LayoutDashboard,
@@ -33,11 +34,16 @@ const vendorNav = [
   { to: '/vendor', label: 'Vendor portal', icon: Building2, end: true },
 ]
 
+const staffNav = [
+  { to: '/staff', label: 'Boarding', icon: ClipboardCheck, end: true },
+]
+
 export function AppLayout() {
   const { user, logout } = useAuth()
   const isAdmin = user?.roles.includes('Admin') ?? false
   const isVendor = user?.roles.includes('Vendor') ?? false
-  const nav = isAdmin ? adminNav : isVendor ? vendorNav : passengerNav
+  const isStaff = user?.roles.includes('Staff') ?? false
+  const nav = isAdmin ? adminNav : isStaff ? staffNav : isVendor ? vendorNav : passengerNav
 
   return (
     <div className="min-h-screen bg-paper">

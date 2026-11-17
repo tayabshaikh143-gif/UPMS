@@ -152,6 +152,7 @@ public class VendorsController : ControllerBase
             .Include(t => t.Route!).ThenInclude(r => r.Stops).ThenInclude(rs => rs.Stop)
             .Include(t => t.Bus)
             .Include(t => t.Bookings)
+            .Include(t => t.OfflineTickets)
             .Where(t => t.Bus != null && t.Bus.VendorId == vendor.Id)
             .AsSplitQuery()
             .OrderByDescending(t => t.DepartureAt)
@@ -275,6 +276,9 @@ public class VendorsController : ControllerBase
             b.Status == BookingStatus.Reserved ||
             b.Status == BookingStatus.Confirmed ||
             b.Status == BookingStatus.Boarded);
+        booked += trip.OfflineTickets.Count(t =>
+            t.Status == OfflineTicketStatus.Issued ||
+            t.Status == OfflineTicketStatus.Boarded);
         return new VendorTripDto(
             trip.Id,
             trip.Route?.Code ?? string.Empty,

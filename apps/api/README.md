@@ -20,6 +20,7 @@ The app applies migrations and seeds demo data on startup.
 | Admin | `admin@upms.local` | `Admin@12345` |
 | Passenger | `student@upms.local` | `Student@123` |
 | Vendor | `vendor@upms.local` | `Vendor@123` |
+| Staff | `staff@upms.local` | `Staff@123` |
 
 Change the seed values in `appsettings.json` before any real deployment.
 
@@ -58,6 +59,12 @@ Change the seed values in `appsettings.json` before any real deployment.
 | GET | `/api/audit?take=` | Admin |
 | GET | `/api/vendors/{id}/settlements` | Admin, Staff |
 | POST | `/api/vendors/{id}/settlements` | Admin |
+| GET | `/api/staff/trips` | Staff, Admin |
+| GET | `/api/staff/trips/{id}/passengers` | Staff, Admin |
+| POST | `/api/staff/trips/{tripId}/bookings/{bookingId}/board` | Staff, Admin |
+| POST | `/api/staff/trips/{tripId}/bookings/{bookingId}/no-show` | Staff, Admin |
+| POST | `/api/staff/trips/{tripId}/offline-tickets` | Staff, Admin |
+| POST | `/api/staff/trips/{tripId}/offline-tickets/{ticketId}/board` | Staff, Admin |
 
 Catalog writes validate references and uniqueness: duplicate route codes or bus
 registrations return `409 Conflict` with a readable `message`, missing routes or
@@ -102,16 +109,22 @@ Booking rules in this slice:
 - Payments and refunds are written to separate `Payments` and `Refunds` records;
   `Bookings` keeps a payment snapshot for quick reads.
 - Online approval uses `PaymentStatus.Approved` (4); cash collection uses `Paid`.
+- Boarding starts 20 minutes before departure. Staff can mark a booking `Boarded`
+  or `Expired` (no-show); boarding a cash booking records payment as `Paid`.
+- Offline cash tickets capture passenger name and phone, are written to
+  `OfflineTickets`, and count toward trip capacity alongside bookings.
+- Trip cancellation also cancels/refunds open offline tickets.
 - Booking, payment, cancellation and trip-cancellation actions are written to
-  `AuditLogs`.
+  `AuditLogs`; boarding and offline-ticket actions are audited too.
 - Trip cancellation creates in-app `Notifications` for affected passengers.
 - Vendors have an optional user link, contact, monthly subscription and
   settlement records.
 - Vendor self-registration creates a `Vendor` login and a `Pending` vendor
   application. Admin approval unlocks the vendor portal (`/vendor`): own buses,
   assigned trips and settlements.
-- Staff profiles and trip/staff assignments are modelled for the staff portal;
-  the offline-ticket, notification and staff UI flows arrive in Slice 3.
+- Staff profiles and trip/staff assignments are modelled; the staff console
+  currently shows all trips. Admin staff management and assignment enforcement
+  are follow-ups.
 - Registration accepts an optional phone number for later offline-ticket use.
 
 ## Database

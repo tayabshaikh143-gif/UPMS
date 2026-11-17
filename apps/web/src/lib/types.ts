@@ -95,6 +95,42 @@ export type VendorSettlementDto = {
   createdAt: string
 }
 
+export type StaffTripDto = {
+  id: string
+  routeCode: string
+  routeName: string
+  origin: string
+  destination: string
+  departureAt: string
+  fare: number
+  status: number
+  busRegistration: string | null
+  capacity: number
+  bookedCount: number
+  remainingSeats: number
+  boardingStartsAt: string
+  boardingOpen: boolean
+}
+
+export type StaffPassengerDto = {
+  id: string
+  source: 'Booking' | 'Offline'
+  reference: string
+  passengerName: string
+  contact: string | null
+  method: number
+  paymentStatus: number
+  status: number
+  amount: number
+  createdAt: string
+  boardedAt: string | null
+}
+
+export type StaffTripDetailDto = {
+  trip: StaffTripDto
+  passengers: StaffPassengerDto[]
+}
+
 export type BusDto = {
   id: string
   registration: string

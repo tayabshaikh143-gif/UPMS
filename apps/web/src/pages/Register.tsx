@@ -4,11 +4,11 @@ import { Link, Navigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
 import { Button, Card, Field, Input, cx } from '../components/ui'
 
-type AccountType = 'student' | 'vendor'
+type AccountType = 'passenger' | 'vendor'
 
 export function Register() {
   const { user, register, registerVendor } = useAuth()
-  const [accountType, setAccountType] = useState<AccountType>('student')
+  const [accountType, setAccountType] = useState<AccountType>('passenger')
   const [fullName, setFullName] = useState('')
   const [organizationName, setOrganizationName] = useState('')
   const [contactPerson, setContactPerson] = useState('')
@@ -63,13 +63,13 @@ export function Register() {
           <div className="mb-5 grid grid-cols-2 gap-1 rounded-lg border border-line bg-paper p-1">
             <button
               type="button"
-              onClick={() => chooseType('student')}
+              onClick={() => chooseType('passenger')}
               className={cx(
                 'rounded-md px-3 py-2 text-sm font-medium transition',
                 !isVendor ? 'bg-brand text-white' : 'text-muted hover:text-ink',
               )}
             >
-              Student
+              Passenger
             </button>
             <button
               type="button"

@@ -33,6 +33,7 @@ public class TripsController : ControllerBase
             .Include(t => t.Route!).ThenInclude(r => r.Stops).ThenInclude(rs => rs.Stop)
             .Include(t => t.Bus)
             .Include(t => t.Bookings)
+            .Include(t => t.OfflineTickets)
             .AsSplitQuery()
             .AsQueryable();
         if (routeId is not null)
@@ -160,6 +161,9 @@ public class TripsController : ControllerBase
             b.Status == BookingStatus.Reserved ||
             b.Status == BookingStatus.Confirmed ||
             b.Status == BookingStatus.Boarded);
+        booked += trip.OfflineTickets.Count(t =>
+            t.Status == OfflineTicketStatus.Issued ||
+            t.Status == OfflineTicketStatus.Boarded);
         return new TripDto(
             trip.Id,
             route.Id,

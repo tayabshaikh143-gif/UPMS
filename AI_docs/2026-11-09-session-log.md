@@ -479,6 +479,36 @@ Added the remaining data-model pieces and wired the booking ledger.
   and broader admin audit coverage.
 - Committed as `ae869f8` on `main`.
 
+## 29. Staff boarding console (2026-11-17)
+
+- Register toggle label changed from Student to Passenger (role was already
+  `Passenger`).
+- New Staff endpoints (Staff/Admin only):
+  `GET /api/staff/trips`, `GET /api/staff/trips/{id}/passengers`,
+  `POST .../bookings/{id}/board`, `POST .../bookings/{id}/no-show`,
+  `POST .../offline-tickets`, `POST .../offline-tickets/{id}/board`.
+- Staff console at `/staff`: trip list with boarding state, merged booking +
+  offline-ticket passenger list, board/no-show actions, offline cash ticket form
+  and refresh. Staff are routed to `/staff` and see only the Boarding nav item.
+- Boarding rules: opens 20 minutes before departure; cash bookings marked
+  boarded are recorded as `Paid`; no-show sets `Expired`; boarding/offline
+  actions write `AuditLogs` entries.
+- Offline tickets count toward capacity everywhere (booking create, trip DTOs,
+  vendor portal, staff console). Trip cancellation cancels/refunds open offline
+  tickets and audits each one.
+- Seed: `staff@upms.local` / `Staff@123`, `StaffProfile` EMP-001 Boarding Staff.
+- Verified: passenger role gets 403 on staff APIs; early boarding returns 400;
+  online + cash bookings boarded; offline ticket issued/boarded; no-show expires;
+  capacity-1 bus rejects a booking after an offline ticket (409); trip
+  cancellation flips offline ticket to Cancelled/Refunded; API and web builds pass.
+- Screenshots: `docs/screenshots/26-staff-console.png`,
+  `27-staff-boarding-actions.png`, `28-staff-offline-issued.png`; register
+  screenshot `21-vendor-register.png` refreshed for the Passenger label.
+- Local QA data created for verification: near-term trip, cash/online bookings,
+  a `QA-CAP-1` bus and its cancelled capacity test trip.
+- Pending: admin staff management, trip/staff assignment UI, vendor bus
+  maintenance, notification UI, incidents/reports and broader audit coverage.
+
 
 
 
