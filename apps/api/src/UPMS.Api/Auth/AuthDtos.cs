@@ -9,5 +9,11 @@ public class JwtOptions
 }
 
 public record RegisterRequest(string Email, string Password, string FullName, string? Phone = null);
+public record RegisterVendorRequest(
+    string OrganizationName,
+    string ContactPerson,
+    string Email,
+    string Password,
+    string? Phone = null);
 public record LoginRequest(string Email, string Password);
 public record AuthResponse(string Token, Guid UserId, string Email, string FullName, IReadOnlyList<string> Roles);

@@ -40,6 +40,29 @@ public record VendorSettlementRequest(
     decimal GrossFares,
     decimal SubscriptionDue,
     SettlementStatus Status = SettlementStatus.Pending);
+public record VendorProfileDto(
+    Guid Id,
+    string Name,
+    VendorStatus Status,
+    string? Contact,
+    decimal MonthlySubscription,
+    SettlementStatus SubscriptionStatus,
+    int BusCount,
+    string ContactPerson,
+    string Email);
+public record VendorTripDto(
+    Guid Id,
+    string RouteCode,
+    string RouteName,
+    string Origin,
+    string Destination,
+    DateTime DepartureAt,
+    decimal Fare,
+    TripStatus Status,
+    string? BusRegistration,
+    int Capacity,
+    int BookedCount,
+    int RemainingSeats);
 
 public record BusDto(Guid Id, string Registration, int Capacity, Ownership Ownership, Guid? VendorId, string? VendorName, bool Active);
 public record BusRequest(string Registration, int Capacity, Ownership Ownership, Guid? VendorId, bool Active = true);

@@ -8,6 +8,13 @@ type AuthState = {
   loading: boolean
   login: (email: string, password: string) => Promise<void>
   register: (fullName: string, email: string, password: string, phone?: string) => Promise<void>
+  registerVendor: (
+    organizationName: string,
+    contactPerson: string,
+    email: string,
+    password: string,
+    phone?: string,
+  ) => Promise<void>
   logout: () => void
 }
 
@@ -55,6 +62,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       async register(fullName: string, email: string, password: string, phone?: string) {
         const result = await api.post<AuthResponse>('/api/auth/register', {
           fullName,
+          email,
+          password,
+          phone,
+        })
+        const nextUser: AuthUser = {
+          id: result.userId,
+          email: result.email,
+          fullName: result.fullName,
+          roles: result.roles,
+        }
+        setToken(result.token)
+        setStoredUser(nextUser)
+        setUser(nextUser)
+      },
+      async registerVendor(
+        organizationName: string,
+        contactPerson: string,
+        email: string,
+        password: string,
+        phone?: string,
+      ) {
+        const result = await api.post<AuthResponse>('/api/auth/register-vendor', {
+          organizationName,
+          contactPerson,
           email,
           password,
           phone,

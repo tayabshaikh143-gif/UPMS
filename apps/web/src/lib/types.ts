@@ -57,6 +57,44 @@ export type VendorDto = {
   subscriptionStatus: number
 }
 
+export type VendorProfileDto = {
+  id: string
+  name: string
+  status: number
+  contact: string | null
+  monthlySubscription: number
+  subscriptionStatus: number
+  busCount: number
+  contactPerson: string
+  email: string
+}
+
+export type VendorTripDto = {
+  id: string
+  routeCode: string
+  routeName: string
+  origin: string
+  destination: string
+  departureAt: string
+  fare: number
+  status: number
+  busRegistration: string | null
+  capacity: number
+  bookedCount: number
+  remainingSeats: number
+}
+
+export type VendorSettlementDto = {
+  id: string
+  vendorId: string
+  period: string
+  grossFares: number
+  subscriptionDue: number
+  status: number
+  paidAt: string | null
+  createdAt: string
+}
+
 export type BusDto = {
   id: string
   registration: string

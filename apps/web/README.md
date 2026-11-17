@@ -45,20 +45,23 @@ Demo passenger: `student@upms.local` / `Student@123`.
 | Route | Page | Notes |
 |---|---|---|
 | `/login` | Sign in | JWT stored in `localStorage`, restored on reload |
-| `/register` | Register | Creates a Passenger account (optional phone) and signs in |
+| `/register` | Register | Student account or vendor application; both sign in after submit |
 | `/` | Dashboard | Admin catalog counts, bookings and upcoming trips |
 | `/routes` | Routes | Admin create/edit/delete |
 | `/stops` | Route stops | Ordered stops per route; admin add/remove by name |
-| `/vendors` | Vendors | Admin create/edit, approval status, contact and monthly subscription |
+| `/vendors` | Vendors | Admin create/edit, pending applications with approve/reject, contact and subscription |
 | `/buses` | Buses | Admin create/edit, active/inactive status, vendor selection |
 | `/trips` | Trips | Admin create/edit/delete, bus assignment, seat counts, cancellation reason |
 | `/bookings` | Bookings | Admin list of all reservations |
 | `/book` | Book a trip | Passenger trip cards with search, stops, online/cash booking |
 | `/my-bookings` | My bookings | Passenger ticket references, status, printable receipt and cancellation |
+| `/vendor` | Vendor portal | Vendor profile, approval status, own buses, assigned trips and settlements |
 
 Passengers are routed to `/book` after login and see only the booking pages.
-Admin-only pages are hidden from the sidebar and guarded in the router; the API
-still enforces authorization on every request.
+Vendors are routed to `/vendor`; pending or rejected applications see their
+status instead of buses/trips/settlements. Admin-only pages are hidden from the
+sidebar and guarded in the router; the API still enforces authorization on every
+request.
 
 ## Notes
 

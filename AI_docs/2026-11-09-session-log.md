@@ -448,7 +448,35 @@ Added the remaining data-model pieces and wired the booking ledger.
 - Pending: staff/trip assignment endpoints/UI, offline-ticket issuance flow,
   notification UI, vendor/staff portals and broader audit coverage.
 - Graphify refreshed: 2920 nodes / 7245 edges / 117 communities.
-- Committed as `13a3dc1` on `main` (not pushed yet).
+- Committed as `13a3dc1` on `main` and pushed.
+
+## 28. Vendor self-registration and portal (2026-11-17)
+
+- Register page now offers **Student** or **Vendor**.
+- `POST /api/auth/register-vendor` creates a `Vendor` login plus a `Pending`
+  vendor application in one transaction (`organizationName`, `contactPerson`,
+  `email`, `password`, `phone`). Status/subscription are hardcoded, never taken
+  from the client.
+- Admin Vendors page now shows contact, and pending rows get one-click
+  approve/reject actions. The vendor account link (`userId`) is preserved on
+  update.
+- New vendor endpoints: `GET /api/vendors/me`, `/me/buses`, `/me/trips`,
+  `/me/settlements`. The buses/trips/settlements endpoints return `403` until
+  the application is approved.
+- New `/vendor` portal: pending/rejected status screen, then buses, assigned
+  trips and settlement tables after approval. Vendors are routed to `/vendor`
+  after login; the sidebar shows only the vendor portal.
+- Seed: demo vendor login `vendor@upms.local` / `Vendor@123` linked to Indus
+  Transport Services; one upcoming trip is seeded on the vendor bus for the
+  portal demo. `Vendors` list is now Admin/Staff only.
+- Verified: vendor registration returns the Vendor role and Pending status;
+  pending `/me/buses` returns 403; admin approval unlocks the portal; approved
+  applicant can still sign in; demo vendor shows 1 bus, 1 trip, 1 settlement.
+- Screenshots: `docs/screenshots/21-vendor-register.png`,
+  `22-vendor-pending.png`, `23-admin-vendor-applications.png`,
+  `24-admin-vendor-approved.png`, `25-vendor-portal.png`.
+- Pending: vendor bus maintenance, staff portal, offline tickets, notification UI
+  and broader admin audit coverage.
 
 
 

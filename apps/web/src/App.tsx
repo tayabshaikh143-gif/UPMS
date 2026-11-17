@@ -13,6 +13,7 @@ import { TripsPage } from './pages/Trips'
 import { BookPage } from './pages/Book'
 import { MyBookingsPage } from './pages/MyBookings'
 import { BookingsPage } from './pages/Bookings'
+import { VendorPortalPage } from './pages/VendorPortal'
 
 function Protected() {
   const { user, loading } = useAuth()
@@ -30,13 +31,21 @@ function Protected() {
 function Home() {
   const { user } = useAuth()
   if (!user) return null
-  return user.roles.includes('Admin') ? <Dashboard /> : <Navigate to="/book" replace />
+  if (user.roles.includes('Admin')) return <Dashboard />
+  if (user.roles.includes('Vendor')) return <Navigate to="/vendor" replace />
+  return <Navigate to="/book" replace />
 }
 
 function AdminOnly({ children }: { children: ReactElement }) {
   const { user } = useAuth()
   if (!user) return null
-  return user.roles.includes('Admin') ? children : <Navigate to="/book" replace />
+  return user.roles.includes('Admin') ? children : <Navigate to="/" replace />
+}
+
+function VendorOnly({ children }: { children: ReactElement }) {
+  const { user } = useAuth()
+  if (!user) return null
+  return user.roles.includes('Vendor') ? children : <Navigate to="/" replace />
 }
 
 export function App() {
@@ -96,6 +105,14 @@ export function App() {
         />
         <Route path="book" element={<BookPage />} />
         <Route path="my-bookings" element={<MyBookingsPage />} />
+        <Route
+          path="vendor"
+          element={
+            <VendorOnly>
+              <VendorPortalPage />
+            </VendorOnly>
+          }
+        />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Pencil, Plus } from 'lucide-react'
+import { Check, Pencil, Plus, X } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '../auth/AuthContext'
 import { api } from '../lib/api'
@@ -76,6 +76,7 @@ export function VendorsPage() {
         monthlySubscription: Number(monthlySubscription),
         subscriptionStatus: Number(subscriptionStatus),
         status: Number(status),
+        userId: editingId ? vendors.data?.find((v) => v.id === editingId)?.userId ?? null : null,
       }
       if (editingId) {
         await api.put<void>(`/api/vendors/${editingId}`, body)
@@ -91,6 +92,23 @@ export function VendorsPage() {
       ])
     },
     onError: (err) => setError(err instanceof Error ? err.message : 'Could not save vendor'),
+  })
+
+  const decide = useMutation({
+    mutationFn: async ({ vendor, status }: { vendor: VendorDto; status: number }) => {
+      await api.put<void>(`/api/vendors/${vendor.id}`, {
+        name: vendor.name,
+        contact: vendor.contact,
+        monthlySubscription: vendor.monthlySubscription,
+        subscriptionStatus: vendor.subscriptionStatus,
+        status,
+        userId: vendor.userId,
+      })
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['vendors'] })
+    },
+    onError: (err) => setError(err instanceof Error ? err.message : 'Could not update vendor'),
   })
 
   return (
@@ -168,6 +186,7 @@ export function VendorsPage() {
           <thead>
             <tr>
               <Th>Name</Th>
+              <Th>Contact</Th>
               <Th>Status</Th>
               <Th>Buses</Th>
               <Th>Subscription</Th>
@@ -178,6 +197,7 @@ export function VendorsPage() {
             {(vendors.data ?? []).map((vendor) => (
               <tr key={vendor.id} className="border-b border-line last:border-0">
                 <Td className="font-medium">{vendor.name}</Td>
+                <Td>{vendor.contact ?? '—'}</Td>
                 <Td>
                   <Badge tone={vendor.status === 1 ? 'success' : vendor.status === 2 ? 'danger' : 'warning'}>
                     {statuses[vendor.status] ?? 'Unknown'}
@@ -192,13 +212,35 @@ export function VendorsPage() {
                 </Td>
                 {isAdmin && (
                   <Td>
-                    <Button
-                      variant="ghost"
-                      onClick={() => startEdit(vendor)}
-                      aria-label={`Edit ${vendor.name}`}
-                    >
-                      <Pencil className="size-4" />
-                    </Button>
+                    <div className="flex items-center justify-end gap-1">
+                      {vendor.status === 0 && (
+                        <>
+                          <Button
+                            variant="ghost"
+                            onClick={() => decide.mutate({ vendor, status: 1 })}
+                            aria-label={`Approve ${vendor.name}`}
+                            disabled={decide.isPending}
+                          >
+                            <Check className="size-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            onClick={() => decide.mutate({ vendor, status: 2 })}
+                            aria-label={`Reject ${vendor.name}`}
+                            disabled={decide.isPending}
+                          >
+                            <X className="size-4" />
+                          </Button>
+                        </>
+                      )}
+                      <Button
+                        variant="ghost"
+                        onClick={() => startEdit(vendor)}
+                        aria-label={`Edit ${vendor.name}`}
+                      >
+                        <Pencil className="size-4" />
+                      </Button>
+                    </div>
                   </Td>
                 )}
               </tr>

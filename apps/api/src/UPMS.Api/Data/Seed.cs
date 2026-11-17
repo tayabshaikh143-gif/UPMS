@@ -93,6 +93,38 @@ public static class Seed
             await users.AddToRoleAsync(passenger, "Passenger");
         }
 
+        // Link a demo vendor login to the seeded approved vendor so the vendor
+        // portal can be reviewed without creating an application first.
+        var vendorEmail = config["Seed:VendorEmail"] ?? "vendor@upms.local";
+        var vendorPassword = config["Seed:VendorPassword"] ?? "Vendor@123";
+        var demoVendor = await db.Vendors.FirstOrDefaultAsync(v => v.Name == "Indus Transport Services");
+        if (demoVendor is not null)
+        {
+            var vendorUser = await users.FindByEmailAsync(vendorEmail);
+            if (vendorUser is null)
+            {
+                vendorUser = new AppUser
+                {
+                    Id = Guid.NewGuid(),
+                    UserName = vendorEmail,
+                    Email = vendorEmail,
+                    PhoneNumber = "03001234567",
+                    EmailConfirmed = true,
+                    FullName = "Indus Transport"
+                };
+                await users.CreateAsync(vendorUser, vendorPassword);
+                await users.AddToRoleAsync(vendorUser, "Vendor");
+            }
+            else if (!await users.IsInRoleAsync(vendorUser, "Vendor"))
+            {
+                await users.AddToRoleAsync(vendorUser, "Vendor");
+            }
+
+            if (demoVendor.UserId is null)
+                demoVendor.UserId = vendorUser.Id;
+            demoVendor.Contact ??= "03001234567";
+        }
+
         var fallbackBus = await db.Buses.OrderBy(b => b.Registration).FirstOrDefaultAsync();
         var unassignedTrips = await db.Trips.Where(t => t.BusId == null).ToListAsync();
         if (fallbackBus is not null && unassignedTrips.Count > 0)
@@ -127,6 +159,30 @@ public static class Seed
                         DepartureAt = clock.Now.Date.AddDays(1).AddHours(16),
                         Fare = 120m
                     });
+            }
+        }
+
+        // Give the demo vendor one upcoming trip so the vendor portal has data.
+        var demoVendorBus = await db.Buses
+            .Where(b => b.Active && b.VendorId != null)
+            .OrderBy(b => b.Registration)
+            .FirstOrDefaultAsync();
+        if (demoVendorBus is not null &&
+            !await db.Trips.AnyAsync(t =>
+                t.BusId == demoVendorBus.Id &&
+                t.DepartureAt > clock.Now &&
+                t.Status == TripStatus.Scheduled))
+        {
+            var demoRoute = await db.Routes.OrderBy(r => r.Code).FirstOrDefaultAsync();
+            if (demoRoute is not null)
+            {
+                db.Trips.Add(new Trip
+                {
+                    RouteId = demoRoute.Id,
+                    BusId = demoVendorBus.Id,
+                    DepartureAt = clock.Now.Date.AddDays(2).AddHours(10),
+                    Fare = 150m
+                });
             }
         }
 

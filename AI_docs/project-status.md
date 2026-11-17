@@ -98,6 +98,12 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
   trip cancellation creates in-app notifications. Vendor settlements, my
   notifications and the admin audit list have API endpoints.
 - Registration accepts an optional phone number.
+- Vendor self-registration is live: the register page offers Student or Vendor.
+  Vendor applications start `Pending`; the admin Vendors page can approve/reject
+  them in one click. Approved vendors get a `/vendor` portal with their own
+  buses, assigned trips and settlements.
+- Demo vendor login: `vendor@upms.local` / `Vendor@123` (linked to Indus
+  Transport Services).
 
 ## Decisions fixed in SRS v1.1
 
@@ -116,8 +122,8 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 8. Admin cancellation after the cutoff is allowed for operational reasons and is
    audited.
 9. Notifications are in-app only for the MVP.
-10. Separate Payment/Refund records and an audit log are planned; the current
-    code still embeds payment fields on Booking.
+10. Separate Payment/Refund records and an audit log are implemented (phase 2);
+    Booking keeps a payment snapshot for quick reads.
 
 ## Open decisions and risks
 
@@ -135,8 +141,8 @@ handling. Initial target: University of Sindh, Jamshoro (single-university MVP).
 - Add the Step 1 proposal to the repo.
 - Architecture and UI/UX wireframes (Step 6).
 - Reconcile remaining code with SRS v1.1: staff/trip assignment endpoints/UI,
-  offline-ticket flow, notification UI, vendor/staff portals and audit coverage
-  for all admin actions.
+  offline-ticket flow, notification UI, vendor bus maintenance, staff portal and
+  audit coverage for all admin actions.
 - Slice 3: staff boarding, offline ticket sales, incidents/replacement bus and
   operational reports.
 - Decide whether to remove demo/test rows and test bookings from the LocalDB
